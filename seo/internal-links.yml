@@ -1,0 +1,279 @@
+# Strategie de maillage interne - Elynor Tours
+# Structure organisee par clusters thematiques
+
+clusters:
+  # CLUSTER 1: Location Voiture
+  location_voiture:
+    pilier: /location-voiture
+    satellites:
+      - /location-voiture/aeroport-ben-gourion
+      - /location-voiture/tel-aviv
+      - /location-voiture/jerusalem
+    pages_support:
+      - /faq
+      - /contact
+    liens_sortants_recommandes:
+      - from: /location-voiture
+        to:
+          - url: /location-voiture/aeroport-ben-gourion
+            anchor: "Retirez votre voiture a l'aeroport"
+            context: "Prise en charge directe des l'arrivee"
+          - url: /location-voiture/tel-aviv
+            anchor: "Location voiture Tel Aviv"
+            context: "Agences en centre-ville"
+          - url: /location-voiture/jerusalem
+            anchor: "Location voiture Jerusalem"
+            context: "Bureaux pres de la Vieille Ville"
+          - url: /faq
+            anchor: "Questions frequentes location voiture"
+            context: "Assurances, documents, conseils"
+          - url: /contact
+            anchor: "Obtenir un devis gratuit"
+            context: "Service 24/7"
+
+      - from: /location-voiture/aeroport-ben-gourion
+        to:
+          - url: /location-voiture
+            anchor: "Toutes nos destinations"
+            context: "Autres villes disponibles"
+          - url: /hotels
+            anchor: "Reservez votre hotel"
+            context: "Combinez location + hebergement"
+          - url: /contact
+            anchor: "Contactez-nous"
+            context: "Assistance reservation"
+
+      - from: /location-voiture/tel-aviv
+        to:
+          - url: /hotels/tel-aviv
+            anchor: "Hotels a Tel Aviv"
+            context: "Hebergement front de mer"
+          - url: /plages/mediterranee
+            anchor: "Plages de Tel Aviv"
+            context: "Gordon Beach, Frishman"
+          - url: /location-voiture/aeroport-ben-gourion
+            anchor: "Location aeroport Ben Gourion"
+            context: "Proche de Tel Aviv"
+
+      - from: /location-voiture/jerusalem
+        to:
+          - url: /hotels/jerusalem
+            anchor: "Hotels a Jerusalem"
+            context: "Pres de la Vieille Ville"
+          - url: /plages/mer-morte
+            anchor: "Plages Mer Morte"
+            context: "45min en voiture"
+          - url: /faq
+            anchor: "FAQ location voiture"
+            context: "Documents necessaires"
+
+  # CLUSTER 2: Hotels
+  hotels:
+    pilier: /hotels
+    satellites:
+      - /hotels/tel-aviv
+      - /hotels/jerusalem
+      - /hotels/mer-morte
+      - /hotels/eilat
+    pages_support:
+      - /contact
+    liens_sortants_recommandes:
+      - from: /hotels
+        to:
+          - url: /hotels/tel-aviv
+            anchor: "Hotels Tel Aviv front de mer"
+            context: "Bord de mer, Rothschild"
+          - url: /hotels/jerusalem
+            anchor: "Hotels Jerusalem vieille ville"
+            context: "Quartier juif, Est, Centre"
+          - url: /hotels/mer-morte
+            anchor: "Hotels spa Mer Morte"
+            context: "Wellness, proprietes therapeutiques"
+          - url: /hotels/eilat
+            anchor: "Hotels Eilat Mer Rouge"
+            context: "Plongee, tout compris"
+          - url: /contact
+            anchor: "Demander un devis hotel"
+            context: "Meilleurs prix negocies"
+
+      - from: /hotels/tel-aviv
+        to:
+          - url: /location-voiture/tel-aviv
+            anchor: "Louer une voiture a Tel Aviv"
+            context: "Livraison hotel possible"
+          - url: /plages/mediterranee
+            anchor: "Plages de Tel Aviv"
+            context: "A proximite de votre hotel"
+          - url: /hotels/jerusalem
+            anchor: "Hotels Jerusalem"
+            context: "45min en voiture"
+
+      - from: /hotels/jerusalem
+        to:
+          - url: /location-voiture/jerusalem
+            anchor: "Location voiture Jerusalem"
+            context: "Visitez les sites historiques"
+          - url: /plages/mer-morte
+            anchor: "Excursion Mer Morte"
+            context: "45min depuis Jerusalem"
+          - url: /hotels/tel-aviv
+            anchor: "Hotels Tel Aviv"
+            context: "Combinez Jerusalem + Tel Aviv"
+
+      - from: /hotels/mer-morte
+        to:
+          - url: /plages/mer-morte
+            anchor: "Plages Mer Morte"
+            context: "Ein Bokek, proprietes therapeutiques"
+          - url: /hotels/jerusalem
+            anchor: "Hotels Jerusalem"
+            context: "Proche de Jerusalem"
+          - url: /location-voiture
+            anchor: "Louer une voiture"
+            context: "Acces facilite"
+
+      - from: /hotels/eilat
+        to:
+          - url: /location-voiture
+            anchor: "Location voiture depuis Eilat"
+            context: "Explorer le Negev"
+          - url: /hotels/mer-morte
+            anchor: "Hotels Mer Morte"
+            context: "Combiner Eilat + Mer Morte"
+          - url: /plages
+            anchor: "Guide plages Israel"
+            context: "Mer Rouge et Mediterranee"
+
+  # CLUSTER 3: Plages
+  plages:
+    pilier: /plages
+    satellites:
+      - /plages/mediterranee
+      - /plages/mer-morte
+    pages_support:
+      - /location-voiture
+      - /hotels
+    liens_sortants_recommandes:
+      - from: /plages
+        to:
+          - url: /plages/mediterranee
+            anchor: "Plages Mediterranee"
+            context: "20+ plages Tel Aviv, Herzliya, Haifa"
+          - url: /plages/mer-morte
+            anchor: "Plages Mer Morte"
+            context: "10+ plages Ein Bokek, proprietes therapeutiques"
+          - url: /location-voiture
+            anchor: "Louer une voiture"
+            context: "Explorez toutes les plages a votre rythme"
+          - url: /hotels
+            anchor: "Hotels bord de mer"
+            context: "Sejournez face aux plages"
+
+      - from: /plages/mediterranee
+        to:
+          - url: /plages
+            anchor: "Toutes les plages Israel"
+            context: "Mediterranee et Mer Morte"
+          - url: /hotels/tel-aviv
+            anchor: "Hotels Tel Aviv bord de mer"
+            context: "Face a Gordon Beach"
+          - url: /location-voiture/tel-aviv
+            anchor: "Location voiture Tel Aviv"
+            context: "Visitez toutes les plages"
+          - url: /location-voiture/aeroport-ben-gourion
+            anchor: "Location aeroport"
+            context: "Proche des plages mediterraneennes"
+
+      - from: /plages/mer-morte
+        to:
+          - url: /hotels/mer-morte
+            anchor: "Hotels spa Mer Morte"
+            context: "Face aux plages therapeutiques"
+          - url: /hotels/jerusalem
+            anchor: "Hotels Jerusalem"
+            context: "Base pour visiter la Mer Morte"
+          - url: /location-voiture
+            anchor: "Location voiture"
+            context: "Acces facilite aux plages"
+          - url: /plages/mediterranee
+            anchor: "Plages Mediterranee"
+            context: "Combinez les 2 mers"
+
+  # CLUSTER 4: Pages Transversales
+  transversal:
+    pages:
+      - /
+      - /contact
+      - /faq
+    liens_sortants_recommandes:
+      - from: /
+        to:
+          - url: /location-voiture
+            anchor: "Reserver une voiture"
+            context: "Service principal"
+          - url: /hotels
+            anchor: "Trouver un hotel"
+            context: "Service principal"
+          - url: /plages/mediterranee
+            anchor: "Plages Mediterranee"
+            context: "Guide touristique"
+          - url: /plages/mer-morte
+            anchor: "Plages Mer Morte"
+            context: "Guide touristique"
+          - url: /contact
+            anchor: "Nous contacter"
+            context: "CTA principal"
+
+      - from: /contact
+        to:
+          - url: /
+            anchor: "Accueil"
+            context: "Retour homepage"
+          - url: /location-voiture
+            anchor: "Location voiture"
+            context: "Services"
+          - url: /hotels
+            anchor: "Hotels"
+            context: "Services"
+          - url: /faq
+            anchor: "Questions frequentes"
+            context: "Avant de nous contacter"
+
+      - from: /faq
+        to:
+          - url: /location-voiture
+            anchor: "Nos offres location voiture"
+            context: "Apres avoir lu la FAQ"
+          - url: /contact
+            anchor: "Contactez-nous"
+            context: "Questions supplementaires"
+          - url: /
+            anchor: "Accueil"
+            context: "Retour"
+
+# Regles de maillage interne
+regles:
+  min_liens_par_page: 3
+  max_liens_par_page: 7
+  ancres:
+    - Varier les ancres (pas toujours le meme texte exact)
+    - Utiliser des ancres descriptives et naturelles
+    - Eviter "cliquez ici" ou ancres generiques
+    - Inclure des mots-cles pertinents
+  contexte:
+    - Les liens doivent etre contextuels (dans le contenu)
+    - Eviter les listes de liens sans contexte
+    - Privilegier les liens dans les paragraphes
+  hierarchie:
+    - Pages piliers linkent vers satellites
+    - Satellites linkent vers pilier + pages connexes
+    - Maillage lateral entre satellites du meme cluster
+    - Cross-linking entre clusters (location-voiture ↔ hotels ↔ plages)
+
+# Metriques de suivi
+kpis:
+  - Nombre moyen de liens internes par page
+  - Profondeur de clic depuis homepage
+  - Pages orphelines (0 lien entrant)
+  - Distribution PageRank interne
+  - Taux de clic sur liens internes (Analytics)

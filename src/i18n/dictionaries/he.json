@@ -1,0 +1,58 @@
+{
+  "common": {
+    "home": "בית",
+    "contact": "צור קשר",
+    "faq": "שאלות נפוצות",
+    "about": "אודות",
+    "services": "שירותים",
+    "readMore": "קרא עוד",
+    "bookNow": "הזמן עכשיו",
+    "getQuote": "קבל הצעת מחיר",
+    "callUs": "התקשר אלינו",
+    "learnMore": "למידע נוסף"
+  },
+  "nav": {
+    "carRental": "השכרת רכב",
+    "hotels": "מלונות",
+    "beaches": "חופים",
+    "guides": "מדריכים",
+    "mediterranean": "הים התיכון",
+    "deadSea": "ים המלח",
+    "redSea": "ים סוף - אילת"
+  },
+  "footer": {
+    "description": "השותף המהימן שלך להשכרת רכב ושהייה בישראל",
+    "quickLinks": "קישורים מהירים",
+    "ourServices": "השירותים שלנו",
+    "followUs": "עקבו אחרינו",
+    "allRightsReserved": "כל הזכויות שמורות",
+    "privacyPolicy": "מדיניות פרטיות",
+    "termsOfService": "תנאי שימוש"
+  },
+  "cities": {
+    "telaviv": "תל אביב",
+    "jerusalem": "ירושלים",
+    "eilat": "אילת",
+    "haifa": "חיפה",
+    "netanya": "נתניה",
+    "beersheba": "באר שבע"
+  },
+  "carRental": {
+    "title": "השכרת רכב בישראל",
+    "description": "גלה את ישראל בקצב שלך עם רכבי ההשכרה שלנו",
+    "features": {
+      "bestPrices": "מחירים הטובים ביותר מובטחים",
+      "support247": "תמיכה 24/7",
+      "freeDelivery": "משלוח חינם",
+      "insurance": "ביטוח מלא"
+    }
+  },
+  "hotels": {
+    "title": "מלונות בישראל",
+    "description": "שהה במלונות הטובים ביותר בישראל"
+  },
+  "beaches": {
+    "title": "חופים בישראל",
+    "description": "גלה את החופים היפים ביותר בישראל"
+  }
+}

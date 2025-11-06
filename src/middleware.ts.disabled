@@ -1,0 +1,54 @@
+// src/middleware.ts
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+import { i18n } from './i18n/config'
+
+export function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+
+  // Check if there is any supported locale in the pathname
+  const pathnameIsMissingLocale = i18n.locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  )
+
+  // Redirect if there is no locale
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request)
+
+    // Redirect to the default locale (French)
+    if (locale !== i18n.defaultLocale) {
+      return NextResponse.redirect(
+        new URL(`/${i18n.defaultLocale}${pathname}`, request.url)
+      )
+    }
+
+    // For default locale, just continue (no /fr prefix needed)
+    return NextResponse.next()
+  }
+
+  return NextResponse.next()
+}
+
+function getLocale(request: NextRequest): string {
+  // Get locale from cookie
+  const localeCookie = request.cookies.get('NEXT_LOCALE')?.value
+  if (localeCookie && i18n.locales.includes(localeCookie as any)) {
+    return localeCookie
+  }
+
+  // Get locale from Accept-Language header
+  const acceptLanguage = request.headers.get('accept-language')
+  if (acceptLanguage) {
+    const browserLocale = acceptLanguage.split(',')[0].split('-')[0]
+    if (i18n.locales.includes(browserLocale as any)) {
+      return browserLocale
+    }
+  }
+
+  return i18n.defaultLocale
+}
+
+export const config = {
+  // Matcher to intercept all routes except static files and api
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|images|.*\\..*).*)']
+}

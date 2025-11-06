@@ -1,0 +1,58 @@
+{
+  "common": {
+    "home": "Accueil",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "about": "À propos",
+    "services": "Services",
+    "readMore": "Lire plus",
+    "bookNow": "Réserver maintenant",
+    "getQuote": "Demander un devis",
+    "callUs": "Appelez-nous",
+    "learnMore": "En savoir plus"
+  },
+  "nav": {
+    "carRental": "Location de Voiture",
+    "hotels": "Hôtels",
+    "beaches": "Plages",
+    "guides": "Guides",
+    "mediterranean": "Méditerranée",
+    "deadSea": "Mer Morte",
+    "redSea": "Mer Rouge - Eilat"
+  },
+  "footer": {
+    "description": "Votre partenaire de confiance pour la location de voitures et les séjours en Israël",
+    "quickLinks": "Liens Rapides",
+    "ourServices": "Nos Services",
+    "followUs": "Suivez-nous",
+    "allRightsReserved": "Tous droits réservés",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation"
+  },
+  "cities": {
+    "telaviv": "Tel Aviv",
+    "jerusalem": "Jérusalem",
+    "eilat": "Eilat",
+    "haifa": "Haïfa",
+    "netanya": "Netanya",
+    "beersheba": "Beer Sheva"
+  },
+  "carRental": {
+    "title": "Location de Voiture en Israël",
+    "description": "Découvrez Israël à votre rythme avec nos voitures de location",
+    "features": {
+      "bestPrices": "Meilleurs Prix Garantis",
+      "support247": "Assistance 24/7",
+      "freeDelivery": "Livraison Gratuite",
+      "insurance": "Assurance Complète"
+    }
+  },
+  "hotels": {
+    "title": "Hôtels en Israël",
+    "description": "Séjournez dans les meilleurs hôtels d'Israël"
+  },
+  "beaches": {
+    "title": "Plages d'Israël",
+    "description": "Découvrez les plus belles plages d'Israël"
+  }
+}

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liens Booking.com - Tous les Hôtels</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #2d3748;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+    .subtitle {
+      color: #718096;
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+    .instructions {
+      background: #edf2f7;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border-left: 4px solid #667eea;
+    }
+    .instructions h3 {
+      color: #2d3748;
+      margin-bottom: 10px;
+    }
+    .instructions ol {
+      margin-left: 20px;
+      color: #4a5568;
+    }
+    .instructions li {
+      margin: 8px 0;
+    }
+    .city {
+      margin-bottom: 40px;
+    }
+    .city-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #667eea;
+    }
+    .city-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #2d3748;
+      margin-right: 15px;
+    }
+    .city-count {
+      background: #667eea;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .hotel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    .hotel-card {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 15px;
+      transition: all 0.3s;
+    }
+    .hotel-card:hover {
+      border-color: #667eea;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+      transform: translateY(-2px);
+    }
+    .hotel-name {
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+    .hotel-links {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-booking {
+      background: #003580;
+      color: white;
+    }
+    .btn-booking:hover {
+      background: #00408a;
+      transform: scale(1.05);
+    }
+    .btn-google {
+      background: #4285f4;
+      color: white;
+    }
+    .btn-google:hover {
+      background: #5a95f5;
+      transform: scale(1.05);
+    }
+    .progress {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      min-width: 200px;
+    }
+    .progress h4 {
+      margin-bottom: 10px;
+      color: #2d3748;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      width: 0%;
+      transition: width 0.3s;
+    }
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏨 Liens Booking.com - Tous les Hôtels</h1>
+    <p class="subtitle">Clique sur les liens pour trouver les hôtels sur Booking et copier les URLs des images</p>
+
+    <div class="instructions">
+      <h3>📋 Instructions:</h3>
+      <ol>
+        <li><strong>Clique sur "Booking"</strong> pour ouvrir la page de l'hôtel</li>
+        <li><strong>Ouvre la galerie photos</strong> de l'hôtel</li>
+        <li><strong>Clique droit sur 3 photos</strong> → "Copier l'adresse de l'image"</li>
+        <li><strong>Colle les URLs</strong> dans <code>scripts/booking-urls.json</code></li>
+        <li><strong>Lance:</strong> <code>node scripts/download-booking-images.js</code></li>
+      </ol>
+    </div>
+
+
+    <div class="city">
+      <div class="city-header">
+        <span class="city-name">Tel Aviv</span>
+        <span class="city-count">14 hôtels</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card">
+          <div class="hotel-name">The Jaffa Hotel Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=The%20Jaffa%20Hotel%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=The%20Jaffa%20Hotel%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">The Norman Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=The%20Norman%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=The%20Norman%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">David Intercontinental Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=David%20Intercontinental%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=David%20Intercontinental%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Setai Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Setai%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Setai%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">65 Hotel Rothschild Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=65%20Hotel%20Rothschild%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=65%20Hotel%20Rothschild%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Brown TLV Urban Hotel</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Brown%20TLV%20Urban%20Hotel" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Brown%20TLV%20Urban%20Hotel%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Lighthouse Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Lighthouse%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Lighthouse%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Alma Hotel Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Alma%20Hotel%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Alma%20Hotel%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Cinema Hotel Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Cinema%20Hotel%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Cinema%20Hotel%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Market House Hotel Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Market%20House%20Hotel%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Market%20House%20Hotel%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Dan Tel Aviv Hotel</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Dan%20Tel%20Aviv%20Hotel" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Dan%20Tel%20Aviv%20Hotel%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Carlton Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Carlton%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Carlton%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Melody Hotel Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Melody%20Hotel%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Melody%20Hotel%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Port Hotel Tel Aviv</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Port%20Hotel%20Tel%20Aviv" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Port%20Hotel%20Tel%20Aviv%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="city">
+      <div class="city-header">
+        <span class="city-name">Jerusalem</span>
+        <span class="city-count">12 hôtels</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card">
+          <div class="hotel-name">Waldorf Astoria Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Waldorf%20Astoria%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Waldorf%20Astoria%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">King David Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=King%20David%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=King%20David%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Mamilla Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Mamilla%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Mamilla%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">David Citadel Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=David%20Citadel%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=David%20Citadel%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Inbal Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Inbal%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Inbal%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Dan Panorama Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Dan%20Panorama%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Dan%20Panorama%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Leonardo Plaza Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Leonardo%20Plaza%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Leonardo%20Plaza%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Arthur Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Arthur%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Arthur%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Harmony Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Harmony%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Harmony%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Prima Kings Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Prima%20Kings%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Prima%20Kings%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Prima Park Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Prima%20Park%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Prima%20Park%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">American Colony Hotel Jerusalem</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=American%20Colony%20Hotel%20Jerusalem" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=American%20Colony%20Hotel%20Jerusalem%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="city">
+      <div class="city-header">
+        <span class="city-name">Eilat</span>
+        <span class="city-count">12 hôtels</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card">
+          <div class="hotel-name">Isrotel Royal Garden Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Isrotel%20Royal%20Garden%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Isrotel%20Royal%20Garden%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Herods Boutique Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Herods%20Boutique%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Herods%20Boutique%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Orchid Hotel Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Orchid%20Hotel%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Orchid%20Hotel%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Leonardo Royal Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Leonardo%20Royal%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Leonardo%20Royal%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Queen of Sheba Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Queen%20of%20Sheba%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Queen%20of%20Sheba%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Club Hotel Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Club%20Hotel%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Club%20Hotel%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Isrotel Yam Suf Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Isrotel%20Yam%20Suf%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Isrotel%20Yam%20Suf%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">U Magic Palace Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=U%20Magic%20Palace%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=U%20Magic%20Palace%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Dan Eilat Hotel</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Dan%20Eilat%20Hotel" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Dan%20Eilat%20Hotel%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Astral Nirvana Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Astral%20Nirvana%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Astral%20Nirvana%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Astral Maris Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Astral%20Maris%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Astral%20Maris%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Nova Like Hotel Eilat</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Nova%20Like%20Hotel%20Eilat" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Nova%20Like%20Hotel%20Eilat%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="city">
+      <div class="city-header">
+        <span class="city-name">Mer Morte</span>
+        <span class="city-count">5 hôtels</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card">
+          <div class="hotel-name">Isrotel Dead Sea Resort</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Isrotel%20Dead%20Sea%20Resort" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Isrotel%20Dead%20Sea%20Resort%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">David Dead Sea Resort</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=David%20Dead%20Sea%20Resort" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=David%20Dead%20Sea%20Resort%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Crowne Plaza Dead Sea</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Crowne%20Plaza%20Dead%20Sea" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Crowne%20Plaza%20Dead%20Sea%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Leonardo Club Dead Sea</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Leonardo%20Club%20Dead%20Sea" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Leonardo%20Club%20Dead%20Sea%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Lot Spa Hotel Dead Sea</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Lot%20Spa%20Hotel%20Dead%20Sea" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Lot%20Spa%20Hotel%20Dead%20Sea%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="city">
+      <div class="city-header">
+        <span class="city-name">Netanya</span>
+        <span class="city-count">6 hôtels</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card">
+          <div class="hotel-name">The Seasons Hotel Netanya</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=The%20Seasons%20Hotel%20Netanya" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=The%20Seasons%20Hotel%20Netanya%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Margoa Hotel Netanya</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Margoa%20Hotel%20Netanya" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Margoa%20Hotel%20Netanya%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Island Hotel Netanya</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Island%20Hotel%20Netanya" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Island%20Hotel%20Netanya%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Residence Hotel Netanya</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Residence%20Hotel%20Netanya" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Residence%20Hotel%20Netanya%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Blue Bay Hotel Netanya</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Blue%20Bay%20Hotel%20Netanya" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Blue%20Bay%20Hotel%20Netanya%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Galil Hotel Netanya</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Galil%20Hotel%20Netanya" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Galil%20Hotel%20Netanya%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="city">
+      <div class="city-header">
+        <span class="city-name">Haifa</span>
+        <span class="city-count">5 hôtels</span>
+      </div>
+      <div class="hotel-grid">
+
+        <div class="hotel-card">
+          <div class="hotel-name">Colony Hotel Haifa</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Colony%20Hotel%20Haifa" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Colony%20Hotel%20Haifa%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Crowne Plaza Haifa</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Crowne%20Plaza%20Haifa" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Crowne%20Plaza%20Haifa%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Dan Carmel Haifa</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Dan%20Carmel%20Haifa" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Dan%20Carmel%20Haifa%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Dan Panorama Haifa</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Dan%20Panorama%20Haifa" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Dan%20Panorama%20Haifa%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+        <div class="hotel-card">
+          <div class="hotel-name">Villa Carmel Haifa</div>
+          <div class="hotel-links">
+            <a href="https://www.booking.com/searchresults.fr.html?ss=Villa%20Carmel%20Haifa" target="_blank" class="btn btn-booking">
+              🔎 Booking
+            </a>
+            <a href="https://www.google.com/search?q=Villa%20Carmel%20Haifa%20site%3Abooking.com" target="_blank" class="btn btn-google">
+              🌐 Google
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="progress">
+    <h4>📊 Progression</h4>
+    <div class="stat">
+      <span>Total:</span>
+      <strong>55 hôtels</strong>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: 2%"></div>
+    </div>
+    <div class="stat">
+      <span>Images:</span>
+      <strong>3 / 165</strong>
+    </div>
+    <div class="stat">
+      <span>Complété:</span>
+      <strong>2%</strong>
+    </div>
+  </div>
+
+  <script>
+    // Mise à jour de la progression depuis localStorage
+    const updateProgress = () => {
+      const completed = parseInt(localStorage.getItem('hotelsCompleted') || '1');
+      const total = 55;
+      const percent = Math.round((completed / total) * 100);
+
+      document.querySelector('.progress-fill').style.width = percent + '%';
+      document.querySelectorAll('.stat strong')[1].textContent = (completed * 3) + ' / 165';
+      document.querySelectorAll('.stat strong')[2].textContent = percent + '%';
+    };
+
+    // Marquer un hôtel comme visité au clic
+    document.querySelectorAll('.btn-booking').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.hotel-card');
+        if (!card.classList.contains('visited')) {
+          card.classList.add('visited');
+          card.style.background = '#f0fdf4';
+          card.style.borderColor = '#86efac';
+
+          const completed = parseInt(localStorage.getItem('hotelsCompleted') || '1');
+          localStorage.setItem('hotelsCompleted', completed + 1);
+          updateProgress();
+        }
+      });
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>

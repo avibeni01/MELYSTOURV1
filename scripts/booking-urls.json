@@ -1,0 +1,108 @@
+{
+  "instructions": "Colle simplement l'URL de la page Booking de chaque hôtel, le script extraira automatiquement les images",
+  "tel-aviv": {
+    "the-jaffa": {
+      "booking_url": "https://www.booking.com/hotel/il/the-jaffa-a-luxury-collection-hotel-tel-aviv.fr.html",
+      "manual_images": [
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/161223456.jpg",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/161223457.jpg",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/161223458.jpg"
+      ]
+    },
+    "the-norman": {
+      "booking_url": "",
+      "manual_images": []
+    },
+    "david-intercontinental": {
+      "booking_url": "https://www.booking.com/hotel/il/sheraton-tel-aviv-towers.fr.html",
+      "manual_images": [
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/512249242.jpg",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/512249243.jpg",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/512249244.jpg"
+      ]
+    },
+    "setai": {
+      "manual_images": []
+    },
+    "65-hotel": {
+      "manual_images": []
+    },
+    "brown-tlv": {
+      "manual_images": []
+    },
+    "lighthouse": {
+      "manual_images": []
+    },
+    "alma": {
+      "manual_images": []
+    },
+    "cinema": {
+      "manual_images": []
+    },
+    "market-house": {
+      "manual_images": []
+    },
+    "dan-tel-aviv": {
+      "manual_images": []
+    },
+    "carlton": {
+      "manual_images": []
+    },
+    "melody": {
+      "manual_images": []
+    },
+    "port-hotel": {
+      "manual_images": []
+    }
+  },
+  "jerusalem": {
+    "waldorf-astoria": { "manual_images": [] },
+    "king-david": { "manual_images": [] },
+    "mamilla": { "manual_images": [] },
+    "david-citadel": { "manual_images": [] },
+    "inbal": { "manual_images": [] },
+    "dan-panorama": { "manual_images": [] },
+    "leonardo-plaza": { "manual_images": [] },
+    "arthur": { "manual_images": [] },
+    "harmony": { "manual_images": [] },
+    "prima-kings": { "manual_images": [] },
+    "prima-park": { "manual_images": [] },
+    "american-colony": { "manual_images": [] }
+  },
+  "eilat": {
+    "isrotel-royal-garden": { "manual_images": [] },
+    "herods-boutique": { "manual_images": [] },
+    "orchid": { "manual_images": [] },
+    "leonardo-royal": { "manual_images": [] },
+    "queen-of-sheba": { "manual_images": [] },
+    "club-hotel": { "manual_images": [] },
+    "isrotel-yam-suf": { "manual_images": [] },
+    "u-magic-palace": { "manual_images": [] },
+    "dan-eilat": { "manual_images": [] },
+    "astral-nirvana": { "manual_images": [] },
+    "astral-maris": { "manual_images": [] },
+    "nova-like": { "manual_images": [] }
+  },
+  "mer-morte": {
+    "isrotel-dead-sea": { "manual_images": [] },
+    "david-dead-sea": { "manual_images": [] },
+    "crowne-plaza-dead-sea": { "manual_images": [] },
+    "leonardo-club-dead-sea": { "manual_images": [] },
+    "lot-spa": { "manual_images": [] }
+  },
+  "netanya": {
+    "seasons": { "manual_images": [] },
+    "margoa": { "manual_images": [] },
+    "island": { "manual_images": [] },
+    "residence": { "manual_images": [] },
+    "blue-bay": { "manual_images": [] },
+    "galil": { "manual_images": [] }
+  },
+  "haifa": {
+    "colony": { "manual_images": [] },
+    "crowne-plaza": { "manual_images": [] },
+    "dan-carmel": { "manual_images": [] },
+    "dan-panorama": { "manual_images": [] },
+    "villa-carmel": { "manual_images": [] }
+  }
+}

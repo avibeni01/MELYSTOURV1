@@ -1,0 +1,113 @@
+{
+  "instructions": "Pour chaque hôtel, vas sur TripAdvisor ou Booking, clique droit sur 3 photos -> 'Copier l'adresse de l'image', et colle les URLs ici",
+  "tel-aviv": {
+    "the-jaffa": {
+      "tripadvisor_url": "https://www.tripadvisor.com/Hotel_Review-g293984-d6569816-Reviews-The_Jaffa_a_Luxury_Collection_Hotel_Tel_Aviv-Tel_Aviv_Tel_Aviv_District.html",
+      "images": [
+        "COLLE_ICI_URL_IMAGE_1",
+        "COLLE_ICI_URL_IMAGE_2",
+        "COLLE_ICI_URL_IMAGE_3"
+      ]
+    },
+    "the-norman": {
+      "tripadvisor_url": "https://www.tripadvisor.com/Hotel_Review-g293984-d1805822-Reviews-The_Norman_Tel_Aviv-Tel_Aviv_Tel_Aviv_District.html",
+      "images": [
+        "COLLE_ICI_URL_IMAGE_1",
+        "COLLE_ICI_URL_IMAGE_2",
+        "COLLE_ICI_URL_IMAGE_3"
+      ]
+    },
+    "david-intercontinental": {
+      "tripadvisor_url": "https://www.tripadvisor.com/Hotel_Review-g293984-d227959-Reviews-David_Intercontinental_Tel_Aviv-Tel_Aviv_Tel_Aviv_District.html",
+      "images": [
+        "COLLE_ICI_URL_IMAGE_1",
+        "COLLE_ICI_URL_IMAGE_2",
+        "COLLE_ICI_URL_IMAGE_3"
+      ]
+    },
+    "setai": {
+      "tripadvisor_url": "https://www.tripadvisor.com/Hotel_Review-g293984-d12066584-Reviews-The_Setai_Tel_Aviv-Tel_Aviv_Tel_Aviv_District.html",
+      "images": []
+    },
+    "65-hotel": {
+      "images": []
+    },
+    "brown-tlv": {
+      "images": []
+    },
+    "lighthouse": {
+      "images": []
+    },
+    "alma": {
+      "images": []
+    },
+    "cinema": {
+      "images": []
+    },
+    "market-house": {
+      "images": []
+    },
+    "dan-tel-aviv": {
+      "images": []
+    },
+    "carlton": {
+      "images": []
+    },
+    "melody": {
+      "images": []
+    },
+    "port-hotel": {
+      "images": []
+    }
+  },
+  "jerusalem": {
+    "waldorf-astoria": { "images": [] },
+    "king-david": { "images": [] },
+    "mamilla": { "images": [] },
+    "david-citadel": { "images": [] },
+    "inbal": { "images": [] },
+    "dan-panorama": { "images": [] },
+    "leonardo-plaza": { "images": [] },
+    "arthur": { "images": [] },
+    "harmony": { "images": [] },
+    "prima-kings": { "images": [] },
+    "prima-park": { "images": [] },
+    "american-colony": { "images": [] }
+  },
+  "eilat": {
+    "isrotel-royal-garden": { "images": [] },
+    "herods-boutique": { "images": [] },
+    "orchid": { "images": [] },
+    "leonardo-royal": { "images": [] },
+    "queen-of-sheba": { "images": [] },
+    "club-hotel": { "images": [] },
+    "isrotel-yam-suf": { "images": [] },
+    "u-magic-palace": { "images": [] },
+    "dan-eilat": { "images": [] },
+    "astral-nirvana": { "images": [] },
+    "astral-maris": { "images": [] },
+    "nova-like": { "images": [] }
+  },
+  "mer-morte": {
+    "isrotel-dead-sea": { "images": [] },
+    "david-dead-sea": { "images": [] },
+    "crowne-plaza-dead-sea": { "images": [] },
+    "leonardo-club-dead-sea": { "images": [] },
+    "lot-spa": { "images": [] }
+  },
+  "netanya": {
+    "seasons": { "images": [] },
+    "margoa": { "images": [] },
+    "island": { "images": [] },
+    "residence": { "images": [] },
+    "blue-bay": { "images": [] },
+    "galil": { "images": [] }
+  },
+  "haifa": {
+    "colony": { "images": [] },
+    "crowne-plaza": { "images": [] },
+    "dan-carmel": { "images": [] },
+    "dan-panorama": { "images": [] },
+    "villa-carmel": { "images": [] }
+  }
+}

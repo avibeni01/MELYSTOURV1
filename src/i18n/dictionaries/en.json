@@ -1,0 +1,58 @@
+{
+  "common": {
+    "home": "Home",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "about": "About",
+    "services": "Services",
+    "readMore": "Read more",
+    "bookNow": "Book now",
+    "getQuote": "Get a quote",
+    "callUs": "Call us",
+    "learnMore": "Learn more"
+  },
+  "nav": {
+    "carRental": "Car Rental",
+    "hotels": "Hotels",
+    "beaches": "Beaches",
+    "guides": "Guides",
+    "mediterranean": "Mediterranean",
+    "deadSea": "Dead Sea",
+    "redSea": "Red Sea - Eilat"
+  },
+  "footer": {
+    "description": "Your trusted partner for car rentals and stays in Israel",
+    "quickLinks": "Quick Links",
+    "ourServices": "Our Services",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "cities": {
+    "telaviv": "Tel Aviv",
+    "jerusalem": "Jerusalem",
+    "eilat": "Eilat",
+    "haifa": "Haifa",
+    "netanya": "Netanya",
+    "beersheba": "Beer Sheba"
+  },
+  "carRental": {
+    "title": "Car Rental in Israel",
+    "description": "Discover Israel at your own pace with our rental cars",
+    "features": {
+      "bestPrices": "Best Prices Guaranteed",
+      "support247": "24/7 Support",
+      "freeDelivery": "Free Delivery",
+      "insurance": "Full Insurance"
+    }
+  },
+  "hotels": {
+    "title": "Hotels in Israel",
+    "description": "Stay in the best hotels in Israel"
+  },
+  "beaches": {
+    "title": "Beaches of Israel",
+    "description": "Discover the most beautiful beaches of Israel"
+  }
+}
