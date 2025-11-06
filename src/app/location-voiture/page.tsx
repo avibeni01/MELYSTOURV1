@@ -1,7 +1,7 @@
 // src/app/location-voiture/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Check, ArrowRight, Shield, DollarSign, Car } from 'lucide-react'
+import { Check, ArrowRight, Shield, DollarSign, Car, FileText, CreditCard, AlertCircle, Phone as PhoneIcon, MapPin } from 'lucide-react'
 import { buildMetadata, buildI18nAlternates, JsonLd, buildBreadcrumbSchema, buildItemListSchema } from '@/lib/seo'
 import CarRentalForm from '@/components/forms/CarRentalForm'
 
@@ -412,6 +412,192 @@ export default function LocationVoiturePage() {
                 <p className="text-gray-600">
                   Flotte recente et bien entretenue. Toutes categories disponibles (economique, SUV, luxe)
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Guide de location */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              {/* En-tête */}
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                  Guide de Location de Voiture en Israël
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Tout ce qu'il faut savoir avant de louer votre véhicule
+                </p>
+              </div>
+
+              {/* Documents nécessaires */}
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 mb-8 border border-blue-100">
+                <div className="flex items-start mb-6">
+                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <FileText className="text-white" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                      Documents Nécessaires
+                    </h3>
+                    <p className="text-gray-700 mb-4">
+                      Préparez ces documents pour récupérer votre véhicule en toute simplicité
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-center mb-3">
+                      <Check size={20} className="text-green-500 mr-2 flex-shrink-0" />
+                      <h4 className="font-semibold text-gray-800">Permis de conduire</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Permis valide (permis international recommandé mais pas obligatoire pour les séjours courts)
+                    </p>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-center mb-3">
+                      <Check size={20} className="text-green-500 mr-2 flex-shrink-0" />
+                      <h4 className="font-semibold text-gray-800">Pièce d'identité</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Carte d'identité valide ou passeport en cours de validité
+                    </p>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-center mb-3">
+                      <Check size={20} className="text-green-500 mr-2 flex-shrink-0" />
+                      <h4 className="font-semibold text-gray-800">Carte de crédit</h4>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Au nom du conducteur principal pour le dépôt de garantie
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Conditions de location */}
+              <div className="bg-gradient-to-br from-orange-50 to-rose-50 rounded-2xl p-8 mb-8 border border-orange-100">
+                <div className="flex items-start mb-6">
+                  <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <CreditCard className="text-white" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                      Conditions de Location
+                    </h3>
+                    <p className="text-gray-700 mb-4">
+                      Critères requis pour louer un véhicule en Israël
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-start">
+                      <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <span className="text-xl font-bold text-orange-600">21+</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Âge minimum</h4>
+                        <p className="text-sm text-gray-600">
+                          21 ans minimum requis. Des frais supplémentaires (jeune conducteur) peuvent s'appliquer pour les moins de 25 ans
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-start">
+                      <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                        <span className="text-xl font-bold text-orange-600">1+</span>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Expérience de conduite</h4>
+                        <p className="text-sm text-gray-600">
+                          Minimum 1 an d'expérience de conduite avec un permis valide
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Conseils de conduite */}
+              <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8 border border-green-100">
+                <div className="flex items-start mb-6">
+                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <AlertCircle className="text-white" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3">
+                      Conseils de Conduite en Israël
+                    </h3>
+                    <p className="text-gray-700 mb-4">
+                      Règles essentielles pour conduire en toute sécurité
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-start mb-3">
+                      <MapPin size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Sens de circulation</h4>
+                        <p className="text-sm text-gray-600">
+                          On roule à <strong>droite</strong> en Israël, comme en France
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-start mb-3">
+                      <Check size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Limitations de vitesse</h4>
+                        <p className="text-sm text-gray-600">
+                          <strong>50 km/h</strong> en ville • <strong>80 km/h</strong> sur route • <strong>110-120 km/h</strong> sur autoroute
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-start mb-3">
+                      <Shield size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Ceinture de sécurité</h4>
+                        <p className="text-sm text-gray-600">
+                          Port <strong>obligatoire</strong> pour tous les passagers, à l'avant comme à l'arrière
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <div className="flex items-start mb-3">
+                      <PhoneIcon size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-gray-800 mb-2">Téléphone au volant</h4>
+                        <p className="text-sm text-gray-600">
+                          <strong>Interdit</strong> sans kit mains libres. Amendes importantes en cas d'infraction
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Note finale */}
+              <div className="mt-8 bg-gradient-to-r from-orange-100 to-rose-100 border-l-4 border-orange-500 p-6 rounded-r-xl">
+                <div className="flex items-start">
+                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    <Check className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-800 mb-2 text-lg">Service Personnalisé Elynor Tours</h4>
+                    <p className="text-gray-700">
+                      Notre équipe est à votre disposition pour vous conseiller et répondre à toutes vos questions concernant votre location de voiture en Israël. Nous vous aidons à choisir le véhicule adapté à vos besoins et vous accompagnons tout au long de votre séjour.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
