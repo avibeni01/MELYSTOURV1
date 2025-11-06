@@ -6,7 +6,7 @@ import Flatpickr from 'react-flatpickr'
 import Slider from 'react-slick'
 import {
   Car, Calendar, Clock, ArrowRight, ArrowLeft,
-  Phone, Mail, MessageSquare, Check, Star
+  Phone, Mail, MessageSquare, Check
 } from 'lucide-react'
 import 'flatpickr/dist/themes/airbnb.css'
 import 'flatpickr/dist/l10n/fr.js'
@@ -19,7 +19,6 @@ import "slick-carousel/slick/slick-theme.css"
 import rawCountries from '@/data/countries.json'
 import rawStations from '@/data/stations.json'
 import rawVehicles from '@/data/vehicules.json'
-import visaLogo from '@/assets/images/logos/visa-logo.svg'
 
 // --- Types ---
 interface Country {
@@ -192,8 +191,6 @@ const filterCountryOptions = (option: { label: string; value: string }, inputVal
   return false;
 };
 
-const visaLogoUrl = visaLogo;
-
 // Fonction utilitaire pour le suivi des événements Facebook Pixel
 const trackFbEvent = (eventName: string, params = {}) => {
   if (typeof window !== 'undefined' && window.fbq) {
@@ -356,6 +353,14 @@ Téléphone: ${formData.phone}`;
     return null;
   };
 
+  // Helper function to convert driver age to number for HubSpot
+  const convertAgeToNumber = (age: string): number | null => {
+    if (!age) return null;
+    if (age === '25+') return 25;
+    const numAge = parseInt(age, 10);
+    return isNaN(numAge) ? null : numAge;
+  };
+
   // WhatsApp submission
   const handleOpenWhatsApp = async () => {
     if (!showErrors()) return;
@@ -383,7 +388,7 @@ Téléphone: ${formData.phone}`;
           preferences_client: formData.notes || '',
           le_v_hicule_ne_roule_pas_le_chabat: formData.shabbatRestriction,
           avez_vous_une_visa_premi_re_: formData.hasVisa,
-          age: formData.driverAge,
+          age: convertAgeToNumber(formData.driverAge),
           nationalite: selectedCountry?.name || 'Français',
         }),
       });
@@ -757,7 +762,7 @@ Téléphone: ${formData.phone}`;
                   <p className="text-sm font-medium text-gray-800">
                     Avez-vous une Visa Première ? <span className="text-red-500">*</span>
                   </p>
-                  <img src={visaLogoUrl} alt="Visa" className="h-4 w-auto" />
+                  <img src="/images/visa-logo.svg" alt="Visa" className="h-5 w-auto" />
                 </div>
                 <div className="flex gap-4">
                   <label className="flex items-center">
@@ -790,7 +795,7 @@ Téléphone: ${formData.phone}`;
                   <p className="text-sm font-medium text-gray-800">
                     Roulez-vous pendant Chabbat ? <span className="text-red-500">*</span>
                   </p>
-                  <Star className="text-blue-600" size={16} />
+                  <img src="/images/chabbat-icon.svg" alt="Chabbat" className="h-5 w-auto" />
                 </div>
                 <div className="flex gap-4">
                   <label className="flex items-center">
