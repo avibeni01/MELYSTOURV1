@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Pour déploiement statique
+  // output: 'export' retiré pour permettre les API routes sur Vercel
   images: {
-    unoptimized: true, // Requis pour export statique
+    unoptimized: true, // Garde unoptimized pour la simplicité
     domains: [
       'images.pexels.com',
       'images.unsplash.com',
