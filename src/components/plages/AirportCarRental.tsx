@@ -184,7 +184,7 @@ const AirportCarRental = () => {
           <p className="text-lg md:text-xl text-white max-w-2xl mb-6">
             Trouvez facilement votre <strong>location de voiture à Tel Aviv</strong> avec notre guide détaillé des loueurs à l'aéroport
           </p>
-          <a href="https://elynortours.com/location-de-voiture/" className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors shadow-lg flex items-center">
+          <a href="/location-voiture#formulaire-devis" className="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors shadow-lg flex items-center">
             Réserver au meilleur prix
             <ArrowRight className="ml-2" size={18} />
           </a>
@@ -236,8 +236,8 @@ const AirportCarRental = () => {
                   </div>
                 </div>
                 <div className="md:w-1/3 flex justify-center">
-                  <a 
-                    href="https://elynortours.com/location-de-voiture/" 
+                  <a
+                    href="/location-voiture#formulaire-devis"
                     className="px-4 py-3 bg-white text-orange-500 font-bold rounded-lg hover:bg-gray-100 transition-colors inline-flex items-center"
                   >
                     Voir nos offres
@@ -652,8 +652,8 @@ const AirportCarRental = () => {
               <p className="text-gray-700 mb-4">
                 Si vous avez d'autres questions sur la <strong>location de voiture à Tel Aviv aéroport</strong> ou besoin d'assistance pour votre réservation, notre équipe est là pour vous aider.
               </p>
-<a 
-                href="https://elynortours.com/contact/"
+<a
+                href="/contact"
                 className="inline-flex items-center px-4 py-2 border border-orange-500 text-orange-500 bg-transparent hover:bg-orange-50 text-sm font-medium rounded-md transition-colors"
               >
                 <PhoneCall size={18} className="mr-2" />

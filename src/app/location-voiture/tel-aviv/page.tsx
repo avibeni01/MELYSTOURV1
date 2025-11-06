@@ -82,7 +82,7 @@ export default function TelAvivCarRentalPage() {
                 Location de Voiture a <span className="text-blue-300">Tel Aviv</span>
               </h1>
               <p className="text-xl md:text-2xl text-white mb-8">
-                Livraison/Retour gratuit • Centre-ville • Front de mer • Hotels
+                Service de qualité • Tous véhicules • Assistance francophone
               </p>
             </div>
           </div>
@@ -100,27 +100,127 @@ export default function TelAvivCarRentalPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                <div className="text-center p-6 bg-blue-50 rounded-xl">
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Car className="text-white" size={32} />
+              {/* Assurances détaillées */}
+              <div className="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8 mb-12 border border-blue-100">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <Shield className="text-blue-600 mr-3" size={28} />
+                  Options d'Assurance
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Assurance Franchise</h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Protection de base avec franchise (environ 3000-5000 NIS selon véhicule)
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Moins cher à la location</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check size={16} className="text-orange-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Franchise à votre charge en cas de dommages</span>
+                      </li>
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Livraison Gratuite</h3>
-                  <p className="text-gray-600">Hotel, centre-ville, Rothschild, front de mer</p>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border-2 border-blue-300">
+                    <h3 className="font-bold text-lg mb-3 text-blue-700">CDW/LDW</h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Collision Damage Waiver - Franchise réduite (environ 1500-2000 NIS)
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Franchise réduite</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Bon compromis qualité/prix</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 shadow-sm border-2 border-green-400">
+                    <h3 className="font-bold text-lg mb-3 text-green-700">Super Cover</h3>
+                    <p className="text-sm text-gray-600 mb-3">
+                      Protection maximale - Zéro franchise
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Aucune franchise</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Couverture complète</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <span>Tranquillité maximale</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="text-center p-6 bg-green-50 rounded-xl">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="text-white" size={32} />
+              </div>
+
+              {/* Agences et horaires */}
+              <div className="bg-gradient-to-br from-orange-50 to-rose-50 rounded-2xl p-8 mb-12 border border-orange-100">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <MapPin className="text-orange-600 mr-3" size={28} />
+                  Agences à Tel Aviv
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg mb-3 text-gray-800">Agences disponibles</h3>
+                    <p className="text-sm text-gray-600 mb-3">Toutes situées sur Hayarkon Street</p>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-center">
+                        <Car size={16} className="text-blue-500 mr-2" />
+                        <span>Avis</span>
+                      </li>
+                      <li className="flex items-center">
+                        <Car size={16} className="text-blue-500 mr-2" />
+                        <span>Hertz</span>
+                      </li>
+                      <li className="flex items-center">
+                        <Car size={16} className="text-blue-500 mr-2" />
+                        <span>Sixt</span>
+                      </li>
+                      <li className="flex items-center">
+                        <Car size={16} className="text-blue-500 mr-2" />
+                        <span>Budget</span>
+                      </li>
+                      <li className="flex items-center">
+                        <Car size={16} className="text-blue-500 mr-2" />
+                        <span>Europcar</span>
+                      </li>
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Assurance Complete</h3>
-                  <p className="text-gray-600">CDW/LDW incluse, options zero franchise</p>
-                </div>
-                <div className="text-center p-6 bg-orange-50 rounded-xl">
-                  <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Clock className="text-white" size={32} />
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg mb-3 text-gray-800 flex items-center">
+                      <Clock size={20} className="text-orange-500 mr-2" />
+                      Horaires d'ouverture
+                    </h3>
+                    <ul className="space-y-3 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <Check size={16} className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                        <div>
+                          <strong>En ville :</strong> Ouverture 9h - Fermeture 16h ou 17h selon agence
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <Check size={16} className="text-orange-500 mt-1 mr-2 flex-shrink-0" />
+                        <div>
+                          <strong className="text-orange-700">Vendredi :</strong> Fermeture à 12h (avant Shabbat)
+                        </div>
+                      </li>
+                      <li className="flex items-start">
+                        <Check size={16} className="text-blue-500 mt-1 mr-2 flex-shrink-0" />
+                        <div>
+                          <strong>Samedi :</strong> Fermé (Shabbat)
+                        </div>
+                      </li>
+                    </ul>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Assistance 24/7</h3>
-                  <p className="text-gray-600">Support francophone jour et nuit</p>
                 </div>
               </div>
 
@@ -249,10 +349,10 @@ export default function TelAvivCarRentalPage() {
               Reservez votre voiture a Tel Aviv
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Devis gratuit en 24h • Livraison gratuite • Annulation flexible
+              Devis gratuit en 24h • Assistance francophone • Tous véhicules
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+              <Link href="/location-voiture#formulaire-devis" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
                 Demander un devis
                 <Phone size={20} className="ml-2" />
               </Link>
