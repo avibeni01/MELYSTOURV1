@@ -40,6 +40,7 @@ const AirportCarRental = () => {
       logo: hertzLogo,
       location: "Terminal 3, Niveau -1, Zone Est",
       hours: "24h/24, 7j/7",
+      returnInfo: "Retour: Terminal 3 (seul loueur au T3)",
       vehicles: ["Économique", "Compact", "SUV", "Premium"],
       advantages: ["Service Gold", "Prise en charge rapide", "Large choix de véhicules"],
       rating: 4.3
@@ -49,7 +50,8 @@ const AirportCarRental = () => {
       name: "Avis",
       logo: avisLogo,
       location: "Terminal 3, Niveau -1, Zone Ouest",
-      hours: "06:00 - 23:00, 7j/7",
+      hours: "24h/24, 7j/7",
+      returnInfo: "Retour: Terminal 1 + navette gratuite",
       vehicles: ["Économique", "Intermédiaire", "Familiale", "Premium"],
       advantages: ["Programme Avis Preferred", "Check-in rapide", "Kilométrage illimité"],
       rating: 4.2
@@ -59,7 +61,8 @@ const AirportCarRental = () => {
       name: "Budget",
       logo: budgetLogo,
       location: "Terminal 3, Niveau -1, Zone Centrale",
-      hours: "07:00 - 23:00, 7j/7",
+      hours: "24h/24, 7j/7",
+      returnInfo: "Retour: Terminal 1 + navette gratuite",
       vehicles: ["Économique", "Compact", "Berline", "SUV"],
       advantages: ["Prix compétitifs", "Offres spéciales", "Service fiable"],
       rating: 4.0
@@ -75,7 +78,8 @@ const AirportCarRental = () => {
       counterLocation: "Terminal 3, Hall des Arrivées, Desk 21",
       shuttleFrequency: "Toutes les 15 minutes",
       shuttleDuration: "7 minutes",
-      hours: "07:00 - 23:00, 7j/7",
+      hours: "24h/24, 7j/7",
+      returnInfo: "Retour: Terminal 1 + navette gratuite",
       vehicles: ["Économique", "Premium", "SUV", "Luxe"],
       advantages: ["Véhicules récents", "Nombreuses options", "Service Sixt Card"],
       rating: 4.5
@@ -87,7 +91,9 @@ const AirportCarRental = () => {
       counterLocation: "Terminal 3, Hall des Arrivées, Desk 18",
       shuttleFrequency: "Toutes les 20 minutes",
       shuttleDuration: "10 minutes",
-      hours: "08:00 - 22:00, 7j/7",
+      hours: "24h/24, 7j/7",
+      returnInfo: "Retour: Terminal 1 + navette gratuite",
+      nightNote: "Entre 22h-6h: prise en charge au Terminal 1",
       vehicles: ["Économique", "Compact", "Berline", "SUV"],
       advantages: ["Privilège Loyalty Program", "Service multilingue", "Assistance 24/7"],
       rating: 4.1
@@ -99,7 +105,8 @@ const AirportCarRental = () => {
       counterLocation: "Terminal 3, Hall des Arrivées, Desk 15",
       shuttleFrequency: "Toutes les 30 minutes",
       shuttleDuration: "12 minutes",
-      hours: "08:00 - 22:00, 7j/7",
+      hours: "24h/24, 7j/7",
+      returnInfo: "Retour: Terminal 1 + navette gratuite",
       vehicles: ["Économique", "Compact", "Familiale"],
       advantages: ["Tarifs économiques", "Blue Chip Express", "Promotions régulières"],
       rating: 3.9
@@ -149,7 +156,7 @@ const AirportCarRental = () => {
     },
     {
       question: "Comment se déroule le retour du véhicule à l'aéroport?",
-      answer: "Suivez les panneaux 'Car Rental Return' à l'approche de l'aéroport. Pour les loueurs au Terminal 3, rendez le véhicule au niveau -1. Pour les autres, retournez à l'agence et prenez leur navette vers le terminal. Prévoyez 1-2h avant votre vol."
+      answer: "Suivez les panneaux 'Car Rental Return' à l'approche de l'aéroport. IMPORTANT: Seul Hertz accepte les retours au Terminal 3 (niveau -1). Tous les autres loueurs (Avis, Budget, Sixt, Europcar, Thrifty) doivent être retournés au Terminal 1, puis prenez leur navette gratuite vers le Terminal 3. Prévoyez 1-2h avant votre vol."
     }
   ];
 
@@ -350,6 +357,18 @@ const AirportCarRental = () => {
                             <Clock className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
                             <span className="text-sm text-gray-600">{renter.hours}</span>
                           </div>
+                          {renter.returnInfo && (
+                            <div className="flex">
+                              <Car className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
+                              <span className="text-sm text-blue-600 font-medium">{renter.returnInfo}</span>
+                            </div>
+                          )}
+                          {renter.nightNote && (
+                            <div className="flex bg-orange-50 p-2 rounded">
+                              <AlertTriangle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
+                              <span className="text-xs text-orange-700 font-medium">{renter.nightNote}</span>
+                            </div>
+                          )}
                         </div>
                         
                         <p className="text-sm text-gray-700 mb-2 font-medium">Types de véhicules:</p>
@@ -436,6 +455,18 @@ const AirportCarRental = () => {
                             <Clock className="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5 mr-2" />
                             <span className="text-sm text-gray-600">{renter.hours}</span>
                           </div>
+                          {renter.returnInfo && (
+                            <div className="flex">
+                              <Car className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
+                              <span className="text-sm text-blue-600 font-medium">{renter.returnInfo}</span>
+                            </div>
+                          )}
+                          {renter.nightNote && (
+                            <div className="flex bg-orange-50 p-2 rounded">
+                              <AlertTriangle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
+                              <span className="text-xs text-orange-700 font-medium">{renter.nightNote}</span>
+                            </div>
+                          )}
                         </div>
                         
                         <p className="text-sm text-gray-700 mb-2 font-medium">Types de véhicules:</p>
@@ -690,8 +721,8 @@ const AirportCarRental = () => {
               </div>
             </div>
             
-            <a 
-              href="https://elynortours.com/location-de-voiture/"
+            <a
+              href="/location-voiture#formulaire-devis"
               className="inline-block px-8 py-4 bg-white text-orange-500 font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-lg"
             >
               Voir les offres exclusives d'Elynor Tours
