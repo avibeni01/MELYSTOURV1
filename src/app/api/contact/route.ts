@@ -2,18 +2,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Force Node.js runtime (important pour Vercel)
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
+  console.log('🔵 [API Contact] Requête POST reçue');
+
   try {
     const body = await request.json();
     const { name, email, subject, message, to } = body;
 
+    console.log('📧 [API Contact] Données reçues:', { name, email, subject, hasMessage: !!message });
+
     // Validation des données
     if (!name || !email || !subject || !message) {
+      console.log('❌ [API Contact] Validation échouée - champs manquants');
       return NextResponse.json(
         { error: 'Tous les champs sont requis' },
         { status: 400 }
       );
     }
+
+    console.log('✅ [API Contact] Validation OK');
 
     // Configuration du transporteur email
     // Option 1: Gmail (vous devez activer les "app passwords" dans Gmail)
@@ -136,9 +147,25 @@ export async function POST(request: NextRequest) {
       `,
     };
 
+    // Vérifier les variables d'environnement
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+      console.error('❌ [API Contact] Variables d\'environnement manquantes');
+      return NextResponse.json(
+        { error: 'Configuration email manquante. Contactez l\'administrateur.' },
+        { status: 500 }
+      );
+    }
+
+    console.log('📨 [API Contact] Envoi des emails...');
+
     // Envoi des emails
     await transporter.sendMail(mailOptionsToYou);
+    console.log('✅ [API Contact] Email envoyé à l\'équipe');
+
     await transporter.sendMail(mailOptionsToClient);
+    console.log('✅ [API Contact] Email de confirmation envoyé au client');
+
+    console.log('🎉 [API Contact] Succès complet !');
 
     return NextResponse.json(
       { success: true, message: 'Message envoyé avec succès' },
@@ -146,10 +173,28 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Erreur lors de l\'envoi de l\'email:', error);
+    console.error('❌ [API Contact] Erreur lors de l\'envoi de l\'email:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+    console.error('❌ [API Contact] Détails:', errorMessage);
+
     return NextResponse.json(
-      { error: 'Erreur lors de l\'envoi du message' },
+      {
+        error: 'Erreur lors de l\'envoi du message',
+        details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+      },
       { status: 500 }
     );
   }
+}
+
+// Handler OPTIONS pour CORS (si nécessaire)
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 }
