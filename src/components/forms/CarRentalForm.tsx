@@ -361,6 +361,20 @@ Téléphone: ${formData.phone}`;
     return isNaN(numAge) ? null : numAge;
   };
 
+  // Helper function to map country name to HubSpot nationality value
+  const mapCountryToNationality = (countryName: string | undefined): string => {
+    if (!countryName) return 'Francais';
+
+    const countryLower = countryName.toLowerCase();
+
+    if (countryLower.includes('israel')) return 'Israelien';
+    if (countryLower.includes('franc') || countryLower.includes('france')) return 'Francais';
+    if (countryLower.includes('états-unis') || countryLower.includes('america') || countryLower.includes('usa')) return 'Americain';
+
+    // Default to Francais if country not recognized
+    return 'Francais';
+  };
+
   // WhatsApp submission
   const handleOpenWhatsApp = async () => {
     if (!showErrors()) return;
@@ -389,7 +403,7 @@ Téléphone: ${formData.phone}`;
           le_v_hicule_ne_roule_pas_le_chabat: formData.shabbatRestriction,
           avez_vous_une_visa_premi_re_: formData.hasVisa,
           age: convertAgeToNumber(formData.driverAge),
-          nationalite: selectedCountry?.name || 'Français',
+          nationalite: mapCountryToNationality(selectedCountry?.name),
         }),
       });
 

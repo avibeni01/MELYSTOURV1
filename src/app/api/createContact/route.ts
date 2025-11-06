@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
           le_v_hicule_ne_roule_pas_le_chabat: le_v_hicule_ne_roule_pas_le_chabat || false,
           avez_vous_une_visa_premi_re_: avez_vous_une_visa_premi_re_ || false,
           age: age !== null && age !== undefined ? age : null,
-          nationalite: nationalite || 'Français',
+          nationalite: nationalite || 'Francais',
         },
       }),
     });
