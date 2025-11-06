@@ -32,9 +32,12 @@ const ContactPage = () => {
   // Gestion de la soumission du formulaire
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('📧 [Contact Form] Soumission du formulaire...', formData);
     setSubmitStatus({ isSubmitting: true, isSubmitted: false, error: null });
 
     try {
+      console.log('🚀 [Contact Form] Envoi à /api/contact...');
+
       // Appel à l'API de contact
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -44,9 +47,23 @@ const ContactPage = () => {
         body: JSON.stringify(formData),
       });
 
+      console.log('📡 [Contact Form] Réponse reçue:', {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok
+      });
+
+      // Récupérer le corps de la réponse pour le debug
+      const responseData = await response.json().catch(() => null);
+      console.log('📦 [Contact Form] Données de la réponse:', responseData);
+
       if (!response.ok) {
-        throw new Error('Erreur lors de l\'envoi du message');
+        const errorMessage = responseData?.error || responseData?.message || 'Erreur lors de l\'envoi du message';
+        console.error('❌ [Contact Form] Erreur API:', errorMessage, responseData);
+        throw new Error(errorMessage);
       }
+
+      console.log('✅ [Contact Form] Message envoyé avec succès !');
 
       // Si tout va bien, mettre à jour l'état
       setSubmitStatus({ isSubmitting: false, isSubmitted: true, error: null });
@@ -58,11 +75,13 @@ const ContactPage = () => {
       }, 3000);
 
     } catch (error) {
-      console.error('Erreur:', error);
+      console.error('❌ [Contact Form] Erreur complète:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Erreur lors de l\'envoi du message. Veuillez réessayer.';
+
       setSubmitStatus({
         isSubmitting: false,
         isSubmitted: false,
-        error: 'Erreur lors de l\'envoi du message. Veuillez réessayer.'
+        error: errorMessage
       });
     }
   };
@@ -136,7 +155,7 @@ const ContactPage = () => {
                   </div>
                   <div className="ml-4">
                     <p className="font-semibold text-gray-800">Adresse</p>
-                    <p className="text-gray-600">Tel Aviv, Israël</p>
+                    <p className="text-gray-600">Jerusalem, Israël</p>
                   </div>
                 </div>
               </div>
@@ -168,16 +187,12 @@ const ContactPage = () => {
                 </h2>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center py-2 px-3 bg-orange-50 rounded-lg">
-                    <span className="font-medium text-gray-800 text-sm">Lun - Jeu</span>
-                    <span className="text-orange-600 font-medium text-sm">9h-18h</span>
+                    <span className="font-medium text-gray-800 text-sm">Dim - Jeu</span>
+                    <span className="text-orange-600 font-medium text-sm">9h-20h</span>
                   </div>
                   <div className="flex justify-between items-center py-2 px-3 bg-rose-50 rounded-lg">
                     <span className="font-medium text-gray-800 text-sm">Vendredi</span>
-                    <span className="text-rose-600 font-medium text-sm">9h-15h</span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 px-3 bg-orange-50 rounded-lg">
-                    <span className="font-medium text-gray-800 text-sm">Dimanche</span>
-                    <span className="text-orange-600 font-medium text-sm">9h-18h</span>
+                    <span className="text-rose-600 font-medium text-sm">9h-13h</span>
                   </div>
                 </div>
               </div>
