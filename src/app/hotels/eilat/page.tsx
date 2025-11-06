@@ -57,15 +57,32 @@ export default function EilatHotelsPage() {
       <JsonLd data={hotelSchema} />
 
       <div className="min-h-screen">
-        {/* Hero */}
-        <section className="relative h-[50vh] bg-gradient-to-r from-red-600 to-orange-600">
+        {/* Hero Section with Video Background */}
+        <section className="relative h-[50vh] overflow-hidden">
+          {/* Video Background */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/images/eilat-poster.jpg"
+          >
+            <source src="/videos/Eilat.mp4" type="video/mp4" />
+            {/* Fallback pour navigateurs ne supportant pas la vidéo */}
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600"></div>
+          </video>
+
+          {/* Dark Overlay pour lisibilité */}
           <div className="absolute inset-0 bg-black/40"></div>
+
+          {/* Content */}
           <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
             <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
                 Hotels a <span className="text-orange-300">Eilat</span> - Mer Rouge
               </h1>
-              <p className="text-xl md:text-2xl text-white mb-8">
+              <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-md">
                 All Inclusive • Plongee • Front de mer • Vie nocturne animee
               </p>
             </div>
