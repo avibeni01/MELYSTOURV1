@@ -6,7 +6,7 @@ import Flatpickr from 'react-flatpickr'
 import Slider from 'react-slick'
 import {
   Car, Calendar, Clock, ArrowRight, ArrowLeft,
-  Phone, Mail, MessageSquare, Check
+  Phone, Mail, MessageSquare, Check, Star
 } from 'lucide-react'
 import 'flatpickr/dist/themes/airbnb.css'
 import 'flatpickr/dist/l10n/fr.js'
@@ -320,7 +320,7 @@ Station: ${stationName}\n
 Dates: Du ${formData.pickupDate} ${formData.pickupTime} au ${formData.returnDate} ${formData.returnTime}\n
 Âge conducteur: ${formData.driverAge}\n
 Visa Premier: ${formData.hasVisa ? 'Oui' : 'Non'}\n
-Ne roule pas le chabat : ${formData.shabbatRestriction ? 'Oui' : 'Non'}\n`;
+Roulez vous le chabat : ${formData.shabbatRestriction ? 'Non' : 'Oui'}\n`;
 
     if (selectedVehicle) {
       message += `\nVéhicule sélectionné: ${selectedVehicle.name}\n`;
@@ -341,6 +341,21 @@ Téléphone: ${formData.phone}`;
     return message;
   };
 
+  // Helper function to convert French date format (dd/mm/yyyy) to yyyy-mm-dd
+  const convertDateToISO = (frenchDate: string): string | null => {
+    if (!frenchDate) return null;
+    try {
+      const parts = frenchDate.split('/'); // [dd, mm, yyyy]
+      if (parts.length === 3) {
+        const [day, month, year] = parts;
+        return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+      }
+    } catch (error) {
+      console.error('Error converting date:', frenchDate, error);
+    }
+    return null;
+  };
+
   // WhatsApp submission
   const handleOpenWhatsApp = async () => {
     if (!showErrors()) return;
@@ -355,7 +370,70 @@ Téléphone: ${formData.phone}`;
     setIsSubmitting(true);
 
     try {
-      // Generate WhatsApp message and URL
+      // 1. Create contact in HubSpot
+      console.log('[CarRentalForm] Creating contact in HubSpot...');
+      const contactResponse = await fetch('/api/createContact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          preferences_client: formData.notes || '',
+          le_v_hicule_ne_roule_pas_le_chabat: formData.shabbatRestriction,
+          avez_vous_une_visa_premi_re_: formData.hasVisa,
+          age: formData.driverAge,
+          nationalite: selectedCountry?.name || 'Français',
+        }),
+      });
+
+      if (!contactResponse.ok) {
+        const errorData = await contactResponse.json();
+        console.error('[CarRentalForm] Error creating contact:', errorData);
+        toast.error('Erreur lors de la création du contact HubSpot');
+        return;
+      }
+
+      const contactData = await contactResponse.json();
+      console.log('[CarRentalForm] Contact created:', contactData.contactId);
+
+      // 2. Create deal in HubSpot
+      console.log('[CarRentalForm] Creating deal in HubSpot...');
+      const selectedStationObject = stationsToDisplay.find(s => s.id === formData.station);
+      const stationName = selectedStationObject ? selectedStationObject.label : formData.station;
+
+      const dealResponse = await fetch('/api/createDeal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contactId: contactData.contactId,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          activeTab: 'car',
+          selectedVehicle: selectedVehicle,
+          stationName: stationName,
+          pickupTime: formData.pickupTime,
+          returnTime: formData.returnTime,
+          driverAge: formData.driverAge,
+          hasVisa: formData.hasVisa,
+          shomer_shabbat: formData.shabbatRestriction,
+          check_in_date_str: convertDateToISO(formData.pickupDate),
+          check_out_date_str: convertDateToISO(formData.returnDate),
+        }),
+      });
+
+      if (!dealResponse.ok) {
+        const errorData = await dealResponse.json();
+        console.error('[CarRentalForm] Error creating deal:', errorData);
+        toast.error('Erreur lors de la création du deal HubSpot');
+        return;
+      }
+
+      const dealData = await dealResponse.json();
+      console.log('[CarRentalForm] Deal created:', dealData.dealId);
+
+      // 3. Generate WhatsApp message and URL
       const message = generateWhatsAppMessage();
       const phoneNumber = "972584140489";
       const encodedMessage = encodeURIComponent(message);
@@ -376,15 +454,15 @@ Téléphone: ${formData.phone}`;
         console.error('Facebook tracking failed:', error);
       }
 
-      // Open WhatsApp
+      // 4. Open WhatsApp
       window.open(whatsappUrl, '_blank');
 
-      // Update UI state
+      // 5. Update UI state
       setCurrentStep(1);
       setFormSubmitted(true);
       setWhatsappLink(whatsappUrl);
 
-      toast.success("WhatsApp a été ouvert pour finaliser votre demande !");
+      toast.success("Contact et deal créés dans HubSpot ! WhatsApp ouvert.");
 
     } catch (error) {
       console.error('Erreur lors de la soumission du formulaire:', error);
@@ -708,9 +786,12 @@ Téléphone: ${formData.phone}`;
 
               {/* Question Shabbat */}
               <div className="col-span-1">
-                <p className="text-sm font-medium text-gray-800 mb-2">
-                  Roulez-vous pendant Chabbat ? <span className="text-red-500">*</span>
-                </p>
+                <div className="flex items-center gap-2 mb-2">
+                  <p className="text-sm font-medium text-gray-800">
+                    Roulez-vous pendant Chabbat ? <span className="text-red-500">*</span>
+                  </p>
+                  <Star className="text-blue-600" size={16} />
+                </div>
                 <div className="flex gap-4">
                   <label className="flex items-center">
                     <input

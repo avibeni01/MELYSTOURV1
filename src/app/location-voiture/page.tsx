@@ -522,69 +522,6 @@ export default function LocationVoiturePage() {
                 </div>
               </div>
 
-              {/* Conseils de conduite */}
-              <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8 border border-green-100">
-                <div className="flex items-start mb-6">
-                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <AlertCircle className="text-white" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-3">
-                      Conseils de Conduite en Israël
-                    </h3>
-                    <p className="text-gray-700 mb-4">
-                      Règles essentielles pour conduire en toute sécurité
-                    </p>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm">
-                    <div className="flex items-start mb-3">
-                      <MapPin size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Sens de circulation</h4>
-                        <p className="text-sm text-gray-600">
-                          On roule à <strong>droite</strong> en Israël, comme en France
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm">
-                    <div className="flex items-start mb-3">
-                      <Check size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Limitations de vitesse</h4>
-                        <p className="text-sm text-gray-600">
-                          <strong>50 km/h</strong> en ville • <strong>80 km/h</strong> sur route • <strong>110-120 km/h</strong> sur autoroute
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm">
-                    <div className="flex items-start mb-3">
-                      <Shield size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Ceinture de sécurité</h4>
-                        <p className="text-sm text-gray-600">
-                          Port <strong>obligatoire</strong> pour tous les passagers, à l'avant comme à l'arrière
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm">
-                    <div className="flex items-start mb-3">
-                      <PhoneIcon size={20} className="text-green-500 mr-2 flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Téléphone au volant</h4>
-                        <p className="text-sm text-gray-600">
-                          <strong>Interdit</strong> sans kit mains libres. Amendes importantes en cas d'infraction
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {/* Note finale */}
               <div className="mt-8 bg-gradient-to-r from-orange-100 to-rose-100 border-l-4 border-orange-500 p-6 rounded-r-xl">
                 <div className="flex items-start">
