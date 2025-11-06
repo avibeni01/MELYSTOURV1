@@ -167,7 +167,7 @@ const AirportCarRental = () => {
           className="absolute inset-0 w-full h-full object-cover"
           poster="/images/airport-poster.jpg"
         >
-          <source src="/videos/aeroport.mp4" type="video/mp4" />
+          <source src="/videos/Aeroport.mp4" type="video/mp4" />
           {/* Fallback pour navigateurs ne supportant pas la vidéo */}
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-gray-900/40"></div>
         </video>

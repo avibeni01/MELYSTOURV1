@@ -68,7 +68,7 @@ export default function JerusalemHotelsPage() {
             className="absolute inset-0 w-full h-full object-cover"
             poster="/images/jerusalem-poster.jpg"
           >
-            <source src="/videos/jerusalem.mp4" type="video/mp4" />
+            <source src="/videos/Jerusalem.mp4" type="video/mp4" />
             {/* Fallback pour navigateurs ne supportant pas la vidéo */}
             <div className="absolute inset-0 bg-gradient-to-r from-amber-600 to-yellow-600"></div>
           </video>
