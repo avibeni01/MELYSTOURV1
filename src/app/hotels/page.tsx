@@ -59,7 +59,7 @@ export default function HotelsPage() {
           className="absolute inset-0 w-full h-full object-cover"
           poster="/images/hotel-poster.jpg"
         >
-          <source src="/videos/hotel-hero.mp4" type="video/mp4" />
+          <source src="/videos/Hotel-Hero.mp4" type="video/mp4" />
           {/* Fallback pour navigateurs ne supportant pas la vidéo */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600"></div>
         </video>

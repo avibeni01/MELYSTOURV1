@@ -86,7 +86,7 @@ export default function MerMorteHotelsPage() {
             className="absolute inset-0 w-full h-full object-cover"
             poster="/images/mer-morte-poster.jpg"
           >
-            <source src="/videos/deadsea.mp4" type="video/mp4" />
+            <source src="/videos/Deadsea.mp4" type="video/mp4" />
             {/* Fallback pour navigateurs ne supportant pas la vidéo */}
             <div className="absolute inset-0 bg-gradient-to-r from-teal-600 to-cyan-600"></div>
           </video>

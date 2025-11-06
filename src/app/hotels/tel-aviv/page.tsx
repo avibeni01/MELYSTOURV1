@@ -69,7 +69,7 @@ export default function TelAvivHotelsPage() {
             className="absolute inset-0 w-full h-full object-cover"
             poster="/images/tel-aviv-poster.jpg"
           >
-            <source src="/videos/telaviv.mp4" type="video/mp4" />
+            <source src="/videos/Telaviv.mp4" type="video/mp4" />
             {/* Fallback pour navigateurs ne supportant pas la vidéo */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600"></div>
           </video>
