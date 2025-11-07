@@ -300,7 +300,7 @@ const AirportCarRental = () => {
                 onClick={() => setActiveTab('terminal')}
               >
                 <Car size={18} className="inline mr-2" />
-                Au Terminal 3
+                Parking au Terminal 3
               </button>
               <button
                 type="button"
@@ -312,7 +312,7 @@ const AirportCarRental = () => {
                 onClick={() => setActiveTab('shuttle')}
               >
                 <Bus size={18} className="inline mr-2" />
-                Avec navette
+                Parking hors terminal
               </button>
             </div>
           </div>
