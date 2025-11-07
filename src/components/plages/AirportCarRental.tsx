@@ -214,10 +214,10 @@ const AirportCarRental = () => {
               Préparez votre arrivée à <strong>l'aéroport de Tel Aviv</strong>
             </h2>
             <p className="text-gray-700 mb-6">
-              La <strong>location de voiture</strong> à l'aéroport Ben Gourion de Tel Aviv est une option idéale pour explorer Israël en toute liberté. Avec plusieurs loueurs disponibles directement au terminal ou à proximité avec service de navette, il est essentiel de bien préparer votre réservation pour éviter les mauvaises surprises et profiter pleinement de votre séjour.
+              La <strong>location de voiture</strong> à l'aéroport Ben Gourion de Tel Aviv est une option idéale pour explorer Israël en toute liberté. <strong>Tous les loueurs ont leur comptoir au Terminal 3</strong>, avec des parkings soit directement accessibles au niveau -1, soit via navette gratuite. Il est essentiel de bien préparer votre réservation pour éviter les mauvaises surprises et profiter pleinement de votre séjour.
             </p>
             <p className="text-gray-700 mb-6">
-              Ce guide vous présente tous les <strong>loueurs de voiture à l'aéroport de Tel Aviv</strong>, leurs emplacements précis, services et avantages pour vous aider à faire le meilleur choix selon vos besoins spécifiques.
+              Ce guide vous présente tous les <strong>loueurs de voiture à l'aéroport de Tel Aviv</strong>, leurs emplacements précis, modalités de prise en charge et de retour, services et avantages pour vous aider à faire le meilleur choix selon vos besoins spécifiques.
             </p>
 
             {/* Bannière Elynor Tours */}
@@ -265,16 +265,16 @@ const AirportCarRental = () => {
               <strong>Carte des loueurs</strong> à l'aéroport Ben Gourion
             </h2>
             <p className="text-gray-700 text-center mb-8 max-w-3xl mx-auto">
-              L'aéroport international Ben Gourion de Tel Aviv dispose de plusieurs agences de location, certaines directement au <strong>Terminal 3</strong> et d'autres accessibles via un service de navette. Découvrez leur emplacement exact.
+              L'aéroport international Ben Gourion de Tel Aviv dispose de <strong>tous les loueurs au Terminal 3</strong>. Certains ont leur parking directement accessible au niveau -1, d'autres nécessitent une navette gratuite vers leur parc de stationnement. Découvrez leur emplacement exact et les modalités de retour.
             </p>
             
             {/* Carte stylisée de l'aéroport */}
             <AirportMap  />
 
             {/* Informations sur le terminal 3 */}  
-            
+
             <p className="text-sm text-gray-600 italic text-center">
-              Le Terminal 3 est le terminal principal pour les vols internationaux. Les bureaux des loueurs sont situés au niveau -1, accessible par ascenseur ou escalator depuis le hall des arrivées.
+              Le Terminal 3 est le terminal principal pour les vols internationaux. <strong>Tous les loueurs ont leur comptoir au Terminal 3</strong> : certains ont leur parking au niveau -1 (accessible par ascenseur/escalator), d'autres nécessitent une navette depuis le Hall des Arrivées. <strong>⚠️ Retour :</strong> Seul Hertz accepte les retours au Terminal 3.
             </p>
           </div>
         </div>
@@ -287,6 +287,20 @@ const AirportCarRental = () => {
             <strong>Loueurs de voiture</strong> à l'aéroport Ben Gourion
           </h2>
           
+          {/* Info importante sur tous les loueurs */}
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-md mb-8 max-w-4xl mx-auto">
+            <div className="flex">
+              <div className="flex-shrink-0">
+                <Info className="h-5 w-5 text-blue-500" />
+              </div>
+              <div className="ml-3">
+                <p className="text-sm text-blue-700">
+                  <strong>Tous les loueurs ont leur comptoir au Terminal 3.</strong> La différence se situe au niveau de l'accès aux véhicules (parking direct ou navette) et surtout <strong>du retour</strong> : seul Hertz accepte les retours au Terminal 3, tous les autres loueurs doivent être retournés au Terminal 1 avec navette gratuite.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Onglets */}
           <div className="flex justify-center mb-8">
             <div className="inline-flex rounded-md shadow-sm" role="group">
@@ -300,7 +314,7 @@ const AirportCarRental = () => {
                 onClick={() => setActiveTab('terminal')}
               >
                 <Car size={18} className="inline mr-2" />
-                Parking au Terminal 3
+                Accès direct au parking
               </button>
               <button
                 type="button"
@@ -312,7 +326,7 @@ const AirportCarRental = () => {
                 onClick={() => setActiveTab('shuttle')}
               >
                 <Bus size={18} className="inline mr-2" />
-                Parking hors terminal
+                Accès avec navette
               </button>
             </div>
           </div>
@@ -328,7 +342,7 @@ const AirportCarRental = () => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-orange-700">
-                        Ces loueurs disposent de bureaux et parking <strong>directement au Terminal 3</strong>, vous permettant d'accéder à votre véhicule sans navette. Idéal pour gagner du temps.
+                        Ces loueurs ont leur comptoir ET parking <strong>directement au Terminal 3, niveau -1</strong>. Vous accédez à votre véhicule immédiatement sans navette. <strong>⚠️ Important pour le retour :</strong> Seul Hertz accepte les retours au Terminal 3. Avis et Budget nécessitent un retour au Terminal 1 avec navette gratuite.
                       </p>
                     </div>
                   </div>
@@ -419,7 +433,7 @@ const AirportCarRental = () => {
                     </div>
                     <div className="ml-3">
                       <p className="text-sm text-rose-700">
-                        Ces loueurs disposent d'un comptoir ou bureau au Terminal 3, mais leurs véhicules sont stationnés dans des parcs à proximité accessibles en <strong>navette gratuite</strong>. Prévoyez un temps supplémentaire.
+                        Ces loueurs ont leur comptoir au <strong>Terminal 3, Hall des Arrivées</strong>, mais leurs véhicules sont stationnés dans des parcs à proximité accessibles en <strong>navette gratuite</strong>. Prévoyez 15-30 minutes supplémentaires. <strong>⚠️ Retour :</strong> Tous ces loueurs nécessitent un retour au Terminal 1 avec navette gratuite. <strong>Attention Europcar :</strong> Entre 22h-6h, prise en charge au Terminal 1.
                       </p>
                     </div>
                   </div>
