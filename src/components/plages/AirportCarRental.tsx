@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Car,
   MapPin,
@@ -30,7 +30,6 @@ import thriftyLogo from '@/assets/images/logos/thrifty.png';
 
 // Composant pour la page de location de voiture à l'aéroport
 const AirportCarRental = () => {
-  const [activeTab, setActiveTab] = useState('terminal');
 
   // Données des loueurs au terminal 3
   const terminalRenters = [
@@ -280,13 +279,13 @@ const AirportCarRental = () => {
         </div>
       </section>
 
-      {/* Section des loueurs avec onglets */}
+      {/* Section des loueurs */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-8 text-center">
             <strong>Loueurs de voiture</strong> à l'aéroport Ben Gourion
           </h2>
-          
+
           {/* Info importante sur tous les loueurs */}
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-md mb-8 max-w-4xl mx-auto">
             <div className="flex">
@@ -301,228 +300,109 @@ const AirportCarRental = () => {
             </div>
           </div>
 
-          {/* Onglets */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex rounded-md shadow-sm" role="group">
-              <button
-                type="button"
-                className={`px-4 py-2 text-sm font-medium rounded-l-lg border ${
-                  activeTab === 'terminal'
-                    ? 'bg-orange-500 text-white border-orange-500'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200'
-                }`}
-                onClick={() => setActiveTab('terminal')}
-              >
-                <Car size={18} className="inline mr-2" />
-                Accès direct au parking
-              </button>
-              <button
-                type="button"
-                className={`px-4 py-2 text-sm font-medium rounded-r-lg border ${
-                  activeTab === 'shuttle'
-                    ? 'bg-rose-500 text-white border-rose-500'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200'
-                }`}
-                onClick={() => setActiveTab('shuttle')}
-              >
-                <Bus size={18} className="inline mr-2" />
-                Accès avec navette
-              </button>
-            </div>
-          </div>
-          
-          {/* Contenu des onglets */}
+          {/* Liste de tous les loueurs */}
           <div className="max-w-6xl mx-auto">
-            {activeTab === 'terminal' ? (
-              <>
-                <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-md mb-6">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <Info className="h-5 w-5 text-orange-500" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {allRenters.map((renter) => {
+                const isShuttle = 'shuttleFrequency' in renter;
+                const iconColor = isShuttle ? 'text-rose-500' : 'text-orange-500';
+                const btnColor = isShuttle ? 'bg-rose-500 hover:bg-rose-600' : 'bg-orange-500 hover:bg-orange-600';
+
+                return (
+                  <div key={renter.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
+                    {/* En-tête */}
+                    <div className="h-20 bg-white p-4 flex items-center justify-center border-b border-gray-100">
+                      <img src={typeof renter.logo === 'string' ? renter.logo : renter.logo.src} alt={`Logo ${renter.name}`} className="h-12 max-w-[180px] object-contain" />
                     </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-orange-700">
-                        Ces loueurs ont leur comptoir ET parking <strong>directement au Terminal 3, niveau -1</strong>. Vous accédez à votre véhicule immédiatement sans navette. <strong>⚠️ Important pour le retour :</strong> Seul Hertz accepte les retours au Terminal 3. Avis et Budget nécessitent un retour au Terminal 1 avec navette gratuite.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {terminalRenters.map((renter) => (
-                    <div key={renter.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
-                      {/* En-tête */}
-                      <div className="h-20 bg-white p-4 flex items-center justify-center border-b border-gray-100">
-                        <img src={typeof renter.logo === 'string' ? renter.logo : renter.logo.src} alt={`Logo ${renter.name}`} className="h-12 max-w-[180px] object-contain" />
-                      </div>
-                      
-                      {/* Contenu */}
-                      <div className="p-5">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-3">
-                          {renter.name} <span className="text-orange-500">★</span>
-                        </h3>
-                        
-                        <div className="space-y-3 mb-4">
-                          <div className="flex">
-                            <MapPin className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
-                            <span className="text-sm text-gray-600">{renter.location}</span>
-                          </div>
-                          <div className="flex">
-                            <Clock className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
-                            <span className="text-sm text-gray-600">{renter.hours}</span>
-                          </div>
-                          {renter.returnInfo && (
-                            <div className="flex">
-                              <Car className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
-                              <span className="text-sm text-blue-600 font-medium">{renter.returnInfo}</span>
-                            </div>
-                          )}
-                          {renter.nightNote && (
-                            <div className="flex bg-orange-50 p-2 rounded">
-                              <AlertTriangle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
-                              <span className="text-xs text-orange-700 font-medium">{renter.nightNote}</span>
-                            </div>
-                          )}
+
+                    {/* Contenu */}
+                    <div className="p-5">
+                      <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                        {renter.name} <span className={iconColor}>★</span>
+                      </h3>
+
+                      <div className="space-y-3 mb-4">
+                        {/* Location/Comptoir */}
+                        <div className="flex">
+                          <MapPin className={`w-5 h-5 ${iconColor} flex-shrink-0 mt-0.5 mr-2`} />
+                          <span className="text-sm text-gray-600">
+                            {isShuttle ? (renter as any).counterLocation : (renter as any).location}
+                          </span>
                         </div>
-                        
-                        <p className="text-sm text-gray-700 mb-2 font-medium">Types de véhicules:</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {renter.vehicles.map((vehicle, index) => (
-                            <span key={index} className="inline-block bg-gray-100 px-2 py-1 rounded-md text-xs text-gray-700">
-                              {vehicle}
-                            </span>
-                          ))}
-                        </div>
-                        
-                        <p className="text-sm text-gray-700 mb-2 font-medium">Avantages:</p>
-                        <ul className="mb-5">
-                          {renter.advantages.map((advantage, index) => (
-                            <li key={index} className="text-sm text-gray-600 flex items-start mb-1">
-                              <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5 mr-1.5" />
-                              {advantage}
-                            </li>
-                          ))}
-                        </ul>
-                        
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center">
-                            <span className="text-sm font-medium text-gray-700 mr-1">Note clients:</span>
-                            <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">
-                              {renter.rating}/5
-                            </span>
-                          </div>
-                        </div>
-                        
-                        <a 
-                          href={`https://elynortours.com/location-de-voiture/?company=${renter.name.toLowerCase()}`}
-                          className="block w-full bg-orange-500 hover:bg-orange-600 text-white text-center py-2 rounded-md transition-colors text-sm font-medium"
-                        >
-                          Voir les tarifs avec Elynor Tours
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-md mb-6">
-                  <div className="flex">
-                    <div className="flex-shrink-0">
-                      <Info className="h-5 w-5 text-rose-500" />
-                    </div>
-                    <div className="ml-3">
-                      <p className="text-sm text-rose-700">
-                        Ces loueurs ont leur comptoir au <strong>Terminal 3, Hall des Arrivées</strong>, mais leurs véhicules sont stationnés dans des parcs à proximité accessibles en <strong>navette gratuite</strong>. Prévoyez 15-30 minutes supplémentaires. <strong>⚠️ Retour :</strong> Tous ces loueurs nécessitent un retour au Terminal 1 avec navette gratuite. <strong>Attention Europcar :</strong> Entre 22h-6h, prise en charge au Terminal 1.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {shuttleRenters.map((renter) => (
-                    <div key={renter.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
-                      {/* En-tête */}
-                      <div className="h-20 bg-white p-4 flex items-center justify-center border-b border-gray-100">
-                        <img src={typeof renter.logo === 'string' ? renter.logo : renter.logo.src} alt={`Logo ${renter.name}`} className="h-12 max-w-[180px] object-contain" />
-                      </div>
-                      
-                      {/* Contenu */}
-                      <div className="p-5">
-                        <h3 className="text-lg font-semibold text-gray-800 mb-3">
-                          {renter.name} <span className="text-rose-500">★</span>
-                        </h3>
-                        
-                        <div className="space-y-3 mb-4">
+
+                        {/* Navette si applicable */}
+                        {isShuttle && (
                           <div className="flex">
-                            <MapPin className="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5 mr-2" />
-                            <span className="text-sm text-gray-600">{renter.counterLocation}</span>
-                          </div>
-                          <div className="flex">
-                            <Bus className="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5 mr-2" />
+                            <Bus className={`w-5 h-5 ${iconColor} flex-shrink-0 mt-0.5 mr-2`} />
                             <div>
-                              <span className="text-sm text-gray-600 block">Navette: {renter.shuttleFrequency}</span>
-                              <span className="text-sm text-gray-600 block">Durée: {renter.shuttleDuration}</span>
+                              <span className="text-sm text-gray-600 block">Navette: {(renter as any).shuttleFrequency}</span>
+                              <span className="text-sm text-gray-600 block">Durée: {(renter as any).shuttleDuration}</span>
                             </div>
                           </div>
+                        )}
+
+                        {/* Horaires */}
+                        <div className="flex">
+                          <Clock className={`w-5 h-5 ${iconColor} flex-shrink-0 mt-0.5 mr-2`} />
+                          <span className="text-sm text-gray-600">{renter.hours}</span>
+                        </div>
+
+                        {/* Info retour */}
+                        {renter.returnInfo && (
                           <div className="flex">
-                            <Clock className="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5 mr-2" />
-                            <span className="text-sm text-gray-600">{renter.hours}</span>
+                            <Car className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
+                            <span className="text-sm text-blue-600 font-medium">{renter.returnInfo}</span>
                           </div>
-                          {renter.returnInfo && (
-                            <div className="flex">
-                              <Car className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
-                              <span className="text-sm text-blue-600 font-medium">{renter.returnInfo}</span>
-                            </div>
-                          )}
-                          {renter.nightNote && (
-                            <div className="flex bg-orange-50 p-2 rounded">
-                              <AlertTriangle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
-                              <span className="text-xs text-orange-700 font-medium">{renter.nightNote}</span>
-                            </div>
-                          )}
-                        </div>
-                        
-                        <p className="text-sm text-gray-700 mb-2 font-medium">Types de véhicules:</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {renter.vehicles.map((vehicle, index) => (
-                            <span key={index} className="inline-block bg-gray-100 px-2 py-1 rounded-md text-xs text-gray-700">
-                              {vehicle}
-                            </span>
-                          ))}
-                        </div>
-                        
-                        <p className="text-sm text-gray-700 mb-2 font-medium">Avantages:</p>
-                        <ul className="mb-5">
-                          {renter.advantages.map((advantage, index) => (
-                            <li key={index} className="text-sm text-gray-600 flex items-start mb-1">
-                              <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5 mr-1.5" />
-                              {advantage}
-                            </li>
-                          ))}
-                        </ul>
-                        
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center">
-                            <span className="text-sm font-medium text-gray-700 mr-1">Note clients:</span>
-                            <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">
-                              {renter.rating}/5
-                            </span>
+                        )}
+
+                        {/* Note de nuit */}
+                        {(renter as any).nightNote && (
+                          <div className="flex bg-orange-50 p-2 rounded">
+                            <AlertTriangle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5 mr-2" />
+                            <span className="text-xs text-orange-700 font-medium">{(renter as any).nightNote}</span>
                           </div>
-                        </div>
-                        
-                        <a 
-                          href={`https://elynortours.com/location-de-voiture/?company=${renter.name.toLowerCase()}`}
-                          className="block w-full bg-rose-500 hover:bg-rose-600 text-white text-center py-2 rounded-md transition-colors text-sm font-medium"
-                        >
-                          Voir les tarifs avec Elynor Tours
-                        </a>
+                        )}
                       </div>
+
+                      <p className="text-sm text-gray-700 mb-2 font-medium">Types de véhicules:</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {renter.vehicles.map((vehicle, index) => (
+                          <span key={index} className="inline-block bg-gray-100 px-2 py-1 rounded-md text-xs text-gray-700">
+                            {vehicle}
+                          </span>
+                        ))}
+                      </div>
+
+                      <p className="text-sm text-gray-700 mb-2 font-medium">Avantages:</p>
+                      <ul className="mb-5">
+                        {renter.advantages.map((advantage, index) => (
+                          <li key={index} className="text-sm text-gray-600 flex items-start mb-1">
+                            <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5 mr-1.5" />
+                            {advantage}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center">
+                          <span className="text-sm font-medium text-gray-700 mr-1">Note clients:</span>
+                          <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">
+                            {renter.rating}/5
+                          </span>
+                        </div>
+                      </div>
+
+                      <a
+                        href={`https://elynortours.com/location-de-voiture/?company=${renter.name.toLowerCase()}`}
+                        className={`block w-full ${btnColor} text-white text-center py-2 rounded-md transition-colors text-sm font-medium`}
+                      >
+                        Voir les tarifs avec Elynor Tours
+                      </a>
                     </div>
-                  ))}
-                </div>
-              </>
-            )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
