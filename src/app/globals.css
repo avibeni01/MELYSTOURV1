@@ -24,3 +24,122 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ========================================
+   DATEPICKER CUSTOM STYLES
+   ======================================== */
+
+/* Container du caption avec layout flex */
+.rdp-caption {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 3rem !important;
+  min-height: 3rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Centrage parfait du titre du mois */
+.rdp-caption_label {
+  text-align: center !important;
+  flex: 1 !important;
+  display: block !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  margin: 0 auto !important;
+  color: #111827 !important;
+  text-transform: capitalize !important;
+}
+
+/* Navigation en position absolue */
+.rdp-nav {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  pointer-events: none !important;
+}
+
+/* Boutons de navigation - flèches */
+.rdp-nav_button {
+  pointer-events: all !important;
+  height: 2rem !important;
+  width: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  padding: 0 !important;
+  margin: 0 0.5rem !important;
+}
+
+.rdp-nav_button:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Forcer l'ordre des flèches */
+.rdp-nav_button_previous {
+  order: -1 !important;
+}
+
+.rdp-nav_button_next {
+  order: 1 !important;
+}
+
+/* Style des icônes SVG dans les flèches */
+.rdp-nav_button svg {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  color: #6b7280 !important;
+}
+
+.rdp-nav_button:hover svg {
+  color: #f97316 !important;
+}
+
+/* Animation smooth pour les jours */
+.rdp-day {
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Amélioration du range sélectionné */
+.rdp-day_range_start {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.rdp-day_range_end {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.rdp-day_range_middle {
+  border-radius: 0 !important;
+}
+
+/* Effet hover amélioré */
+.rdp-day:not(.rdp-day_disabled):not(.rdp-day_selected):hover {
+  background-color: rgb(254 215 170) !important;
+  transform: scale(1.05) !important;
+}
+
+/* Désactivation des dates passées */
+.rdp-day_disabled {
+  text-decoration: line-through !important;
+  cursor: not-allowed !important;
+}
+
+/* Focus visible pour l'accessibilité */
+.rdp-day:focus-visible {
+  outline: 2px solid rgb(249 115 22) !important;
+  outline-offset: 2px !important;
+}

@@ -1,14 +1,12 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import Flatpickr from 'react-flatpickr'
+import DateRangePickerCustom from '../DateRangePickerCustom'
+import type { DateRange } from 'react-day-picker'
 import {
-  Hotel, Search, Calendar, Users, Star, ArrowRight, ArrowLeft,
+  Hotel, Search, Users, Star, ArrowRight, ArrowLeft,
   Phone, Mail, MessageSquare, Check, Plus, Minus
 } from 'lucide-react'
-import 'flatpickr/dist/themes/airbnb.css'
-import 'flatpickr/dist/l10n/fr.js'
-import { French } from 'flatpickr/dist/l10n/fr.js'
 import { toast, Toaster } from 'react-hot-toast'
 
 // Validation téléphone et email
@@ -46,7 +44,7 @@ export default function HotelBookingForm() {
 
   // États pour l'hôtel
   const [destination, setDestination] = useState('');
-  const [dates, setDates] = useState<string[]>([]);
+  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined });
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [showOccupants, setShowOccupants] = useState(false);
@@ -166,7 +164,7 @@ export default function HotelBookingForm() {
 
   // Validations
   const validateStep1 = () => {
-    return destination && dates.length === 2;
+    return destination && dateRange.from && dateRange.to;
   };
 
   const validateFinalStep = () =>
@@ -232,9 +230,12 @@ export default function HotelBookingForm() {
 
   // WhatsApp message generation
   const generateWhatsAppMessage = () => {
+    const fromDate = dateRange.from ? new Date(dateRange.from).toLocaleDateString('fr-FR') : '';
+    const toDate = dateRange.to ? new Date(dateRange.to).toLocaleDateString('fr-FR') : '';
+
     let message = `Réservation Hôtel:\n
 Destination: ${destination}\n
-Dates: ${dates.join(' - ')}\n
+Dates: ${fromDate} - ${toDate}\n
 Occupants: ${getOccupantsSummary().replace(/\n/g, ', ')}\n
 Étoiles: ${rating}⭐\n
 Options:\n
@@ -381,7 +382,7 @@ Téléphone: ${formData.phone}`;
           <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0 mb-6">
             {/* Destination */}
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" size={20} />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={20} />
               <input
                 id="destination"
                 type="text"
@@ -394,40 +395,22 @@ Téléphone: ${formData.phone}`;
             </div>
 
             {/* Dates */}
-            <div className="relative flex-1">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" size={20} />
-              <div className="w-full pl-10 pr-4 py-3 border rounded-lg focus-within:ring-2 focus-within:ring-orange-500 focus-within:border-transparent">
-                <Flatpickr
-                  options={{
-                    mode: "range",
-                    locale: French,
-                    minDate: "today",
-                    showMonths: isMobileView ? 1 : 2,
-                    dateFormat: "d/m/Y",
-                    static: false,
-                    disableMobile: false
-                  }}
-                  className="w-full flatpickr-input bg-transparent outline-none border-none"
-                  placeholder="Sélectionnez vos dates"
-                  value={dates}
-                  onChange={(selectedDates) => {
-                    setDates(selectedDates.map(d => d.toLocaleDateString('fr-FR')));
-                  }}
-                  required
-                />
-              </div>
-            </div>
+            <DateRangePickerCustom
+              value={dateRange}
+              onChange={(range: DateRange) => setDateRange(range)}
+              placeholder="Sélectionnez vos dates"
+            />
 
             {/* Occupants */}
             <div className="relative flex-1">
               <div
-                className="flex items-center justify-between p-3 border rounded-lg cursor-pointer min-h-[4rem] md:min-h-0"
+                className="flex items-center justify-between p-3 border rounded-lg cursor-pointer min-h-[3rem] md:min-h-0"
                 onClick={() => setShowOccupants(!showOccupants)}
                 aria-expanded={showOccupants}
               >
                 <div className="flex items-center gap-2">
                   <Users size={20} className="text-gray-400 flex-shrink-0" />
-                  <span className="truncate whitespace-pre-line">{getOccupantsSummary()}</span>
+                  <span className="truncate">{getOccupantsSummary()}</span>
                 </div>
                 <span className="text-gray-400 ml-2">{showOccupants ? '▲' : '▼'}</span>
               </div>

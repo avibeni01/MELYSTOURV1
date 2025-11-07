@@ -2,15 +2,13 @@
 
 import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
-import Flatpickr from 'react-flatpickr'
+import DateRangePickerCustom from '../DateRangePickerCustom'
+import type { DateRange } from 'react-day-picker'
 import Slider from 'react-slick'
 import {
-  Car, Calendar, Clock, ArrowRight, ArrowLeft,
+  Car, Clock, ArrowRight, ArrowLeft,
   Phone, Mail, MessageSquare, Check
 } from 'lucide-react'
-import 'flatpickr/dist/themes/airbnb.css'
-import 'flatpickr/dist/l10n/fr.js'
-import { French } from 'flatpickr/dist/l10n/fr.js'
 import { toast, Toaster } from 'react-hot-toast'
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -229,6 +227,7 @@ export default function CarRentalForm() {
   });
 
   const [selectedVehicle, setSelectedVehicle] = useState<any>(null);
+  const [dateRange, setDateRange] = useState<DateRange>({ from: undefined, to: undefined });
 
   // Filtrage des stations
   const selectedCountry = COUNTRIES.find(country => country.code === formData.country);
@@ -696,29 +695,23 @@ Téléphone: ${formData.phone}`;
               />
             </div>
             {/* Dates */}
-            <div className="relative sm:col-span-2 md:col-span-2">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-10 pointer-events-none" size={18} />
-              <div className="w-full pl-10 pr-4 py-3 border rounded-lg focus-within:ring-2 focus-within:ring-orange-500 focus-within:border-transparent relative">
-                <Flatpickr
-                  options={{
-                    mode: "range", locale: French, minDate: "today", showMonths: 1,
-                    dateFormat: "d/m/Y",
-                    static: false,
-                    disableMobile: false
-                  }}
-                  className="w-full flatpickr-input bg-transparent outline-none text-sm md:text-base border-none"
-                  placeholder="Dates Prise/Retour*"
-                  value={formData.pickupDate && formData.returnDate ? [formData.pickupDate, formData.returnDate] : []}
-                  onChange={(selectedDates) => {
-                    if (selectedDates.length === 2) {
-                      setFormData({ ...formData, pickupDate: selectedDates[0].toLocaleDateString('fr-FR'), returnDate: selectedDates[1].toLocaleDateString('fr-FR') });
-                    } else if (selectedDates.length === 0) {
-                       setFormData({ ...formData, pickupDate: '', returnDate: '' });
-                    }
-                  }}
-                  required
-                />
-              </div>
+            <div className="sm:col-span-2 md:col-span-2">
+              <DateRangePickerCustom
+                value={dateRange}
+                onChange={(range: DateRange) => {
+                  setDateRange(range);
+                  if (range?.from && range?.to) {
+                    setFormData({
+                      ...formData,
+                      pickupDate: range.from.toLocaleDateString('fr-FR'),
+                      returnDate: range.to.toLocaleDateString('fr-FR')
+                    });
+                  } else {
+                    setFormData({ ...formData, pickupDate: '', returnDate: '' });
+                  }
+                }}
+                placeholder="Dates Prise/Retour *"
+              />
             </div>
             {/* Wrapper for Time Pickers */}
             <div className="col-span-1 sm:col-span-2 md:col-span-2 flex flex-row gap-2 md:gap-4">
@@ -768,17 +761,15 @@ Téléphone: ${formData.phone}`;
           </div>
 
           {/* Ligne Options / Age / Promo */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 items-start">
+<div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 items-start">
             <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Question Visa avec logo */}
               <div className="col-span-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <p className="text-sm font-medium text-gray-800">
-                    Avez-vous une Visa Première ? <span className="text-red-500">*</span>
-                  </p>
-                  <img src="/images/visa-logo.svg" alt="Visa" className="h-5 w-auto" />
-                </div>
-                <div className="flex gap-4">
+                <p className="text-sm font-medium text-gray-800 mb-2">
+                  Avez-vous une Visa Première ? <span className="text-red-500">*</span>
+                </p>
+                <div className="flex gap-4 items-center">
+                    <img src="/images/visa.svg" alt="Visa Premier" className="h-3.5 w-auto ml-2" />
                   <label className="flex items-center">
                     <input
                       type="radio"
@@ -800,18 +791,17 @@ Téléphone: ${formData.phone}`;
                     />
                     <span className="ml-2">Non</span>
                   </label>
+                  
                 </div>
               </div>
 
               {/* Question Shabbat */}
               <div className="col-span-1">
-                <div className="flex items-center gap-2 mb-2">
-                  <p className="text-sm font-medium text-gray-800">
-                    Roulez-vous pendant Chabbat ? <span className="text-red-500">*</span>
-                  </p>
-                  <img src="/images/chabbat-icon.svg" alt="Chabbat" className="h-5 w-auto" />
-                </div>
-                <div className="flex gap-4">
+                <p className="text-sm font-medium text-gray-800 mb-2">
+                  Roulez-vous pendant Chabbat ? <span className="text-red-500">*</span>
+                </p>
+                <div className="flex gap-4 items-center">
+                    <img src="/images/chabbat.png" alt="Chabbat" className="h-8 w-auto ml-2" />
                   <label className="flex items-center">
                     <input
                       type="radio"
@@ -833,6 +823,7 @@ Téléphone: ${formData.phone}`;
                     />
                     <span className="ml-2">Non</span>
                   </label>
+                  
                 </div>
               </div>
             </div>

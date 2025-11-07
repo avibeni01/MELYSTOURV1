@@ -1,0 +1,10 @@
+/* Styles vraiment nécessaires seulement */
+.rdp-day_disabled {
+  text-decoration: line-through !important;
+  cursor: not-allowed !important;
+}
+
+.rdp-day:focus-visible {
+  outline: 2px solid rgb(249 115 22) !important;
+  outline-offset: 2px !important;
+}

@@ -496,12 +496,12 @@ export default function LocationVoiturePage() {
                   <div className="bg-white rounded-xl p-6 shadow-sm">
                     <div className="flex items-start">
                       <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        <span className="text-xl font-bold text-orange-600">21+</span>
+                        <span className="text-xl font-bold text-orange-600">18+</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-2">Âge minimum</h4>
                         <p className="text-sm text-gray-600">
-                          21 ans minimum requis. Des frais supplémentaires (jeune conducteur) peuvent s'appliquer pour les moins de 25 ans
+                          18 ans minimum requis. Des frais supplémentaires (jeune conducteur) peuvent s'appliquer pour les moins de 25 ans
                         </p>
                       </div>
                     </div>
@@ -514,7 +514,7 @@ export default function LocationVoiturePage() {
                       <div>
                         <h4 className="font-semibold text-gray-800 mb-2">Expérience de conduite</h4>
                         <p className="text-sm text-gray-600">
-                          Minimum 1 an d'expérience de conduite avec un permis valide
+                          Minimum 1 an de permis chez la plupart des loueurs. Certains loueurs acceptent des 6 mois d'expérience !
                         </p>
                       </div>
                     </div>
