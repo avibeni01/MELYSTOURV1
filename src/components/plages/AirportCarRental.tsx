@@ -305,18 +305,30 @@ const AirportCarRental = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {allRenters.map((renter) => {
                 const isShuttle = 'shuttleFrequency' in renter;
-                const iconColor = isShuttle ? 'text-rose-500' : 'text-orange-500';
-                const btnColor = isShuttle ? 'bg-rose-500 hover:bg-rose-600' : 'bg-orange-500 hover:bg-orange-600';
+                const iconColor = 'text-orange-500';
+                const btnColor = 'bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600';
+                const badgeColor = 'bg-orange-50 text-orange-700 border-orange-200';
+                const hasShuttleReturn = renter.returnInfo && renter.returnInfo.includes('Terminal 1');
 
                 return (
-                  <div key={renter.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
-                    {/* En-tête */}
-                    <div className="h-20 bg-white p-4 flex items-center justify-center border-b border-gray-100">
+                  <div key={renter.id} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-xl hover:border-gray-300 transition-all flex flex-col">
+                    {/* En-tête avec badges */}
+                    <div className="h-24 bg-gradient-to-br from-gray-50 to-white p-4 flex flex-col items-center justify-center border-b border-gray-100 relative">
                       <img src={typeof renter.logo === 'string' ? renter.logo : renter.logo.src} alt={`Logo ${renter.name}`} className="h-12 max-w-[180px] object-contain" />
+                      <div className="absolute top-2 right-2 flex flex-col gap-1">
+                        <span className="text-xs font-semibold px-2 py-1 rounded-full border bg-blue-50 text-blue-700 border-blue-200">
+                          Terminal 3
+                        </span>
+                        {hasShuttleReturn && (
+                          <span className="text-xs font-semibold px-2 py-1 rounded-full border bg-emerald-50 text-emerald-700 border-emerald-200">
+                            Retour T1
+                          </span>
+                        )}
+                      </div>
                     </div>
 
                     {/* Contenu */}
-                    <div className="p-5">
+                    <div className="p-5 flex flex-col flex-grow">
                       <h3 className="text-lg font-semibold text-gray-800 mb-3">
                         {renter.name} <span className={iconColor}>★</span>
                       </h3>
@@ -349,9 +361,9 @@ const AirportCarRental = () => {
 
                         {/* Info retour */}
                         {renter.returnInfo && (
-                          <div className="flex">
-                            <Car className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5 mr-2" />
-                            <span className="text-sm text-blue-600 font-medium">{renter.returnInfo}</span>
+                          <div className="flex bg-gradient-to-r from-emerald-50 to-teal-50 p-2 rounded border border-emerald-200">
+                            <Car className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5 mr-2" />
+                            <span className="text-sm text-emerald-700 font-medium">{renter.returnInfo}</span>
                           </div>
                         )}
 
@@ -367,7 +379,7 @@ const AirportCarRental = () => {
                       <p className="text-sm text-gray-700 mb-2 font-medium">Types de véhicules:</p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {renter.vehicles.map((vehicle, index) => (
-                          <span key={index} className="inline-block bg-gray-100 px-2 py-1 rounded-md text-xs text-gray-700">
+                          <span key={index} className={`inline-block ${badgeColor} border px-2 py-1 rounded-md text-xs font-medium`}>
                             {vehicle}
                           </span>
                         ))}
@@ -386,18 +398,21 @@ const AirportCarRental = () => {
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center">
                           <span className="text-sm font-medium text-gray-700 mr-1">Note clients:</span>
-                          <span className="bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">
+                          <div className="flex items-center bg-gradient-to-r from-yellow-100 to-amber-100 border border-yellow-300 text-amber-800 text-xs font-semibold px-2 py-1 rounded">
+                            <Star className="w-3 h-3 mr-1 fill-amber-500 text-amber-500" />
                             {renter.rating}/5
-                          </span>
+                          </div>
                         </div>
                       </div>
 
-                      <a
-                        href={`https://elynortours.com/location-de-voiture/?company=${renter.name.toLowerCase()}`}
-                        className={`block w-full ${btnColor} text-white text-center py-2 rounded-md transition-colors text-sm font-medium`}
-                      >
-                        Voir les tarifs avec Elynor Tours
-                      </a>
+                      <div className="mt-auto">
+                        <a
+                          href="/location-voiture#formulaire-devis"
+                          className={`block w-full ${btnColor} text-white text-center py-2.5 rounded-lg transition-all text-sm font-semibold shadow-md hover:shadow-lg`}
+                        >
+                          Voir les tarifs
+                        </a>
+                      </div>
                     </div>
                   </div>
                 );
@@ -472,9 +487,9 @@ const AirportCarRental = () => {
                           </div>
                         </td>
                         <td className="px-4 py-4 whitespace-nowrap">
-                          <a 
-                            href={`https://elynortours.com/location-de-voiture/?company=${renter.name.toLowerCase()}`}
-                            className={`inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded-md text-white ${isShuttle ? 'bg-rose-500 hover:bg-rose-600' : 'bg-orange-500 hover:bg-orange-600'} transition-colors`}
+                          <a
+                            href="/location-voiture#formulaire-devis"
+                            className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-semibold rounded-lg text-white bg-gradient-to-r from-orange-500 to-rose-500 hover:from-orange-600 hover:to-rose-600 transition-all shadow-sm hover:shadow-md"
                           >
                             Comparer
                           </a>
@@ -530,7 +545,7 @@ const AirportCarRental = () => {
                   </p>
                   <div className="mt-4">
                     <a
-                      href="https://elynortours.com/location-de-voiture/"
+                      href="/location-voiture#formulaire-devis"
                       className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 transition-colors"
                     >
                       Réserver maintenant
@@ -559,7 +574,7 @@ const AirportCarRental = () => {
                     <summary className="flex justify-between items-center font-medium cursor-pointer list-none p-4 bg-gray-50">
                       <span className="text-gray-800 font-medium">{item.question}</span>
                       <span className="transition group-open:rotate-180">
-                        <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                       </span>
                     </summary>
                     <div className="p-4 border-t border-gray-100">

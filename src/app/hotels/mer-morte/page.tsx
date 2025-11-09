@@ -239,25 +239,28 @@ export default function MerMorteHotelsPage() {
           </div>
         </section>
 
-        {/* Hotels selection */}
+        {/* Hotels selection - Avec images */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-12">Nos Meilleurs Hotels & Resorts Mer Morte</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
-                  {name: "Isrotel Dead Sea Resort & Spa", rating: "4.0/5", price: "380€", features: ["Resort luxe all inclusive, plage privee Mer Morte", "Spa complet : boue, soins mineraux, massages therapeutiques", "Piscines eau douce + minerale, restaurants kasher, animation"], tags: ["All Inclusive", "Spa luxe", "Plage privee", "Kasher"]},
-                  {name: "David Dead Sea Resort & Spa", rating: "4.0/5", price: "320€", features: ["Resort & Spa elegant, plage privee equipee", "Centre spa therapeutique complet, piscines int/ext", "Restaurants varies, parking gratuit, navette Jerusalem"], tags: ["Spa therapeutique", "2 piscines", "Navette", "Parking gratuit"]},
-                  {name: "Crowne Plaza Dead Sea", rating: "4.0/5", price: "280€", features: ["Chaine IHG (qualite fiable), plage privee Mer Morte", "Spa mineraux, piscine sulfureuse therapeutique unique", "Chambres vue mer, restaurants, proche Ein Bokek centre"], tags: ["IHG Hotels", "Piscine sulfureuse", "Vue mer", "Ein Bokek"]},
-                  {name: "Leonardo Club Dead Sea", rating: "4.0/5", price: "260€", features: ["All Inclusive familial, kids club 4-12 ans, animation", "Plage privee, spa boue, piscines enfants/adultes separees", "Buffets varies, proche site UNESCO Masada et Ein Gedi"], tags: ["All Inclusive", "Famille", "Kids club", "Masada 20km"]},
-                  {name: "Lot Spa Hotel", rating: "3.5/5", price: "200€", features: ["Spa economique qualite correcte, plage privee Mer Morte", "Soins boue minerale essentiels, piscine sulfureuse", "Chambres simples propres, demi-pension, wifi gratuit, calme"], tags: ["Budget", "Spa", "Demi-pension", "Calme"]}
+                  {name: "David Dead Sea Resort & Spa", image: "/images/hotels/mer-morte/david-dead-sea.webp", rating: "4.5/5", price: "340€", features: ["Resort spa luxueux en bord de Mer Morte", "Centre spa therapeutique complet avec boues", "Piscines interieures/exterieures, plage privee"], tags: ["Spa luxe", "Plage privee", "Piscines", "Therapeutique"]},
+                  {name: "Leonardo Club Dead Sea", image: "/images/hotels/mer-morte/leonardo-club-dead-sea.webp", rating: "4.2/5", price: "280€", features: ["All Inclusive familial ideal familles", "Kids club, animation, plage privee equipee", "Spa boue, piscines, buffets varies"], tags: ["All Inclusive", "Famille", "Kids club", "Spa"]},
+                  {name: "Nevo by Isrotel Collection", image: "/images/hotels/mer-morte/Nevo by Isrotel Collection.webp", rating: "4.3/5", price: "320€", features: ["Hotel spa moderne vue panoramique", "Spa complet avec boues minerales", "Service Isrotel reconnu, piscines, restaurants"], tags: ["Isrotel", "Vue panoramique", "Spa", "Moderne"]},
+                  {name: "Noga by Isrotel Collection", image: "/images/hotels/mer-morte/Noga by Isrotel Collection.webp", rating: "4.1/5", price: "290€", features: ["Resort spa confortable acces direct", "Soins therapeutiques mineraux de la Mer Morte", "Rapport qualite-prix excellent, piscines"], tags: ["Bon prix", "Spa therapeutique", "Isrotel", "Confortable"]}
                 ].map((h, i) => (
                   <div key={i} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-teal-100">
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h3 className="text-xl font-bold text-gray-800">{h.name}</h3>
-                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full"><Star className="text-green-600 mr-1" size={16} /><span className="font-bold text-green-600">{h.rating}</span></div>
+                    <div className="relative h-48 bg-gray-200">
+                      <img src={h.image} alt={h.name} className="w-full h-full object-cover" />
+                      <div className="absolute top-2 right-2 bg-green-100 px-3 py-1 rounded-full flex items-center">
+                        <Star className="text-green-600 mr-1" size={16} />
+                        <span className="font-bold text-green-600">{h.rating}</span>
                       </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">{h.name}</h3>
                       <p className="text-2xl font-bold text-teal-600 mb-4">A partir de {h.price}/nuit</p>
                       <ul className="space-y-2 mb-4">
                         {h.features.map((f, j) => <li key={j} className="flex items-start text-sm"><Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" /><span>{f}</span></li>)}
@@ -269,6 +272,21 @@ export default function MerMorteHotelsPage() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Note sur autres hotels disponibles */}
+              <div className="mt-8 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-6 border-2 border-teal-200">
+                <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                  <Hotel className="text-teal-500 mr-2" size={24} />
+                  Plus d'options disponibles
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Nous proposons egalement d'autres hotels spa a la Mer Morte selon vos besoins : Crowne Plaza Dead Sea, Lot Spa Hotel, et bien d'autres. Contactez-nous pour un devis personnalise.
+                </p>
+                <Link href="/contact" className="inline-flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition-colors">
+                  Demander conseil
+                  <Phone size={18} className="ml-2" />
+                </Link>
               </div>
             </div>
           </div>

@@ -268,7 +268,7 @@ export default function TelAvivHotelsPage() {
                   <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Phone className="text-purple-500" size={32} />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">Support 24/7</h3>
+                  <h3 className="text-xl font-bold mb-2">Support du Dimanche au Vendredi</h3>
                   <p className="text-gray-600">
                     Assistance francophone avant, pendant et apres votre sejour
                   </p>
@@ -338,590 +338,553 @@ export default function TelAvivHotelsPage() {
                   Hotels de Luxe 5* (400-800€/nuit)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* The Norman */}
                   <HotelCard
-                    name="The Jaffa, a Luxury Collection Hotel"
-                    slug="the-jaffa"
+                    name="The Norman Tel Aviv"
+                    slug="the-norman"
                     city="tel-aviv"
                     rating="4.5/5"
-                    price="450€"
-                    location="Old Jaffa (Vieux Jaffa)"
+                    price="420€"
+                    location="Boulevard Rothschild"
                     features={[
-                      "Architecture historique (ancien couvent francais 1865)",
-                      "Vue mer Mediterranee depuis rooftop, piscine panoramique",
-                      "2 restaurants gastronomiques, spa de luxe"
+                      "2 batiments Bauhaus restaures, architecture classee UNESCO",
+                      "Rooftop piscine, bibliotheque, service majordome",
+                      "Restaurant gastronomique, bar a cocktails"
                     ]}
-                    tags={["Wifi gratuit", "Piscine", "Spa", "Restaurant", "Parking"]}
-                    imageCount={3}
+                    tags={["Wifi gratuit", "Piscine rooftop", "Spa", "Restaurant"]}
+                    imageUrl="/images/hotels/tel-aviv/normand.webp"
+                    externalUrl="https://www.thenorman.com/"
                   />
 
-                  {/* The Norman */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">The Norman Tel Aviv</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
-                        Boulevard Rothschild
-                      </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 420€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>2 batiments Bauhaus restaures, architecture classee UNESCO</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Rooftop piscine, bibliotheque, service majordome</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Restaurant gastronomique, bar a cocktails</span>
-                        </li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Wifi gratuit</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Piscine rooftop</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Spa</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Restaurant</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                        Demander un devis
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* David Intercontinental */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">David Intercontinental Tel Aviv</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
-                        Front de mer (promenade Herbert Samuel)
-                      </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 380€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Acces direct plage, vue mer panoramique</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Piscine exterieure, spa, fitness 24/7</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>3 restaurants, business center, salles conference</span>
-                        </li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Plage privee</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Piscine</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Spa</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Restaurants</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                        Demander un devis
-                      </Link>
-                    </div>
-                  </div>
+                  {/* Sheraton Grand */}
+                  <HotelCard
+                    name="Sheraton Grand Tel Aviv"
+                    slug="sheraton"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="380€"
+                    location="Front de mer (promenade Herbert Samuel)"
+                    features={[
+                      "Acces direct plage, vue mer panoramique",
+                      "Piscine exterieure, spa, fitness 24/7",
+                      "3 restaurants, business center, salles conference"
+                    ]}
+                    tags={["Plage privee", "Piscine", "Spa", "Restaurants"]}
+                    imageUrl="/images/hotels/tel-aviv/sheraton.webp"
+                    externalUrl="https://www.marriott.com/en-us/hotels/tlvsi-sheraton-grand-tel-aviv"
+                  />
 
                   {/* Setai Tel Aviv */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Setai Tel Aviv</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
-                        Jaffa (Vieux Port)
-                      </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 480€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Design contemporain luxueux, suites spacieuses</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Rooftop piscine infinity, vue mer et Vieux Jaffa</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Restaurant etoile, spa haut de gamme</span>
-                        </li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Piscine infinity</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Spa luxe</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Restaurant</span>
-                        <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">Concierge</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
-                        Demander un devis
-                      </Link>
-                    </div>
-                  </div>
+                  <HotelCard
+                    name="Setai Tel Aviv"
+                    slug="setai"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="480€"
+                    location="Jaffa (Vieux Port)"
+                    features={[
+                      "Design contemporain luxueux, suites spacieuses",
+                      "Rooftop piscine infinity, vue mer et Vieux Jaffa",
+                      "Restaurant etoile, spa haut de gamme"
+                    ]}
+                    tags={["Piscine infinity", "Spa luxe", "Restaurant", "Concierge"]}
+                    imageUrl="/images/hotels/tel-aviv/setaiTLV.webp"
+                    externalUrl="https://thesetaihotels.com/"
+                  />
+
+                  {/* David Intercontinental */}
+                  <HotelCard
+                    name="David Intercontinental Tel Aviv"
+                    slug="david-intercontinental"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="380€"
+                    location="Front de mer (promenade Herbert Samuel)"
+                    features={[
+                      "Acces direct plage, vue mer panoramique",
+                      "Piscine exterieure, spa, fitness 24/7",
+                      "3 restaurants, business center, salles conference"
+                    ]}
+                    tags={["Plage privee", "Piscine", "Spa", "Restaurants"]}
+                    imageUrl="/images/hotels/tel-aviv/intercontinental.webp"
+                    externalUrl="https://www.ihg.com/intercontinental/hotels/gb/en/tel-aviv/tlvha/hoteldetail"
+                  />
+
+                  {/* Royal Beach */}
+                  <HotelCard
+                    name="Isrotel Royal Beach Tel Aviv"
+                    slug="royal-beach"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="350€"
+                    location="Front de mer"
+                    features={[
+                      "Acces direct a la plage, vue mer exceptionnelle",
+                      "Piscine exterieure, spa wellness center",
+                      "Restaurants kasher, salles evenements"
+                    ]}
+                    tags={["Plage privee", "Piscine", "Spa", "Kasher"]}
+                    imageUrl="/images/hotels/tel-aviv/royalbeach.webp"
+                    externalUrl="https://www.isrotel.co.il/isrotel-hotels/tel-aviv/%D7%A8%D7%95%D7%99%D7%90%D7%9C-%D7%91%D7%99%D7%A5-%D7%AA%D7%9C-%D7%90%D7%91%D7%99%D7%91/"
+                  />
+
+                  {/* Hilton Tel Aviv */}
+                  <HotelCard
+                    name="Hilton Tel Aviv"
+                    slug="hilton"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="320€"
+                    location="Plage de Tel Aviv"
+                    features={[
+                      "Localisation premium sur la plage",
+                      "Piscine avec vue mer, centre fitness complet",
+                      "Plusieurs restaurants, terrasses panoramiques"
+                    ]}
+                    tags={["Plage", "Piscine", "Fitness", "Restaurants"]}
+                    imageUrl="/images/hotels/tel-aviv/HiltonTLV.webp"
+                    externalUrl="https://www.hilton.com/en/hotels/tlvhitw-hilton-tel-aviv/"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Crowne Plaza Beach */}
+                  <HotelCard
+                    name="Crowne Plaza Tel Aviv Beach"
+                    slug="crowne-plaza-beach"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="320€"
+                    location="Front de mer - Gordon Beach"
+                    features={[
+                      "Accès direct plage Gordon, 246 chambres vue mer panoramique",
+                      "2 piscines (extérieure chauffée + intérieure ouverte toute l'année)",
+                      "Spa complet sauna hammam jacuzzi, restaurant Bellissima vue mer"
+                    ]}
+                    tags={["Piscine intérieure/extérieure", "Spa & Wellness", "3 Restaurants", "Plage privée", "WiFi gratuit"]}
+                    imageUrl="/images/hotels/tel-aviv/crownetlvbeach.webp"
+                    externalUrl="https://www.booking.com/hotel/il/crowne-plaza-tel-aviv.fr.html"
+                  />
+
+                
+                  {/* David Kempinski */}
+                  <HotelCard
+                    name="The David Kempinski Tel Aviv"
+                    slug="david-kempinski"
+                    city="tel-aviv"
+                    rating="4.5/5"
+                    price="420€"
+                    location="Front de mer - Frishman Beach"
+                    features={[
+                      "Ultra-luxe groupe Kempinski, service personnalisé d'exception",
+                      "Piscine infinity rooftop, spa holistique soins signature",
+                      "Restaurant gastronomique primé chef étoilé, plage privée cabanas luxe"
+                    ]}
+                    tags={["Piscine infinity", "Spa holistique", "Restaurant étoilé", "Plage privée", "Suites luxe"]}
+                    imageUrl="/images/hotels/tel-aviv/kempinskitlv.webp"
+                    externalUrl="https://www.booking.com/hotel/il/the-david-kempinski-tel-aviv-tel-aviv-yafo.fr.html"
+                  />
+
+                  {/* Carlton */}
+                  <HotelCard
+                    name="Carlton Tel Aviv Hotel"
+                    slug="carlton"
+                    city="tel-aviv"
+                    rating="4.4/5"
+                    price="340€"
+                    location="Front de mer - Marina"
+                    features={[
+                      "Emplacement premium promenade maritime, proche Marina",
+                      "Piscine rooftop vue panoramique mer et ville, bar piscine",
+                      "Restaurant kasher, service Shabbat adapté, chambres rénovées balcon"
+                    ]}
+                    tags={["Rooftop piscine", "Restaurant kasher", "Vue mer/marina", "Bar piscine", "WiFi gratuit"]}
+                    imageUrl="/images/hotels/tel-aviv/carltontlv.webp"
+                    externalUrl="https://www.booking.com/hotel/il/carlton-tel-aviv.fr.html"
+                  />
+
+                  {/* Opera Tower */}
+                  <HotelCard
+                    name="Opera Tower Hotel by Herbert Samuel"
+                    slug="opera-tower"
+                    city="tel-aviv"
+                    rating="4.3/5"
+                    price="260€"
+                    location="Front de mer - Opera Tower"
+                    features={[
+                      "Tour Opera emblématique, appartements-hôtel spacieux longue durée",
+                      "Kitchenette équipée salon séparé, piscine extérieure terrasse panoramique",
+                      "Restaurant Herbert Samuel rez-de-chaussée, face à la plage"
+                    ]}
+                    tags={["Appartements équipés", "Kitchenette", "Piscine panoramique", "Restaurant Herbert Samuel", "Longue durée"]}
+                    imageUrl="/images/hotels/tel-aviv/herberttlv.webp"
+                    externalUrl="https://www.booking.com/hotel/il/opera-tel-aviv-by-herbert-samuel.fr.html"
+                  />
+
+                  {/* Renaissance */}
+                  <HotelCard
+                    name="Renaissance Tel Aviv Hotel"
+                    slug="renaissance"
+                    city="tel-aviv"
+                    rating="4.6/5"
+                    price="350€"
+                    location="Front de mer - Hayarkon"
+                    features={[
+                      "Plage privée exclusive architecture moderne, design contemporain",
+                      "Piscine intérieure chauffée, centre fitness ultramoderne 24/7",
+                      "Restaurant gastronomique, bar rooftop vue panoramique 360°"
+                    ]}
+                    tags={["Plage privée", "Piscine intérieure", "Rooftop bar", "Fitness 24/7", "Restaurant gastronomique"]}
+                    imageUrl="/images/hotels/tel-aviv/renaissancetlv.webp"
+                    externalUrl="https://www.booking.com/hotel/il/renaissance-tel-aviv.fr.html"
+                  />
+
+                  {/* Crowne Plaza City */}
+                  <HotelCard
+                    name="Crowne Plaza City Centre"
+                    slug="crowne-plaza-city"
+                    city="tel-aviv"
+                    rating="4.2/5"
+                    price="220€"
+                    location="Centre-ville - Azrieli"
+                    features={[
+                      "Tours Azrieli centre d'affaires, vue panoramique ville",
+                      "Centre de conférences high-tech 12 salles équipées",
+                      "Navette gratuite vers plages, proche gare centrale Savidor"
+                    ]}
+                    tags={["Centre conférences", "Navette plage", "Tours Azrieli", "12 salles réunion", "WiFi haut débit"]}
+                    imageUrl="/images/hotels/tel-aviv/croxncitytlv.webp"
+                    externalUrl="https://www.booking.com/hotel/il/crowne-plaza-city-centre-tlv.fr.html"
+                  />
+
+                  {/* Isrotel Sea Tower */}
+                  <HotelCard
+                    name="Sea Tower - Isrotel"
+                    slug="isrotel-sea-tower"
+                    city="tel-aviv"
+                    rating="4.3/5"
+                    price="290€"
+                    location="Front de mer - Hayarkon Nord"
+                    features={[
+                      "Tour moderne 19 étages, toutes chambres vue mer garantie",
+                      "Grandes chambres familiales, restaurant kasher Mehadrin",
+                      "Piscine couverte chauffée salle fitness sauna, proche port Tel Aviv"
+                    ]}
+                    tags={["Vue mer garantie", "Chambres familiales", "Kasher Mehadrin", "Piscine couverte", "Sauna"]}
+                    imageUrl="/images/hotels/tel-aviv/SEATOWER.webp"
+                    externalUrl="https://www.booking.com/hotel/il/isrotel-sea-tower-tel-aviv.fr.html"
+                  />
+
+                  {/* Dan Tel Aviv */}
+                  <HotelCard
+                    name="Dan Tel Aviv Hotel"
+                    slug="dan-tel-aviv"
+                    city="tel-aviv"
+                    rating="4.4/5"
+                    price="380€"
+                    location="Front de mer - Hayarkon"
+                    features={[
+                      "Hôtel iconique 280 chambres vue mer spectaculaire, Leading Hotels",
+                      "2 piscines (intérieure 28°C + extérieure eau salée) toute l'année",
+                      "Spa Via LOMAH 4 salles massages couples, business lounge 18e étage"
+                    ]}
+                    tags={["2 Piscines", "Spa Via LOMAH", "Business lounge", "Restaurant vue mer", "Leading Hotels"]}
+                    imageUrl="/images/hotels/tel-aviv/DANTLV.webp"
+                    externalUrl="https://www.booking.com/hotel/il/dan-tel-aviv.fr.html"
+                  />
+
+                  {/* Dan Panorama */}
+                  <HotelCard
+                    name="Dan Panorama Tel Aviv"
+                    slug="dan-panorama"
+                    city="tel-aviv"
+                    rating="4.3/5"
+                    price="280€"
+                    location="Neve Tzedek - Front de mer"
+                    features={[
+                      "480 chambres spacieuses vue mer, quartier Neve Tzedek charme",
+                      "Piscine extérieure jacuzzi, Carmel Club Lounge 18e vue panoramique",
+                      "Centre congrès complet, face plage proche Vieux Jaffa 10 min"
+                    ]}
+                    tags={["Piscine & Jacuzzi", "Club Lounge 18e", "Centre congrès", "Face plage", "Neve Tzedek"]}
+                    imageUrl="/images/hotels/tel-aviv/DanPanoramaTLV.webp"
+                    externalUrl="https://www.booking.com/hotel/il/dan-panorama-tel-aviv.fr.html"
+                  />
+
+                  {/* Grand Beach */}
+                  <HotelCard
+                    name="Grand Beach Hotel Tel Aviv"
+                    slug="grand-beach"
+                    city="tel-aviv"
+                    rating="4.0/5"
+                    price="200€"
+                    location="Front de mer - Allenby"
+                    features={[
+                      "Rénové 2023 design contemporain frais, accès direct plage Bograshov",
+                      "Rooftop bar trendy DJ piscine rooftop vue mer 360°",
+                      "Restaurant méditerranéen moderne brunch week-end, proche Carmel Market"
+                    ]}
+                    tags={["Rénové 2023", "Plage incluse", "Rooftop bar & piscine", "Brunch week-end", "Design moderne"]}
+                    imageUrl="/images/hotels/tel-aviv/grandbeach.webp"
+                    externalUrl="https://www.booking.com/hotel/il/grand-beach-tel-aviv.fr.html"
+                  />
                 </div>
               </div>
 
-              {/* Boutique 4* */}
+              {/* Autres Hotels */}
               <div className="mb-12">
                 <h3 className="text-2xl font-bold mb-6 flex items-center">
-                  <Hotel className="text-purple-500 mr-3" size={28} />
-                  Hotels Boutique 4* (200-400€/nuit)
+                  <Coffee className="text-orange-500 mr-3" size={28} />
+                  Autres Hotels a Tel Aviv
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
                   {/* 65 Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">65 Hotel</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">65 Hotel</h4>
+                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full">
+                          <Star className="text-green-600 mr-1" size={14} />
+                          <span className="font-bold text-green-600 text-sm">4.5/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Boulevard Rothschild
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 220€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Hotel boutique design, batiment Bauhaus renove</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 220€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Boutique design Bauhaus</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Chambres modernes, rooftop avec vue Rothschild</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Petit-dejeuner gastronomique, cafe artisanal</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Rooftop vue Rothschild</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Wifi gratuit</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Rooftop</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Design</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Petit-dej</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Brown TLV */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Brown TLV Urban Hotel</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Brown TLV Urban</h4>
+                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full">
+                          <Star className="text-green-600 mr-1" size={14} />
+                          <span className="font-bold text-green-600 text-sm">4.5/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Boulevard Rothschild
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 240€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Hotel trendy, decor industriel chic, atmosphere jeune</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 240€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Trendy, decor industriel</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Bar-lounge populaire, happy hour quotidien</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>10min a pied des plages, velos gratuits</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Bar-lounge, velos gratuits</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Wifi gratuit</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Bar</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Velos</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Trendy</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Lighthouse Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Lighthouse Hotel</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Lighthouse Hotel</h4>
+                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full">
+                          <Star className="text-green-600 mr-1" size={14} />
+                          <span className="font-bold text-green-600 text-sm">4.5/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Front de mer (plage Hilton)
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 280€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Acces direct plage Hilton, vue mer exceptionnelle</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 280€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Acces direct plage Hilton</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Design moderne, chambres spacieuses avec balcon</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Restaurant vue mer, rooftop bar, piscine</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Rooftop bar, piscine</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Vue mer</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Plage</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Piscine</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Restaurant</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Alma Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Alma Hotel</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Alma Hotel</h4>
+                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full">
+                          <Star className="text-green-600 mr-1" size={14} />
+                          <span className="font-bold text-green-600 text-sm">4.5/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Centre-ville (Yehuda HaLevi)
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 260€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Boutique hotel design, atmosphere intimiste</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 260€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Boutique design intimiste</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Spa, hammam, salles massage, terrasse zen</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Proche Carmel Market, Rothschild, plages (10min)</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Spa, hammam, terrasse zen</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Spa</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Hammam</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Design</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Calme</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Cinema Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Cinema Hotel</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Cinema Hotel</h4>
+                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full">
+                          <Star className="text-green-600 mr-1" size={14} />
+                          <span className="font-bold text-green-600 text-sm">4.5/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Dizengoff (quartier cinema)
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 210€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Theme cinematographique unique, decor vintage annees 30</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 210€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Theme cinematographique unique</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Rooftop bar tendance, projections films classiques</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Dizengoff Center, cafes branches, vie nocturne</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Rooftop bar tendance</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Thematique</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Rooftop bar</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Design vintage</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Trendy</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Market House Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Market House Hotel</h4>
-                        <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">
-                          <Star className="text-green-600 mr-1" size={16} />
-                          <span className="font-bold text-green-600">4.5/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Market House Hotel</h4>
+                        <div className="flex items-center bg-green-100 px-2 py-1 rounded-full">
+                          <Star className="text-green-600 mr-1" size={14} />
+                          <span className="font-bold text-green-600 text-sm">4.5/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Marche Carmel
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 230€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Au coeur du marche Carmel, atmosphere locale authentique</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 230€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Coeur du marche Carmel</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Design moderne, terrasse vue marche, restaurant local</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Experience gastronomique, acces plages 8min a pied</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Terrasse vue marche</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Marche Carmel</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Restaurant</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Terrasse</span>
-                        <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded">Authentique</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Standard 3* */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-bold mb-6 flex items-center">
-                  <Coffee className="text-orange-500 mr-3" size={28} />
-                  Hotels Standard 3* (120-200€/nuit)
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Dan Tel Aviv */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Dan Tel Aviv Hotel</h4>
-                        <div className="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
-                          <Star className="text-yellow-600 mr-1" size={16} />
-                          <span className="font-bold text-yellow-600">4.0/5</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
-                        Front de mer (plage Gordon)
-                      </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 180€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Vue mer, acces direct plage Gordon Beach</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Piscine exterieure, salle fitness, business center</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Chaine Dan (qualite fiable), service efficace</span>
-                        </li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Vue mer</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Piscine</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Plage</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Wifi</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
-                        Demander un devis
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* Carlton Tel Aviv */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Carlton Tel Aviv Hotel</h4>
-                        <div className="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
-                          <Star className="text-yellow-600 mr-1" size={16} />
-                          <span className="font-bold text-yellow-600">4.0/5</span>
-                        </div>
-                      </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
-                        Front de mer (promenade)
-                      </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 190€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Emplacement premium front de mer, vue panoramique</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Rooftop piscine, restaurant kasher, parking securise</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Rapport qualite-prix excellent pour front de mer</span>
-                        </li>
-                      </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Rooftop piscine</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Kasher</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Parking</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Vue mer</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
-                        Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Melody Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Melody Hotel Tel Aviv</h4>
-                        <div className="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
-                          <Star className="text-yellow-600 mr-1" size={16} />
-                          <span className="font-bold text-yellow-600">4.0/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Melody Hotel</h4>
+                        <div className="flex items-center bg-yellow-100 px-2 py-1 rounded-full">
+                          <Star className="text-yellow-600 mr-1" size={14} />
+                          <span className="font-bold text-yellow-600 text-sm">4.0/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Centre-ville (Allenby)
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 130€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Meilleur rapport qualite-prix Tel Aviv, propre et moderne</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 130€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Meilleur rapport qualite-prix</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>5min a pied plages, proche Carmel Market et Rothschild</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Petit-dejeuner buffet inclus, wifi gratuit, AC</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>5min plages, central</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Budget</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Propre</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Central</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Petit-dej inclus</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
                   </div>
 
                   {/* Port Hotel */}
-                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div className="p-6">
+                  <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-gray-200">
+                    <div className="p-5">
                       <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-xl font-bold text-gray-800">Port Hotel Tel Aviv</h4>
-                        <div className="flex items-center bg-yellow-100 px-3 py-1 rounded-full">
-                          <Star className="text-yellow-600 mr-1" size={16} />
-                          <span className="font-bold text-yellow-600">4.0/5</span>
+                        <h4 className="text-lg font-bold text-gray-800">Port Hotel</h4>
+                        <div className="flex items-center bg-yellow-100 px-2 py-1 rounded-full">
+                          <Star className="text-yellow-600 mr-1" size={14} />
+                          <span className="font-bold text-yellow-600 text-sm">4.0/5</span>
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-3 flex items-center">
-                        <MapPin size={16} className="mr-2 text-blue-500" />
+                      <p className="text-gray-600 mb-2 flex items-center text-sm">
+                        <MapPin size={14} className="mr-2 text-blue-500" />
                         Vieux Port (Tel Aviv Nord)
                       </p>
-                      <p className="text-2xl font-bold text-blue-600 mb-4">A partir de 150€/nuit</p>
-                      <ul className="space-y-2 mb-4">
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Vieux Port renove, restaurants fruits de mer, vie nocturne</span>
+                      <p className="text-xl font-bold text-blue-600 mb-3">A partir de 150€/nuit</p>
+                      <ul className="space-y-1 mb-3">
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Vieux Port renove</span>
                         </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Chambres avec balcon, decor nautique moderne</span>
-                        </li>
-                        <li className="flex items-start text-sm">
-                          <Check size={16} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                          <span>Plage Hilton 5min, quartier residentiel calme</span>
+                        <li className="flex items-start text-xs">
+                          <Check size={14} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>Balcon, decor nautique</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Vieux Port</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Balcon</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Restaurants</span>
-                        <span className="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">Calme</span>
-                      </div>
-                      <Link href="/contact" className="block w-full text-center bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
+                      <a href="#booking-form" className="block w-full text-center bg-orange-600 text-white py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold text-sm">
                         Demander un devis
-                      </Link>
+                      </a>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Info qualite */}
-              <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-center">Qualite Hoteliere Tel Aviv</h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                  <div>
-                    <p className="text-4xl font-bold text-blue-600 mb-2">18</p>
-                    <p className="text-gray-700">Hotels notes 4.5/5 ou plus sur TripAdvisor</p>
-                  </div>
-                  <div>
-                    <p className="text-4xl font-bold text-blue-600 mb-2">4.2/5</p>
-                    <p className="text-gray-700">Note moyenne generale (ville tres bien notee)</p>
-                  </div>
-                  <div>
-                    <p className="text-4xl font-bold text-blue-600 mb-2">Top 3</p>
-                    <p className="text-gray-700">Points forts: Personnel francophone, proprete, emplacement</p>
                   </div>
                 </div>
               </div>
@@ -962,7 +925,7 @@ export default function TelAvivHotelsPage() {
               Tarifs exclusifs • Meilleure selection • Assistance francophone
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+              <Link href="/hotels" className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
                 Demander un devis
                 <Phone size={20} className="ml-2" />
               </Link>

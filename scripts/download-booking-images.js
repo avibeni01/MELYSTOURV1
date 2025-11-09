@@ -1,173 +1,112 @@
-// Script pour télécharger les images depuis Booking.com
+const puppeteer = require('puppeteer');
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
 
-// Charger les URLs depuis le fichier JSON
-const urlsFile = path.join(__dirname, 'booking-urls.json');
-const bookingData = JSON.parse(fs.readFileSync(urlsFile, 'utf8'));
+const hotels = [
+  { url: 'https://www.booking.com/hotel/il/crowne-plaza-tel-aviv.fr.html', filename: 'crowne-plaza.webp' },
+  { url: 'https://www.booking.com/hotel/il/yamitpplaza.fr.html', filename: 'yamit-plaza.webp' },
+  { url: 'https://www.booking.com/hotel/il/the-david-kempinski-tel-aviv-tel-aviv-yafo.fr.html', filename: 'david-kempinski.webp' },
+  { url: 'https://www.booking.com/hotel/il/carlton-tel-aviv.fr.html', filename: 'carlton.webp' },
+  { url: 'https://www.booking.com/hotel/il/opera-tel-aviv-by-herbert-samuel.fr.html', filename: 'opera-tower.webp' },
+  { url: 'https://www.booking.com/hotel/il/renaissance-tel-aviv.fr.html', filename: 'renaissance.webp' },
+  { url: 'https://www.booking.com/hotel/il/crowne-plaza-city-centre-tlv.fr.html', filename: 'crowne-plaza-city.webp' },
+  { url: 'https://www.booking.com/hotel/il/moriah-plaza-tel-aviv.fr.html', filename: 'moriah-plaza.webp' },
+  { url: 'https://www.booking.com/hotel/il/isrotel-sea-tower-tel-aviv.fr.html', filename: 'isrotel-sea-tower.webp' },
+  { url: 'https://www.booking.com/hotel/il/dan-tel-aviv.fr.html', filename: 'dan-tel-aviv.webp' },
+  { url: 'https://www.booking.com/hotel/il/dan-panorama-tel-aviv.fr.html', filename: 'dan-panorama.webp' },
+  { url: 'https://www.booking.com/hotel/il/marina-tel-aviv.fr.html', filename: 'marina-hotel.webp' },
+  { url: 'https://www.booking.com/hotel/il/grand-beach-tel-aviv.fr.html', filename: 'grand-beach.webp' }
+];
 
-// Fonction pour télécharger une image depuis Booking
-function downloadBookingImage(url, filepath) {
+const outputDir = path.join(__dirname, '..', 'public', 'images', 'hotels', 'tel-aviv');
+
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+async function downloadImage(imageUrl, outputPath) {
   return new Promise((resolve, reject) => {
-    if (!url || url.trim() === '') {
-      reject(new Error('URL vide'));
-      return;
-    }
-
-    // Nettoyer l'URL (enlever les paramètres inutiles, garder seulement k= et o=)
-    const urlObj = new URL(url);
-    const cleanUrl = `${urlObj.origin}${urlObj.pathname}${urlObj.search}`;
-
-    https.get(cleanUrl, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-        'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8',
-        'Referer': 'https://www.booking.com/',
-        'Accept-Language': 'fr-FR,fr;q=0.9'
+    https.get(imageUrl, (response) => {
+      if (response.statusCode === 200) {
+        const fileStream = fs.createWriteStream(outputPath);
+        response.pipe(fileStream);
+        fileStream.on('finish', () => {
+          fileStream.close();
+          resolve();
+        });
+      } else {
+        reject(new Error(`Failed to download: ${response.statusCode}`));
       }
-    }, (response) => {
-      // Gérer les redirects
-      if (response.statusCode === 301 || response.statusCode === 302) {
-        downloadBookingImage(response.headers.location, filepath).then(resolve).catch(reject);
-        return;
-      }
-
-      if (response.statusCode !== 200) {
-        reject(new Error(`HTTP ${response.statusCode}`));
-        return;
-      }
-
-      const file = fs.createWriteStream(filepath);
-      response.pipe(file);
-
-      file.on('finish', () => {
-        file.close();
-        resolve();
-      });
-
-      file.on('error', (err) => {
-        fs.unlink(filepath, () => {});
-        reject(err);
-      });
-    }).on('error', reject).setTimeout(30000, function() {
-      this.abort();
-      reject(new Error('Timeout'));
-    });
+    }).on('error', reject);
   });
 }
 
-// Fonction pour extraire le numéro d'image depuis l'URL Booking
-function extractImageNumber(url) {
-  const match = url.match(/\/(\d+)\.jpg/);
-  return match ? match[1] : null;
-}
+async function scrapeHotelImages() {
+  console.log('🚀 Lancement du scraper Booking.com...\n');
 
-// Fonction principale
-async function downloadAllBookingImages() {
-  const baseDir = path.join(__dirname, '..', 'public', 'images', 'hotels');
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
 
-  let total = 0;
-  let success = 0;
-  let skipped = 0;
-  let failed = 0;
+  for (let i = 0; i < hotels.length; i++) {
+    const hotel = hotels[i];
+    console.log(`[${i + 1}/${hotels.length}] Traitement de ${hotel.filename}...`);
 
-  for (const [city, cityHotels] of Object.entries(bookingData)) {
-    if (city === 'instructions') continue;
+    try {
+      const page = await browser.newPage();
 
-    console.log(`\n📍 ${city.toUpperCase()}`);
+      // Set user agent to avoid blocking
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
-    const cityDir = path.join(baseDir, city);
-    if (!fs.existsSync(cityDir)) {
-      fs.mkdirSync(cityDir, { recursive: true });
-    }
+      await page.goto(hotel.url, { waitUntil: 'networkidle2', timeout: 30000 });
 
-    for (const [hotelSlug, hotelData] of Object.entries(cityHotels)) {
-      const hotelDir = path.join(cityDir, hotelSlug);
-      if (!fs.existsSync(hotelDir)) {
-        fs.mkdirSync(hotelDir, { recursive: true });
-      }
+      // Wait for images to load
+      await page.waitForSelector('img[data-testid="image"]', { timeout: 10000 }).catch(() => {
+        console.log('  ⚠️  Sélecteur principal non trouvé, essai alternatif...');
+      });
 
-      console.log(`  🏨 ${hotelSlug}`);
+      // Try to get the first hotel image
+      const imageUrl = await page.evaluate(() => {
+        // Try multiple selectors
+        const selectors = [
+          'img[data-testid="image"]',
+          '.bh-photo-grid img',
+          'a[data-testid="gallery-image"] img',
+          '.hotel-photo img'
+        ];
 
-      // Utiliser manual_images
-      const images = hotelData.manual_images || [];
-
-      if (images.length === 0) {
-        console.log(`    ⚠️  Aucune image (ajoute des URLs dans booking-urls.json)`);
-        skipped++;
-        continue;
-      }
-
-      for (let i = 0; i < images.length; i++) {
-        total++;
-        const url = images[i];
-        const filename = `${i + 1}.jpg`;
-        const filepath = path.join(hotelDir, filename);
-
-        // Vérifier si l'image existe déjà
-        if (fs.existsSync(filepath)) {
-          console.log(`    ⏭️  ${filename} (déjà existante)`);
-          success++;
-          continue;
-        }
-
-        try {
-          await downloadBookingImage(url, filepath);
-
-          // Vérifier que le fichier n'est pas vide
-          const stats = fs.statSync(filepath);
-          if (stats.size < 1000) {
-            fs.unlinkSync(filepath);
-            throw new Error('Fichier trop petit (probablement erreur)');
+        for (const selector of selectors) {
+          const img = document.querySelector(selector);
+          if (img && img.src) {
+            return img.src;
           }
-
-          console.log(`    ✅ ${filename} (${Math.round(stats.size / 1024)}KB)`);
-          success++;
-
-          // Délai pour éviter de surcharger Booking
-          await new Promise(resolve => setTimeout(resolve, 800));
-        } catch (error) {
-          console.error(`    ❌ ${filename}: ${error.message}`);
-          failed++;
         }
+        return null;
+      });
+
+      await page.close();
+
+      if (imageUrl) {
+        // Download the image
+        const outputPath = path.join(outputDir, hotel.filename);
+        await downloadImage(imageUrl, outputPath);
+        console.log(`  ✅ ${hotel.filename} téléchargé avec succès`);
+      } else {
+        console.log(`  ❌ Aucune image trouvée pour ${hotel.filename}`);
       }
+
+      // Wait a bit between requests to be polite
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+    } catch (error) {
+      console.log(`  ❌ Erreur pour ${hotel.filename}: ${error.message}`);
     }
   }
 
-  console.log(`\n\n╔═══════════════════════════════╗`);
-  console.log(`║      RÉSUMÉ TÉLÉCHARGEMENT     ║`);
-  console.log(`╚═══════════════════════════════╝`);
-  console.log(`📊 Total tentatives: ${total}`);
-  console.log(`✅ Succès: ${success}`);
-  console.log(`⚠️  Sautées (pas d'URL): ${skipped} hôtels`);
-  console.log(`❌ Échecs: ${failed}`);
-  console.log(`📁 Dossier: ${baseDir}`);
-
-  if (success > 0) {
-    console.log(`\n🎉 ${success} images téléchargées avec succès!`);
-  }
-
-  if (skipped > 0) {
-    console.log(`\n💡 PROCHAINES ÉTAPES:`);
-    console.log(`   1. Ouvre booking-urls.json`);
-    console.log(`   2. Trouve l'hôtel sur Booking.com`);
-    console.log(`   3. Clique droit sur 3 photos -> Copier l'adresse`);
-    console.log(`   4. Colle les URLs dans manual_images: ["url1", "url2", "url3"]`);
-    console.log(`   5. Relance: node scripts/download-booking-images.js`);
-  }
-
-  if (failed > 0) {
-    console.log(`\n⚠️  ${failed} échecs - vérifie que les URLs sont correctes`);
-  }
+  await browser.close();
+  console.log('\n✨ Scraping terminé !');
 }
 
-// Exécuter
-console.log('╔════════════════════════════════════════╗');
-console.log('║  TÉLÉCHARGEMENT IMAGES BOOKING.COM     ║');
-console.log('╚════════════════════════════════════════╝\n');
-
-downloadAllBookingImages().catch(error => {
-  console.error('\n❌ ERREUR FATALE:', error.message);
-  console.error(error.stack);
-});
+scrapeHotelImages().catch(console.error);

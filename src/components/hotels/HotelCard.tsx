@@ -15,6 +15,8 @@ interface HotelCardProps {
   features: string[]
   tags?: string[]
   imageCount?: number
+  imageUrl?: string
+  externalUrl?: string
 }
 
 export default function HotelCard({
@@ -26,7 +28,9 @@ export default function HotelCard({
   location,
   features,
   tags = [],
-  imageCount = 3
+  imageCount = 3,
+  imageUrl,
+  externalUrl
 }: HotelCardProps) {
   const [currentImage, setCurrentImage] = useState(0)
 
@@ -43,7 +47,7 @@ export default function HotelCard({
       {/* Image Carousel */}
       <div className="relative h-64 bg-gray-200">
         <Image
-          src={`/images/hotels/${city}/${slug}/${currentImage + 1}.jpg`}
+          src={imageUrl || `/images/hotels/${city}/${slug}/${currentImage + 1}.jpg`}
           alt={`${name} - Image ${currentImage + 1}`}
           fill
           className="object-cover"
@@ -129,12 +133,23 @@ export default function HotelCard({
         </ul>
 
         {/* CTA */}
-        <Link
-          href="/contact"
-          className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors font-medium"
-        >
-          Demander un devis
-        </Link>
+        {externalUrl ? (
+          <a
+            href={externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors font-medium"
+          >
+            Voir l'hôtel
+          </a>
+        ) : (
+          <Link
+            href="/contact"
+            className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg transition-colors font-medium"
+          >
+            Demander un devis
+          </Link>
+        )}
       </div>
     </div>
   )

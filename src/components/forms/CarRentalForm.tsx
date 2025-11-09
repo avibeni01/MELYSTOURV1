@@ -496,7 +496,7 @@ Téléphone: ${formData.phone}`;
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         <input
           type="text"
-          className="p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           placeholder="Prénom *"
           value={formData.firstName}
           onChange={(e) => setFormData({...formData, firstName: e.target.value})}
@@ -505,7 +505,7 @@ Téléphone: ${formData.phone}`;
         />
         <input
           type="text"
-          className="p-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+          className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
           placeholder="Nom *"
           value={formData.lastName}
           onChange={(e) => setFormData({...formData, lastName: e.target.value})}
@@ -518,7 +518,7 @@ Téléphone: ${formData.phone}`;
           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           <input
             type="email"
-            className="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             placeholder="Email *"
             value={formData.email}
             onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -530,7 +530,7 @@ Téléphone: ${formData.phone}`;
           <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           <input
             type="tel"
-            className="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
             placeholder="Téléphone *"
             value={formData.phone}
             onChange={(e) => setFormData({...formData, phone: e.target.value})}
@@ -543,7 +543,7 @@ Téléphone: ${formData.phone}`;
         <div className="relative">
           <MessageSquare className="absolute left-3 top-4 text-gray-400" size={20} />
           <textarea
-            className="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent resize-none"
             placeholder="Notes ou remarques (facultatif)"
             rows={4}
             value={formData.notes}
@@ -611,14 +611,15 @@ Téléphone: ${formData.phone}`;
                 className="react-select-container text-sm md:text-base"
                 classNamePrefix="react-select"
                 styles={{
-                  control: (provided) => ({
+                  control: (provided, state) => ({
                     ...provided,
                     minHeight: '48px',
-                    borderColor: '#d1d5db',
+                    borderColor: state.isFocused ? '#f97316' : '#000',
+                    borderWidth: '1px',
                     borderRadius: '0.5rem',
-                    boxShadow: 'none',
+                    boxShadow: state.isFocused ? '0 0 0 2px rgba(249, 115, 22, 0.5)' : 'none',
                     '&:hover': {
-                      borderColor: '#9ca3af',
+                      borderColor: state.isFocused ? '#f97316' : '#000',
                     }
                   }),
                   placeholder: (provided) => ({
@@ -670,13 +671,14 @@ Téléphone: ${formData.phone}`;
                 className="react-select-container text-sm md:text-base"
                 classNamePrefix="react-select"
                 styles={{
-                  control: (provided) => ({
+                  control: (provided, state) => ({
                     ...provided,
                     minHeight: '48px',
-                    borderColor: '#d1d5db',
+                    borderColor: state.isFocused ? '#f97316' : '#000',
+                    borderWidth: '1px',
                     borderRadius: '0.5rem',
-                    boxShadow: 'none',
-                    '&:hover': { borderColor: '#9ca3af' }
+                    boxShadow: state.isFocused ? '0 0 0 2px rgba(249, 115, 22, 0.5)' : 'none',
+                    '&:hover': { borderColor: state.isFocused ? '#f97316' : '#000' }
                   }),
                   placeholder: (provided) => ({ ...provided, color: '#6b7280' }),
                   input: (provided) => ({ ...provided, margin: '0px', padding: '0px' }),
@@ -721,7 +723,7 @@ Téléphone: ${formData.phone}`;
                   <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-10 pointer-events-none" size={18} />
                  <select
                    id="pickupTime"
-                   className="w-full pl-10 pr-4 py-3 border rounded-lg text-sm md:text-base appearance-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                   className="w-full pl-10 pr-4 py-3 border  rounded-lg text-sm md:text-base appearance-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                    value={formData.pickupTime}
                    onChange={(e) => setFormData({ ...formData, pickupTime: e.target.value })}
                    required

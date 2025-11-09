@@ -339,30 +339,35 @@ export default function EilatHotelsPage() {
           </div>
         </section>
 
-        {/* Selection hotels - Format compact */}
+        {/* Selection hotels - Avec images */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold text-center mb-4">Nos Meilleurs Hotels a Eilat</h2>
-              <p className="text-center text-gray-600 mb-12 text-lg">Selection exclusive des 12 meilleurs etablissements All Inclusive</p>
+              <p className="text-center text-gray-600 mb-12 text-lg">Selection exclusive des meilleurs etablissements avec images</p>
 
               {/* Luxe 5* */}
               <div className="mb-12">
                 <h3 className="text-2xl font-bold mb-6 flex items-center"><Star className="text-yellow-500 mr-3" size={28} />Hotels Luxe 5* All Inclusive (350-600€/nuit)</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    {name: "Isrotel Royal Garden All Suites Hotel", rating: "4.5/5", price: "450€", loc: "Front de mer Eilat", features: ["Suites spacieuses, jardins tropicaux luxuriants", "All Inclusive premium : 7 restaurants, bars illimites", "Piscines multiples, spa, centre plongee, kids club"], tags: ["All Inclusive", "Spa", "7 restaurants", "Plongee"]},
-                    {name: "Herods Boutique Eilat", rating: "4.5/5", price: "480€", loc: "Front de mer premium", features: ["Design contemporain luxueux, service exceptionnel", "Plage privee equipee, piscines infinity vue mer", "Spa de luxe, restaurants gastronomiques, nightclub"], tags: ["Design", "Plage privee", "Nightlife", "Spa luxe"]},
-                    {name: "Orchid Hotel Eilat", rating: "4.5/5", price: "520€", loc: "Coral Beach (plongee)", features: ["Face recifs coralliens (plongee exceptionnelle)", "Theme thailandais unique, architecture exotique", "Spa asiatique, lagunes, restaurants fusion"], tags: ["Plongee", "Thematique", "Spa asiatique", "Luxe"]},
-                    {name: "Leonardo Royal Resort Eilat", rating: "4.5/5", price: "420€", loc: "Lagoon Beach", features: ["All Inclusive complet, plage lagoon calme", "6 piscines dont toboggan geant, kids club excellent", "Animation professionnelle, sports nautiques inclus"], tags: ["6 piscines", "Toboggan", "Famille", "Sports inclus"]},
-                    {name: "Queen of Sheba Eilat", rating: "4.5/5", price: "500€", loc: "Lagoon Beach", features: ["Theme Reine de Saba (decor pharaonique unique)", "Piscines spectaculaires, spa egyptien luxueux", "All Inclusive premium, ambiance feerique"], tags: ["Thematique", "Spectaculaire", "Spa", "Unique"]}
+                    {name: "Herods Palace Hotel & Spa Eilat", image: "/images/hotels/eilat/Herods Palace Hotels & Spa Eilat a Premium collection by Fattal Hotels1.webp", rating: "4.7/5", price: "500€", loc: "Front de mer premium", features: ["Palace luxueux architecture inspiree de Petra", "All Inclusive premium, service exceptionnel", "Plage privee, piscines multiples, spa luxe"], tags: ["Palace", "All Inclusive", "Plage privee", "Spa"]},
+                    {name: "Queen of Sheba Eilat", image: "/images/hotels/eilat/Queen of Sheba Eilat1.webp", rating: "4.6/5", price: "480€", loc: "Lagoon Beach", features: ["Theme Reine de Saba spectaculaire", "Piscines exceptionnelles, spa egyptien", "All Inclusive premium, ambiance feerique"], tags: ["Thematique", "Spectaculaire", "Spa", "All Inclusive"]},
+                    {name: "King Solomon by Isrotel Collection", image: "/images/hotels/eilat/King Solomon by Isrotel Collection1.webp", rating: "4.5/5", price: "450€", loc: "Front de mer", features: ["Design inspire du roi Salomon", "Service Isrotel excellence garantie", "Kids club, restaurants, piscines"], tags: ["Design unique", "Isrotel", "Famille", "Premium"]},
+                    {name: "Isrotel Royal Garden", image: "/images/hotels/eilat/isrotel-royal-garden.webp", rating: "4.6/5", price: "470€", loc: "Front de mer Eilat", features: ["Jardins tropicaux luxuriants exceptionnels", "Suites spacieuses, atmosphere paisible", "Spa, restaurants, service personnalise"], tags: ["Jardins", "Suites", "Spa", "Luxe"]},
+                    {name: "Dan Eilat Hotel", image: "/images/hotels/eilat/Dan Eilat Hotel.webp", rating: "4.5/5", price: "440€", loc: "Front de mer premium", features: ["Chaine Dan Hotels prestige garantie", "Plage privee exclusive, piscines", "Service d'exception, restaurants"], tags: ["Dan Hotels", "Plage privee", "Premium", "Prestige"]},
+                    {name: "Royal Beach Eilat", image: "/images/hotels/eilat/Royal Beach.webp", rating: "4.5/5", price: "420€", loc: "Front de mer", features: ["All Inclusive luxe, front de mer", "Service premium, design contemporain", "Spa, piscines, restaurants gastronomiques"], tags: ["All Inclusive", "Luxe", "Front de mer", "Spa"]}
                   ].map((h, i) => (
                     <div key={i} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                      <div className="p-5">
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="text-lg font-bold text-gray-800">{h.name}</h4>
-                          <div className="flex items-center bg-green-100 px-2 py-1 rounded-full"><Star className="text-green-600 mr-1" size={14} /><span className="font-bold text-green-600 text-sm">{h.rating}</span></div>
+                      <div className="relative h-48 bg-gray-200">
+                        <img src={h.image} alt={h.name} className="w-full h-full object-cover" />
+                        <div className="absolute top-2 right-2 bg-green-100 px-3 py-1 rounded-full flex items-center">
+                          <Star className="text-green-600 mr-1" size={16} />
+                          <span className="font-bold text-green-600">{h.rating}</span>
                         </div>
+                      </div>
+                      <div className="p-5">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2">{h.name}</h4>
                         <p className="text-gray-600 mb-2 flex items-center text-sm"><MapPin size={14} className="mr-1 text-red-500" />{h.loc}</p>
                         <p className="text-xl font-bold text-red-600 mb-3">A partir de {h.price}/nuit</p>
                         <ul className="space-y-1 mb-3">
@@ -383,18 +388,26 @@ export default function EilatHotelsPage() {
                 <h3 className="text-2xl font-bold mb-6 flex items-center"><Palmtree className="text-blue-500 mr-3" size={28} />Hotels Famille 4* All Inclusive (200-350€/nuit)</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[
-                    {name: "Club Hotel Eilat", rating: "4.0/5", price: "280€", loc: "Front de mer central", features: ["Ideal familles, kids club 4-12 ans excellent", "All Inclusive complet, animation jour/nuit", "Piscines enfants, toboggan, plage privee"], tags: ["Famille", "Kids club", "Toboggan", "Animation"]},
-                    {name: "Isrotel Yam Suf Hotel", rating: "4.0/5", price: "300€", loc: "North Beach", features: ["Chaine Isrotel (qualite garantie), All Inclusive", "Piscines avec vue mer, plage privee equipee", "Sports nautiques inclus, animation energique"], tags: ["All Inclusive", "Vue mer", "Sports inclus", "Qualite"]},
-                    {name: "U Magic Palace Hotel", rating: "4.0/5", price: "260€", loc: "Lagoon Beach", features: ["Concept familial fun, theme parc aquatique", "Mega piscine toboggan, kids club, mini-golf", "All Inclusive, buffets varies, animation"], tags: ["Toboggan mega", "Kids", "Fun", "Buffets"]},
-                    {name: "Dan Eilat Hotel", rating: "4.0/5", price: "320€", loc: "Front de mer premium", features: ["Chaine Dan (service fiable), front de mer", "Piscine rooftop vue mer, plage privee", "Demi-pension ou All Inclusive, qualite superieure"], tags: ["Dan Hotels", "Rooftop", "Plage", "Qualite"]},
-                    {name: "Astral Nirvana Club Hotel", rating: "4.0/5", price: "240€", loc: "Coral Beach area", features: ["All Inclusive economique qualite correcte", "Piscines enfants, kids club, animation famille", "Proche Coral Beach (plongee 5min), calme"], tags: ["Economique", "Famille", "Coral Beach", "Calme"]}
+                    {name: "Dan Panorama Eilat", image: "/images/hotels/eilat/Dan Panorama Eilat.webp", rating: "4.3/5", price: "300€", loc: "Front de mer", features: ["Hotel familial moderne vue mer", "Excellent rapport qualite-prix", "Kids club, piscine, plage proche"], tags: ["Famille", "Vue mer", "Dan Hotels", "Qualite"]},
+                    {name: "Leonardo Plaza Hotel Eilat", image: "/images/hotels/eilat/Leonardo Plaza Hotel Eilat.webp", rating: "4.2/5", price: "280€", loc: "Golfe Eilat", features: ["Hotel moderne vue sur le golfe", "Chambres confortables, bon rapport qualite-prix", "Piscine, restaurant, centre fitness"], tags: ["Moderne", "Confort", "Economique", "Fitness"]},
+                    {name: "Yam Suf by Isrotel Collection", image: "/images/hotels/eilat/Yam Suf by Isrotel Collection.webp", rating: "4.3/5", price: "310€", loc: "North Beach", features: ["All Inclusive famille Isrotel", "Kids club, animation, plage proche", "Sports nautiques, buffets varies"], tags: ["All Inclusive", "Isrotel", "Kids club", "Animation"]},
+                    {name: "Lagoona by Isrotel Collection", image: "/images/hotels/eilat/Lagoona by Isrotel Collection.webp", rating: "4.4/5", price: "320€", loc: "Lagoon Beach", features: ["Lagune artificielle avec toboggans", "Paradis pour enfants, parc aquatique", "All Inclusive, kids club, restaurants"], tags: ["Lagune", "Toboggan", "Kids", "All Inclusive"]},
+                    {name: "Agamim by Isrotel Collection", image: "/images/hotels/eilat/Agamim by Isrotel Collection.webp", rating: "4.3/5", price: "300€", loc: "Eilat", features: ["Piscines et lagunes artificielles", "Parfait familles, parc aquatique integre", "Animation, kids club, all inclusive"], tags: ["Piscines", "Famille", "Animation", "Aquatique"]},
+                    {name: "U Splash Resort Eilat", image: "/images/hotels/eilat/U Splash Resort Eilat.webp", rating: "4.2/5", price: "290€", loc: "Eilat", features: ["Parc aquatique geant inclus", "Resort familial moderne fun", "All Inclusive, kids club, animation"], tags: ["Parc aquatique", "Fun", "All Inclusive", "Moderne"]},
+                    {name: "Vert Hotel Eilat", image: "/images/hotels/eilat/Vert Hotel Eilat by AFI Hotels.webp", rating: "4.1/5", price: "260€", loc: "Mer Rouge", features: ["Hotel moderne ecologique design", "Piscine rooftop avec vue mer", "Restaurant, bar, approche verte"], tags: ["Ecologique", "Rooftop", "Design", "Vue mer"]},
+                    {name: "Sport Hotel Eilat", image: "/images/hotels/eilat/sport club eilat.webp", rating: "3.9/5", price: "220€", loc: "Eilat", features: ["Hotel sportif installations completes", "Centre sportif, piscine, terrains", "Ideal sportifs, bon rapport qualite-prix"], tags: ["Sportif", "Economique", "Installations", "Actif"]},
+                    {name: "Aira Boutique Hotel Eilat", image: "/images/hotels/eilat/aira.webp", rating: "4.2/5", price: "270€", loc: "Eilat", features: ["Hotel boutique design contemporain", "Ambiance intimiste, service personnalise", "Piscine, restaurant, bar"], tags: ["Boutique", "Design", "Intimiste", "Moderne"]}
                   ].map((h, i) => (
                     <div key={i} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                      <div className="p-5">
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="text-lg font-bold text-gray-800">{h.name}</h4>
-                          <div className="flex items-center bg-yellow-100 px-2 py-1 rounded-full"><Star className="text-yellow-600 mr-1" size={14} /><span className="font-bold text-yellow-600 text-sm">{h.rating}</span></div>
+                      <div className="relative h-48 bg-gray-200">
+                        <img src={h.image} alt={h.name} className="w-full h-full object-cover" />
+                        <div className="absolute top-2 right-2 bg-yellow-100 px-3 py-1 rounded-full flex items-center">
+                          <Star className="text-yellow-600 mr-1" size={16} />
+                          <span className="font-bold text-yellow-600">{h.rating}</span>
                         </div>
+                      </div>
+                      <div className="p-5">
+                        <h4 className="text-lg font-bold text-gray-800 mb-2">{h.name}</h4>
                         <p className="text-gray-600 mb-2 flex items-center text-sm"><MapPin size={14} className="mr-1 text-blue-500" />{h.loc}</p>
                         <p className="text-xl font-bold text-blue-600 mb-3">A partir de {h.price}/nuit</p>
                         <ul className="space-y-1 mb-3">
@@ -404,35 +417,6 @@ export default function EilatHotelsPage() {
                           {h.tags.map((t, j) => <span key={j} className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">{t}</span>)}
                         </div>
                         <Link href="/contact" className="block w-full text-center bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm">Demander un devis</Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Budget 3* */}
-              <div className="mb-12">
-                <h3 className="text-2xl font-bold mb-6 flex items-center"><Coffee className="text-green-500 mr-3" size={28} />Hotels Budget 3* (120-200€/nuit)</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {[
-                    {name: "Astral Maris Hotel", rating: "4.0/5", price: "180€", loc: "Coral Beach", features: ["Meilleur rapport qualite-prix Eilat All Inclusive", "Proche Coral Beach (plongee exceptionnelle)", "Piscine, buffet correct, propre et fonctionnel"], tags: ["Budget", "Coral Beach", "All Inclusive", "Propre"]},
-                    {name: "Nova Like Hotel Eilat", rating: "4.0/5", price: "150€", loc: "Centre-ville", features: ["Hotel moderne economique, chambres renovees", "Demi-pension ou petit-dejeuner, wifi gratuit", "Centre-ville anime, plages 5min a pied"], tags: ["Moderne", "Centre-ville", "Economique", "Plages proches"]}
-                  ].map((h, i) => (
-                    <div key={i} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                      <div className="p-5">
-                        <div className="flex justify-between items-start mb-2">
-                          <h4 className="text-lg font-bold text-gray-800">{h.name}</h4>
-                          <div className="flex items-center bg-yellow-100 px-2 py-1 rounded-full"><Star className="text-yellow-600 mr-1" size={14} /><span className="font-bold text-yellow-600 text-sm">{h.rating}</span></div>
-                        </div>
-                        <p className="text-gray-600 mb-2 flex items-center text-sm"><MapPin size={14} className="mr-1 text-green-500" />{h.loc}</p>
-                        <p className="text-xl font-bold text-green-600 mb-3">A partir de {h.price}/nuit</p>
-                        <ul className="space-y-1 mb-3">
-                          {h.features.map((f, j) => <li key={j} className="flex items-start text-xs"><Check size={14} className="text-green-500 mr-1 mt-0.5 flex-shrink-0" /><span>{f}</span></li>)}
-                        </ul>
-                        <div className="flex flex-wrap gap-1 mb-3">
-                          {h.tags.map((t, j) => <span key={j} className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded">{t}</span>)}
-                        </div>
-                        <Link href="/contact" className="block w-full text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors font-semibold text-sm">Demander un devis</Link>
                       </div>
                     </div>
                   ))}

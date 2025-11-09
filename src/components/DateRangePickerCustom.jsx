@@ -1,48 +1,27 @@
 import React, { useState, useEffect } from 'react';
-
 import { DayPicker } from 'react-day-picker';
-
 import { fr } from 'date-fns/locale';
-
 import { format } from 'date-fns';
-
 import 'react-day-picker/dist/style.css';
-
 import { Calendar } from 'lucide-react';
-
- 
 
 const DateRangePickerCustom = ({ value, onChange, placeholder = "Sélectionnez vos dates" }) => {
 
   const [isOpen, setIsOpen] = useState(false);
-
   const [range, setRange] = useState(value || { from: undefined, to: undefined });
-
   const [isMobile, setIsMobile] = useState(false);
-
- 
 
   // Détection mobile pour l'adaptation
 
   useEffect(() => {
-
     const checkMobile = () => {
-
       setIsMobile(window.innerWidth < 768);
-
     };
 
- 
-
     checkMobile();
-
     window.addEventListener('resize', checkMobile);
-
     return () => window.removeEventListener('resize', checkMobile);
-
   }, []);
-
- 
 
   const handleSelect = (selectedRange) => {
 
@@ -100,7 +79,7 @@ const DateRangePickerCustom = ({ value, onChange, placeholder = "Sélectionnez v
 
           placeholder={placeholder}
 
-          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent cursor-pointer bg-white"
+          className="w-full pl-10 pr-4 py-3 border  rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent cursor-pointer bg-white"
 
         />
 
@@ -210,45 +189,45 @@ const DateRangePickerCustom = ({ value, onChange, placeholder = "Sélectionnez v
 
               }}
 
-              modifiersStyles={{
+              // modifiersStyles={{
 
-                // Styles supplémentaires pour le range
+              //   // Styles supplémentaires pour le range
 
-                range_start: {
+              //   range_start: {
 
-                  backgroundColor: '#f97316',
+              //     backgroundColor: '#f97316',
 
-                  color: 'white',
+              //     color: 'white',
 
-                  borderTopRightRadius: 0,
+              //     borderTopRightRadius: 0,
 
-                  borderBottomRightRadius: 0
+              //     borderBottomRightRadius: 0
 
-                },
+              //   },
 
-                range_end: {
+              //   range_end: {
 
-                  backgroundColor: '#f97316',
+              //     backgroundColor: '#f97316',
 
-                  color: 'white',
+              //     color: 'white',
 
-                  borderTopLeftRadius: 0,
+              //     borderTopLeftRadius: 0,
 
-                  borderBottomLeftRadius: 0
+              //     borderBottomLeftRadius: 0
 
-                },
+              //   },
 
-                range_middle: {
+              //   range_middle: {
 
-                  backgroundColor: '#fed7aa',
+              //     backgroundColor: '#fed7aa',
 
-                  color: '#9a3412',
+              //     color: '#9a3412',
 
-                  borderRadius: 0
+              //     borderRadius: 0
 
-                }
+              //   }
 
-              }}
+              // }}
 
             />
 

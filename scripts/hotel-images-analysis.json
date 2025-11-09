@@ -1,0 +1,479 @@
+{
+  "israel": {
+    "eilat": [
+      {
+        "id": 1,
+        "name": "Agamim by Isrotel Collection",
+        "images": [
+          "Agamim by Isrotel Collection.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 2,
+        "name": "aira",
+        "images": [
+          "aira.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 3,
+        "name": "Dan Eilat Hotel",
+        "images": [
+          "Dan Eilat Hotel.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 4,
+        "name": "Dan Panorama Eilat",
+        "images": [
+          "Dan Panorama Eilat.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 5,
+        "name": "Herods Palace Hotels & Spa Eilat a Premium collection by Fattal Hotels",
+        "images": [
+          "Herods Palace Hotels & Spa Eilat a Premium collection by Fattal Hotels1.webp",
+          "Herods Palace Hotels & Spa Eilat a Premium collection by Fattal Hotels2.webp"
+        ],
+        "imageCount": 2
+      },
+      {
+        "id": 6,
+        "name": "isrotel-royal-garden",
+        "images": [
+          "isrotel-royal-garden.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 7,
+        "name": "King Solomon by Isrotel Collection",
+        "images": [
+          "King Solomon by Isrotel Collection1.webp",
+          "King Solomon by Isrotel Collection2.webp"
+        ],
+        "imageCount": 2
+      },
+      {
+        "id": 8,
+        "name": "Lagoona by Isrotel Collection",
+        "images": [
+          "Lagoona by Isrotel Collection.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 9,
+        "name": "Leonardo Plaza Hotel Eilat",
+        "images": [
+          "Leonardo Plaza Hotel Eilat.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 10,
+        "name": "Queen of Sheba Eilat",
+        "images": [
+          "Queen of Sheba Eilat1.webp",
+          "Queen of Sheba Eilat2.webp",
+          "Queen of Sheba Eilat3.webp"
+        ],
+        "imageCount": 3
+      },
+      {
+        "id": 11,
+        "name": "Royal Beach",
+        "images": [
+          "Royal Beach.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 12,
+        "name": "sport club eilat",
+        "images": [
+          "sport club eilat.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 13,
+        "name": "U Splash Resort Eilat",
+        "images": [
+          "U Splash Resort Eilat.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 14,
+        "name": "Vert Hotel Eilat by AFI Hotels",
+        "images": [
+          "Vert Hotel Eilat by AFI Hotels.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 15,
+        "name": "Yam Suf by Isrotel Collection",
+        "images": [
+          "Yam Suf by Isrotel Collection.webp"
+        ],
+        "imageCount": 1
+      }
+    ],
+    "jerusalem": [
+      {
+        "id": 1,
+        "name": "david-citadel/david-citadel-hotel",
+        "images": [
+          "david-citadel/david-citadel-hotel.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 2,
+        "name": "king-david/KDServicesPool",
+        "images": [
+          "king-david/KDServicesPool.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 3,
+        "name": "mamilla/lifestyle-oasis-zone",
+        "images": [
+          "mamilla/lifestyle-oasis-zone.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 4,
+        "name": "waldorf-astoria/76cc1a3e26b51e9ad4fcc65f82c2025f8e1ccb",
+        "images": [
+          "waldorf-astoria/76cc1a3e26b51e9ad4fcc65f82c2025f8e1ccb24.webp"
+        ],
+        "imageCount": 1
+      }
+    ],
+    "mer-morte": [
+      {
+        "id": 1,
+        "name": "david-dead-sea",
+        "images": [
+          "david-dead-sea.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 2,
+        "name": "leonardo-club-dead-sea",
+        "images": [
+          "leonardo-club-dead-sea.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 3,
+        "name": "Nevo by Isrotel Collection",
+        "images": [
+          "Nevo by Isrotel Collection.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 4,
+        "name": "Noga by Isrotel Collection",
+        "images": [
+          "Noga by Isrotel Collection.webp"
+        ],
+        "imageCount": 1
+      }
+    ],
+    "netanya": [
+      {
+        "id": 1,
+        "name": "David Tower Hotel Netanya",
+        "images": [
+          "David Tower Hotel Netanya1.webp",
+          "David Tower Hotel Netanya2.webp"
+        ],
+        "imageCount": 2
+      },
+      {
+        "id": 2,
+        "name": "Island Luxurious Suites Hotel and Spa",
+        "images": [
+          "Island Luxurious Suites Hotel and Spa.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 3,
+        "name": "Leonardo Plaza Netanya Hotel",
+        "images": [
+          "Leonardo Plaza Netanya Hotel1.webp",
+          "Leonardo Plaza Netanya Hotel2.webp"
+        ],
+        "imageCount": 2
+      },
+      {
+        "id": 4,
+        "name": "Medi Terre Boutique Hotel",
+        "images": [
+          "Medi Terre Boutique Hotel1.webp",
+          "Medi Terre Boutique Hotel2.webp"
+        ],
+        "imageCount": 2
+      },
+      {
+        "id": 5,
+        "name": "Ramada Hotel & Suites by Wyndham Netanya",
+        "images": [
+          "Ramada Hotel & Suites by Wyndham Netanya1.webp",
+          "Ramada Hotel & Suites by Wyndham Netanya2.webp"
+        ],
+        "imageCount": 2
+      },
+      {
+        "id": 6,
+        "name": "The Seasons Hotel",
+        "images": [
+          "The Seasons Hotel.webp",
+          "The Seasons Hotel2.webp",
+          "The Seasons Hotel3.webp"
+        ],
+        "imageCount": 3
+      },
+      {
+        "id": 7,
+        "name": "Vert Lagoon Netanya",
+        "images": [
+          "Vert Lagoon Netanya1.webp",
+          "Vert Lagoon Netanya2.webp",
+          "Vert Lagoon Netanya3.webp"
+        ],
+        "imageCount": 3
+      }
+    ],
+    "tel-aviv": [
+      {
+        "id": 1,
+        "name": "carltontlv",
+        "images": [
+          "carltontlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 2,
+        "name": "crownetlvbeach",
+        "images": [
+          "crownetlvbeach.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 3,
+        "name": "croxncitytlv",
+        "images": [
+          "croxncitytlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 4,
+        "name": "DanPanoramaTLV",
+        "images": [
+          "DanPanoramaTLV.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 5,
+        "name": "DANTLV",
+        "images": [
+          "DANTLV.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 6,
+        "name": "grandbeach",
+        "images": [
+          "grandbeach.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 7,
+        "name": "herberttlv",
+        "images": [
+          "herberttlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 8,
+        "name": "herodstlv",
+        "images": [
+          "herodstlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 9,
+        "name": "HiltonTLV",
+        "images": [
+          "HiltonTLV.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 11,
+        "name": "intercontinental",
+        "images": [
+          "intercontinental.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 10,
+        "name": "intercontinental-tel-aviv",
+        "images": [
+          "intercontinental-tel-aviv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 12,
+        "name": "kempinskitlv",
+        "images": [
+          "kempinskitlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 13,
+        "name": "LeonardoGordonBeach",
+        "images": [
+          "LeonardoGordonBeach.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 14,
+        "name": "normand",
+        "images": [
+          "normand.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 15,
+        "name": "orchidtlv",
+        "images": [
+          "orchidtlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 16,
+        "name": "renaissancetlv",
+        "images": [
+          "renaissancetlv.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 17,
+        "name": "royalbeach",
+        "images": [
+          "royalbeach.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 18,
+        "name": "SEATOWER",
+        "images": [
+          "SEATOWER.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 19,
+        "name": "setaiTLV",
+        "images": [
+          "setaiTLV.webp"
+        ],
+        "imageCount": 1
+      },
+      {
+        "id": 20,
+        "name": "sheraton",
+        "images": [
+          "sheraton.webp"
+        ],
+        "imageCount": 1
+      }
+    ]
+  },
+  "world": [
+    {
+      "id": 1,
+      "name": "Atlantis - The Palm",
+      "images": [
+        "Atlantis - The Palm.webp"
+      ],
+      "imageCount": 1
+    },
+    {
+      "id": 2,
+      "name": "beresheet",
+      "images": [
+        "beresheet.webp"
+      ],
+      "imageCount": 1
+    },
+    {
+      "id": 3,
+      "name": "Blue Bay Resort Hotel",
+      "images": [
+        "Blue Bay Resort Hotel.webp"
+      ],
+      "imageCount": 1
+    },
+    {
+      "id": 4,
+      "name": "Jumeirah Burj Al Arab Dubai",
+      "images": [
+        "Jumeirah Burj Al Arab Dubai.webp"
+      ],
+      "imageCount": 1
+    },
+    {
+      "id": 5,
+      "name": "La Mamounia",
+      "images": [
+        "La Mamounia1.webp",
+        "La Mamounia2.webp",
+        "La Mamounia3.webp"
+      ],
+      "imageCount": 3
+    },
+    {
+      "id": 6,
+      "name": "The Plazany",
+      "images": [
+        "The Plazany1.webp",
+        "The Plazany2.webp"
+      ],
+      "imageCount": 2
+    }
+  ]
+}

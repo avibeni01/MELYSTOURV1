@@ -619,7 +619,7 @@ Téléphone: ${formData.phone}`;
               <button
                 type="button"
                 onClick={handlePreviousStep}
-                className={`flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-all ${currentStep > 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                className={`flex items-center gap-2 px-4 py-2 border rounded-lg text-gray-700 hover:bg-gray-50 transition-all ${currentStep > 1 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                 disabled={currentStep <= 1}
               >
                 <ArrowLeft size={16} />
