@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       {/* Section principale */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Colonne 1 : À propos */}
           <div>
             <h3 className="text-2xl font-bold text-orange-500 mb-4">Elynor Tours</h3>
@@ -46,55 +46,65 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Colonne 2 : Services */}
+          {/* Colonne 2 : Hotels Israel */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Nos Services</h4>
+            <h4 className="text-lg font-semibold mb-4">Hotels Israel</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/location-voiture" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Location de voiture
+                <Link href="/hotels/tel-aviv" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Tel Aviv
                 </Link>
               </li>
               <li>
-                <Link href="/hotels" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Réservation d'hôtel
+                <Link href="/hotels/jerusalem" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Jérusalem
                 </Link>
               </li>
               <li>
-                <Link href="/plages/mediterranee" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Guide des plages
+                <Link href="/hotels/mer-morte" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Mer Morte
                 </Link>
               </li>
               <li>
-                <Link href="/transferts" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Transferts aéroport
+                <Link href="/hotels/eilat" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Eilat
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Colonne 3 : Destinations */}
+          {/* Colonne 3 : Hotels International */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Destinations</h4>
+            <h4 className="text-lg font-semibold mb-4">Hotels Monde</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/destinations/tel-aviv" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Tel Aviv
+                <Link href="/hotels/tokyo" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Tokyo 🇯🇵
                 </Link>
               </li>
               <li>
-                <Link href="/destinations/jerusalem" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Jérusalem
+                <Link href="/hotels/dubai" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Dubai 🇦🇪
                 </Link>
               </li>
               <li>
-                <Link href="/destinations/mer-morte" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Mer Morte
+                <Link href="/hotels/paris" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Paris 🇫🇷
                 </Link>
               </li>
               <li>
-                <Link href="/destinations/eilat" className="text-gray-300 hover:text-orange-500 transition-colors">
-                  Eilat
+                <Link href="/hotels/bangkok" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Bangkok 🇹🇭
+                </Link>
+              </li>
+              <li>
+                <Link href="/hotels/londres" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Londres 🇬🇧
+                </Link>
+              </li>
+              <li>
+                <Link href="/hotels/new-york" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  New York 🇺🇸
                 </Link>
               </li>
             </ul>
@@ -125,6 +135,38 @@ const Footer = () => {
                 <a href="mailto:contact@elynortours.com" className="text-gray-300 hover:text-orange-500 transition-colors">
                   contact@elynortours.com
                 </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Colonne 5 : Blog & Ressources */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Blog & Guides</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/blog" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Blog Voyage
+                </Link>
+              </li>
+              <li>
+                <Link href="/plages/mediterranee" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Plages Méditerranée
+                </Link>
+              </li>
+              <li>
+                <Link href="/plages/mer-morte" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Plages Mer Morte
+                </Link>
+              </li>
+              <li>
+                <Link href="/location-voiture" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  Location Voiture
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-gray-300 hover:text-orange-500 transition-colors">
+                  FAQ
+                </Link>
               </li>
             </ul>
           </div>
