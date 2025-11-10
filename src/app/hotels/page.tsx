@@ -2154,6 +2154,87 @@ export default function HotelsPage() {
         </div>
       </section>
 
+      {/* Destinations Internationales - Liens Internes */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
+              Explorez Nos Destinations dans le Monde
+            </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Découvrez nos sélections d'hôtels de luxe dans les plus belles destinations internationales
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <Link href="/hotels/tokyo" className="group bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl p-6 hover:shadow-xl transition-all border border-rose-100">
+                <div className="text-4xl mb-3">🇯🇵</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-rose-600 transition-colors">
+                  Hôtels Tokyo
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Aman Tokyo, Park Hyatt, Peninsula • Spa onsen • Vue Mont Fuji • Tradition japonaise
+                </p>
+                <span className="text-rose-600 font-semibold group-hover:underline">
+                  Découvrir Tokyo →
+                </span>
+              </Link>
+
+              <Link href="/hotels/dubai" className="group bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 hover:shadow-xl transition-all border border-amber-100">
+                <div className="text-4xl mb-3">🇦🇪</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">
+                  Hôtels Dubai
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Burj Al Arab 7★, Atlantis Palm, Armani Burj Khalifa • Luxe extrême • Butler 24/7
+                </p>
+                <span className="text-amber-600 font-semibold group-hover:underline">
+                  Découvrir Dubai →
+                </span>
+              </Link>
+
+              <Link href="/hotels/paris" className="group bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 hover:shadow-xl transition-all border border-blue-100">
+                <div className="text-4xl mb-3">🇫🇷</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                  Palaces Paris
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Le Bristol, Plaza Athénée, Ritz • 3★ Michelin • Spa Dior • Luxe à la française
+                </p>
+                <span className="text-blue-600 font-semibold group-hover:underline">
+                  Découvrir Paris →
+                </span>
+              </Link>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-gray-600 mb-4">
+                🌍 Plus de <strong>60 destinations</strong> disponibles : Bangkok, Londres, Istanbul, New York, Singapour...
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog SEO - Lien Interne */}
+      <section className="py-12 bg-gradient-to-r from-purple-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              📝 Guides et Conseils Voyage
+            </h2>
+            <p className="text-gray-700 mb-6">
+              Découvrez nos articles experts pour préparer votre séjour
+            </p>
+            <Link
+              href="/blog/top-10-hotels-luxe-mer-morte"
+              className="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition-colors shadow-lg"
+            >
+              🏆 Top 10 Hotels Luxe Mer Morte →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Section FAQ */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
