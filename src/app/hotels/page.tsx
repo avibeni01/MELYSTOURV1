@@ -1,5 +1,6 @@
 // src/app/hotels/page.tsx
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import HotelBookingForm from '@/components/forms/HotelBookingForm'
 import HotelsWithFilters from '@/components/hotels/HotelsWithFilters'
 import { buildMetadata, buildI18nAlternates, JsonLd, buildBreadcrumbSchema, buildItemListSchema } from '@/lib/seo'
