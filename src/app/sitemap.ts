@@ -74,6 +74,84 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
 
+    // Hôtels - Destinations Internationales
+    {
+      url: `${baseUrl}/hotels/tokyo`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hotels/dubai`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hotels/paris`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hotels/bangkok`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hotels/londres`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hotels/istanbul`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/hotels/new-york`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+
+    // Blog - Pages principales
+    {
+      url: `${baseUrl}/blog`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+
+    // Blog - Articles
+    {
+      url: `${baseUrl}/blog/top-10-hotels-luxe-mer-morte`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/guide-complet-hotel-tokyo-2025`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/top-10-hotels-luxe-dubai-familles`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/palaces-parisiens-lequel-choisir`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+
     // Plages - pages principales
     {
       url: `${baseUrl}/plages`,
