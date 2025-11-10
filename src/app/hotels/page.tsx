@@ -6,8 +6,8 @@ import { buildMetadata, buildI18nAlternates, JsonLd, buildBreadcrumbSchema, buil
 import { Globe, Star, Shield, Phone } from 'lucide-react'
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Hotels Israel : Reservation Tel Aviv Jerusalem Eilat 2025',
-  description: 'Reservez votre hotel en Israel au meilleur prix : Tel Aviv bord de mer, Jerusalem vieille ville, Mer Morte spa, Eilat Mer Rouge. 3-5*, promos, annulation flexible.',
+  title: 'Hotels Luxe Monde : Israel Tokyo Dubai Paris Londres Bangkok 2025',
+  description: 'Reservez les meilleurs hotels au monde : Israel (Tel Aviv, Jerusalem, Mer Morte), Dubai (Burj Al Arab), Tokyo (Aman), Paris (Bristol), Londres (Savoy), Bangkok. Luxe 5*, tarifs negocies, annulation flexible.',
   canonical: '/hotels',
   keywords: [
     'hotel israel',
@@ -16,7 +16,19 @@ export const metadata: Metadata = buildMetadata({
     'hotel mer morte',
     'hotel eilat',
     'hotel luxe israel',
-    'promotion hotel israel'
+    'hotel dubai burj al arab',
+    'hotel tokyo',
+    'hotel paris luxe',
+    'hotel londres',
+    'hotel bangkok',
+    'hotel singapour',
+    'hotel istanbul',
+    'hotel new york',
+    'reservation hotel luxe',
+    'hotel 5 etoiles monde',
+    'palace hotel',
+    'spa hotel mer morte',
+    'hotel all inclusive eilat'
   ],
   images: [{
     url: '/images/og/hotels-israel.jpg',
@@ -43,6 +55,78 @@ export default function HotelsPage() {
     { name: 'Hotels Mer Morte', url: '/hotels/mer-morte', description: 'Spa, wellness, proprietes therapeutiques' },
     { name: 'Hotels Eilat', url: '/hotels/eilat', description: 'Mer Rouge, plongee, tout compris' },
   ], 'Destinations hotelieres en Israel')
+
+  // FAQ Schema pour rich snippets
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Quels sont les meilleurs hotels en Israel ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Les meilleurs hotels en Israel incluent le King David et Waldorf Astoria à Jerusalem, le Dan Tel Aviv et The Setai à Tel Aviv, et le David Dead Sea Resort à la Mer Morte. Ces etablissements 5 etoiles offrent un service d\'exception, des spas luxueux et des emplacements privilegies.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Pourquoi reserver un hotel avec Elynor Tours ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Elynor Tours offre une selection premium d\'hotels, des tarifs negocies avantageux, une assistance francophone 24/7, et des conditions d\'annulation flexibles. Notre expertise locale depuis 2015 garantit les meilleurs hotels au meilleur prix en Israel et dans le monde.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Quand reserver un hotel en Israel pour avoir le meilleur prix ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Pour les meilleurs tarifs, reservez 2-3 mois a l\'avance pour la haute saison (avril-octobre) et 1 mois pour la basse saison. Les periodes les moins cheres sont novembre-fevrier (hors fetes juives). Evitez Pessah, Rosh Hashana et Souccot pour des prix plus avantageux.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Quels hotels sont ideaux pour les familles en Israel ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Pour les familles, nous recommandons le Dan Panorama Tel Aviv avec son kids club, les hotels Isrotel a Eilat avec parcs aquatiques (Lagoona, Agamim), et le Leonardo Club Dead Sea en formule all-inclusive. Ces etablissements offrent animations enfants, piscines et chambres familiales spacieuses.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Quels sont les hotels avec les meilleurs spas en Israel ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Les meilleurs spas se trouvent a la Mer Morte : David Dead Sea Resort avec soins aux mineraux, Leonardo Club Dead Sea, et Nevo by Isrotel. A Jerusalem, le Waldorf Astoria dispose d\'un spa Guerlain. A Tel Aviv, l\'InterContinental offre le spa Aqua de renommee mondiale.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Proposez-vous des hotels dans d\'autres pays que l\'Israel ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Oui, Elynor Tours propose une selection mondiale d\'hotels de luxe : Dubai (Burj Al Arab, Atlantis), Tokyo (Aman, Peninsula), Paris (Bristol, Plaza Athenee), New York (The Plaza), Londres (Savoy, Claridge\'s), Bangkok, Singapour, et plus de 60 destinations internationales.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Les hotels en Israel sont-ils kasher ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'La majorite des hotels en Israel proposent des restaurants kasher, notamment tous les hotels Dan, Fattal (Herods, Leonardo), et Isrotel. A Jerusalem, presque tous les hotels sont strictement kasher. Les hotels de Tel Aviv offrent generalement des options kasher et non-kasher.'
+        }
+      },
+      {
+        '@type': 'Question',
+        name: 'Quelle est la politique d\'annulation pour les reservations d\'hotels ?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'La plupart de nos hotels offrent une annulation flexible jusqu\'a 24-48h avant l\'arrivee sans frais. Certains tarifs non-remboursables offrent des reductions importantes. Nous proposons aussi une assurance annulation optionnelle pour plus de flexibilite.'
+        }
+      }
+    ]
+  }
 
   // Données des hôtels en Israël
   const hotelsIsrael = [
@@ -1162,6 +1246,701 @@ export default function HotelsPage() {
         "Expérience désert unique",
         "Spa luxueux avec vue"
       ]
+    },
+
+    // TOKYO
+    {
+      id: 523,
+      name: "The Peninsula Tokyo",
+      location: "Tokyo",
+      country: "Japon",
+      stars: 5,
+      description: "Luxe contemporain face aux jardins impériaux, service japonais d'exception.",
+      imageUrl: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800",
+      amenities: ["Spa", "Piscine", "Restaurants étoilés", "Vue jardins impériaux", "Butler"],
+      highlights: [
+        "Vue sur le Palais Impérial",
+        "Service japonais légendaire",
+        "Spa avec bains japonais traditionnels"
+      ]
+    },
+    {
+      id: 524,
+      name: "Aman Tokyo",
+      location: "Tokyo",
+      country: "Japon",
+      stars: 5,
+      description: "Sanctuaire zen dans la tour Otemachi, minimalisme japonais luxueux.",
+      imageUrl: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=800",
+      amenities: ["Spa onsen", "Piscine 33e étage", "Restaurant kaiseki", "Bibliothèque", "Yoga"],
+      highlights: [
+        "Design zen minimaliste",
+        "Vue panoramique à 360° sur Tokyo",
+        "Onsen traditionnel urbain"
+      ]
+    },
+    {
+      id: 525,
+      name: "Park Hyatt Tokyo",
+      location: "Tokyo",
+      country: "Japon",
+      stars: 5,
+      description: "Gratte-ciel iconique de Shinjuku, bar New York Bar avec vue légendaire.",
+      imageUrl: "https://images.unsplash.com/photo-1549638441-b787d2e11f14?w=800",
+      amenities: ["New York Bar", "Spa", "Piscine", "Restaurant français", "Club Lounge"],
+      highlights: [
+        "New York Bar du film Lost in Translation",
+        "Vue sur Mont Fuji par temps clair",
+        "Design contemporain raffiné"
+      ]
+    },
+
+    // KYOTO
+    {
+      id: 526,
+      name: "The Ritz-Carlton Kyoto",
+      location: "Kyoto",
+      country: "Japon",
+      stars: 5,
+      description: "Ryokan moderne luxueux au bord de la rivière Kamogawa, culture japonaise authentique.",
+      imageUrl: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800",
+      amenities: ["Spa traditionnel", "Jardins zen", "Restaurant kaiseki", "Cérémonie du thé", "Conciergerie"],
+      highlights: [
+        "Architecture inspirée des ryokans",
+        "Vue sur rivière Kamogawa",
+        "Proximité temples et geishas"
+      ]
+    },
+    {
+      id: 527,
+      name: "Aman Kyoto",
+      location: "Kyoto",
+      country: "Japon",
+      stars: 5,
+      description: "Retraite secrète dans une forêt de 32 hectares, luxe et sérénité absolue.",
+      imageUrl: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800",
+      amenities: ["Spa onsen", "Jardins privés", "Restaurant", "Yoga", "Méditation"],
+      highlights: [
+        "32 hectares de forêt privée",
+        "Pavillons avec jardins privés",
+        "Onsen naturel en pleine nature"
+      ]
+    },
+
+    // LONDRES (PLUS)
+    {
+      id: 528,
+      name: "Claridge's",
+      location: "Londres",
+      country: "Royaume-Uni",
+      stars: 5,
+      description: "Icône Art Déco de Mayfair, élégance britannique légendaire depuis 1812.",
+      imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
+      amenities: ["Spa", "Restaurant étoilé", "Bar", "Service majordome", "Conciergerie"],
+      highlights: [
+        "Art Déco emblématique",
+        "Afternoon tea légendaire",
+        "Quartier Mayfair prestigieux"
+      ]
+    },
+    {
+      id: 529,
+      name: "The Connaught",
+      location: "Londres",
+      country: "Royaume-Uni",
+      stars: 5,
+      description: "Palace discret de Mayfair, restaurant 2 étoiles Michelin Hélène Darroze.",
+      imageUrl: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=800",
+      amenities: ["Spa Aman", "2 étoiles Michelin", "Bar Coburg", "Butler", "Conciergerie"],
+      highlights: [
+        "Restaurant Hélène Darroze 2 étoiles",
+        "Spa Aman exclusif",
+        "Élégance discrète britannique"
+      ]
+    },
+
+    // ISTANBUL
+    {
+      id: 530,
+      name: "Four Seasons Sultanahmet",
+      location: "Istanbul",
+      country: "Turquie",
+      stars: 5,
+      description: "Prison ottomane transformée en palace, entre Sainte-Sophie et Mosquée Bleue.",
+      imageUrl: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800",
+      amenities: ["Spa", "Restaurant", "Cour ottomane", "Hammam", "Conciergerie"],
+      highlights: [
+        "Architecture néo-classique historique",
+        "À 5 min de Sainte-Sophie",
+        "Cour intérieure ottomane"
+      ]
+    },
+    {
+      id: 531,
+      name: "Çırağan Palace Kempinski",
+      location: "Istanbul",
+      country: "Turquie",
+      stars: 5,
+      description: "Palace impérial ottoman sur le Bosphore, luxe oriental absolu.",
+      imageUrl: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800",
+      amenities: ["Piscine Bosphore", "Spa", "Restaurants", "Hammam", "Yacht privé"],
+      highlights: [
+        "Ancien palais impérial ottoman",
+        "Piscine infinity sur le Bosphore",
+        "Service sultanesque"
+      ]
+    },
+    {
+      id: 532,
+      name: "Raffles Istanbul",
+      location: "Istanbul",
+      country: "Turquie",
+      stars: 5,
+      description: "Gratte-ciel luxueux avec vue Bosphore, spa de 3000m².",
+      imageUrl: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
+      amenities: ["Spa 3000m²", "Piscines", "Restaurants", "Rooftop bar", "Butler"],
+      highlights: [
+        "Vue panoramique sur le Bosphore",
+        "Spa de renommée mondiale",
+        "Design contemporain ottoman"
+      ]
+    },
+
+    // BANGKOK
+    {
+      id: 533,
+      name: "Mandarin Oriental Bangkok",
+      location: "Bangkok",
+      country: "Thaïlande",
+      stars: 5,
+      description: "Légende hôtelière sur le fleuve Chao Phraya depuis 1876, écrivains célèbres.",
+      imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      amenities: ["Spa primé", "Restaurants étoilés", "Suites coloniales", "Boat shuttle", "Butler"],
+      highlights: [
+        "Histoire littéraire légendaire",
+        "Spa primé de renommée mondiale",
+        "Suites des auteurs (Somerset Maugham...)"
+      ]
+    },
+    {
+      id: 534,
+      name: "The Siam Hotel",
+      location: "Bangkok",
+      country: "Thaïlande",
+      stars: 5,
+      description: "Boutique hotel Art Déco au bord du fleuve, collection d'antiquités.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Spa", "Muay Thai", "Restaurant", "Cinéma privé", "Yacht"],
+      highlights: [
+        "Design Art Déco unique",
+        "Collection d'art asiatique",
+        "École de Muay Thai privée"
+      ]
+    },
+    {
+      id: 535,
+      name: "Four Seasons Bangkok",
+      location: "Bangkok",
+      country: "Thaïlande",
+      stars: 5,
+      description: "Gratte-ciel moderne sur le fleuve, spa et piscines spectaculaires.",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      amenities: ["Spa", "Piscines", "Restaurants", "Rooftop bar", "Kids club"],
+      highlights: [
+        "Design contemporain thaï",
+        "Vue panoramique sur Bangkok",
+        "Service Four Seasons légendaire"
+      ]
+    },
+
+    // PHUKET
+    {
+      id: 536,
+      name: "Amanpuri",
+      location: "Phuket",
+      country: "Thaïlande",
+      stars: 5,
+      description: "Premier resort Aman, villas pavillon sur baie privée, luxe absolu.",
+      imageUrl: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800",
+      amenities: ["Villas privées", "Plage privée", "Spa", "Yacht", "Restaurant"],
+      highlights: [
+        "Premier Aman au monde (1988)",
+        "Baie privée exclusive",
+        "Pavillons thaïs traditionnels"
+      ]
+    },
+    {
+      id: 537,
+      name: "Trisara Phuket",
+      location: "Phuket",
+      country: "Thaïlande",
+      stars: 5,
+      description: "Villas ultra-luxueuses avec piscines privées, plage secrète.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Villas piscine privée", "Plage privée", "Spa", "Restaurant étoilé", "Yacht"],
+      highlights: [
+        "Toutes suites avec piscine privée",
+        "Plage privée exclusive",
+        "Service ultra personnalisé"
+      ]
+    },
+
+    // SINGAPOUR
+    {
+      id: 538,
+      name: "Raffles Singapore",
+      location: "Singapour",
+      country: "Singapour",
+      stars: 5,
+      description: "Légende coloniale depuis 1887, inventeur du Singapore Sling.",
+      imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      amenities: ["Spa", "Long Bar", "Restaurants", "Jardins", "Butler"],
+      highlights: [
+        "Icône coloniale historique",
+        "Long Bar - inventeur du Singapore Sling",
+        "Jardin tropical luxuriant"
+      ]
+    },
+    {
+      id: 539,
+      name: "Marina Bay Sands",
+      location: "Singapour",
+      country: "Singapour",
+      stars: 5,
+      description: "Icône architecturale avec piscine rooftop infinity la plus célèbre au monde.",
+      imageUrl: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=800",
+      amenities: ["SkyPark piscine", "Casino", "Restaurants étoilés", "Shopping", "Spa"],
+      highlights: [
+        "Piscine rooftop infinity iconique",
+        "Vue panoramique sur Singapour",
+        "Architecture futuriste spectaculaire"
+      ]
+    },
+
+    // HONG KONG
+    {
+      id: 540,
+      name: "The Peninsula Hong Kong",
+      location: "Hong Kong",
+      country: "Chine",
+      stars: 5,
+      description: "Grande Dame de Hong Kong depuis 1928, luxe et tradition britannique.",
+      imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      amenities: ["Spa", "Piscine", "Restaurants", "Flotte Rolls-Royce", "Héliport"],
+      highlights: [
+        "Flotte de Rolls-Royce verte légendaire",
+        "Afternoon tea iconique",
+        "Emplacement Kowloon prestigieux"
+      ]
+    },
+    {
+      id: 541,
+      name: "The Upper House",
+      location: "Hong Kong",
+      country: "Chine",
+      stars: 5,
+      description: "Hôtel boutique minimaliste zen au-dessus de Pacific Place.",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      amenities: ["Sky Lounge", "Restaurant", "Spa", "Design zen", "Conciergerie"],
+      highlights: [
+        "Design minimaliste zen",
+        "Vue spectaculaire sur Victoria Harbour",
+        "Service intimiste personnalisé"
+      ]
+    },
+
+    // AMSTERDAM
+    {
+      id: 542,
+      name: "Waldorf Astoria Amsterdam",
+      location: "Amsterdam",
+      country: "Pays-Bas",
+      stars: 5,
+      description: "Six palais du 17e siècle sur les canaux, patrimoine UNESCO.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Spa Guerlain", "Restaurant étoilé", "Jardins", "Canal privé", "Butler"],
+      highlights: [
+        "Palais historiques sur canaux UNESCO",
+        "Spa Guerlain exclusif",
+        "Architecture Golden Age hollandais"
+      ]
+    },
+    {
+      id: 543,
+      name: "The Dylan Amsterdam",
+      location: "Amsterdam",
+      country: "Pays-Bas",
+      stars: 5,
+      description: "Boutique hotel de charme dans ancien théâtre du 17e siècle.",
+      imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      amenities: ["Restaurant étoilé", "Bar", "Cour intérieure", "Spa", "Conciergerie"],
+      highlights: [
+        "Ancien théâtre du 17e siècle",
+        "Restaurant Vinkeles étoilé Michelin",
+        "Emplacement canal Keizersgracht"
+      ]
+    },
+
+    // BERLIN
+    {
+      id: 544,
+      name: "Hotel Adlon Kempinski",
+      location: "Berlin",
+      country: "Allemagne",
+      stars: 5,
+      description: "Palace légendaire face à la Porte de Brandebourg, luxe berlinois.",
+      imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
+      amenities: ["Spa", "Piscine", "Restaurants étoilés", "Bar", "Conciergerie"],
+      highlights: [
+        "Face à la Porte de Brandebourg",
+        "Histoire légendaire depuis 1907",
+        "Spa de luxe avec piscine"
+      ]
+    },
+
+    // MUNICH
+    {
+      id: 545,
+      name: "Mandarin Oriental Munich",
+      location: "Munich",
+      country: "Allemagne",
+      stars: 5,
+      description: "Luxe contemporain dans ancien bâtiment néo-Renaissance, rooftop pool.",
+      imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      amenities: ["Rooftop pool", "Spa", "Restaurant étoilé", "Bar", "Conciergerie"],
+      highlights: [
+        "Rooftop pool avec vue sur Altstadt",
+        "Architecture néo-Renaissance",
+        "Emplacement Maximilianstrasse"
+      ]
+    },
+
+    // VIENNE
+    {
+      id: 546,
+      name: "Hotel Sacher Wien",
+      location: "Vienne",
+      country: "Autriche",
+      stars: 5,
+      description: "Palace historique face à l'Opéra, inventeur de la Sachertorte.",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      amenities: ["Spa", "Café Sacher", "Restaurants", "Bar", "Conciergerie"],
+      highlights: [
+        "Inventeur de la Sachertorte originale",
+        "Face à l'Opéra d'État de Vienne",
+        "Tradition impériale viennoise"
+      ]
+    },
+    {
+      id: 547,
+      name: "Park Hyatt Vienna",
+      location: "Vienne",
+      country: "Autriche",
+      stars: 5,
+      description: "Palais historique avec spa et piscine, luxe contemporain viennois.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Spa", "Piscine", "Restaurant", "Bar", "Conciergerie"],
+      highlights: [
+        "Architecture palatiale restaurée",
+        "Spa avec piscine chauffée",
+        "Emplacement Ring historique"
+      ]
+    },
+
+    // PRAGUE
+    {
+      id: 548,
+      name: "Four Seasons Prague",
+      location: "Prague",
+      country: "République Tchèque",
+      stars: 5,
+      description: "Palais baroque sur la Vltava face au Château, vue légendaire.",
+      imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      amenities: ["Spa", "Restaurant", "Terrasse Vltava", "Bar", "Conciergerie"],
+      highlights: [
+        "Vue sur le Château de Prague",
+        "Palais baroque restauré",
+        "Emplacement privilégié sur Vltava"
+      ]
+    },
+    {
+      id: 549,
+      name: "Augustine Hotel Prague",
+      location: "Prague",
+      country: "République Tchèque",
+      stars: 5,
+      description: "Monastère augustinien du 13e siècle transformé en hôtel de luxe.",
+      imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
+      amenities: ["Spa", "Brasserie St. Thomas", "Jardins", "Bar", "Conciergerie"],
+      highlights: [
+        "Monastère historique du 13e siècle",
+        "Brasserie de bière trappiste",
+        "Jardins secrets médiévaux"
+      ]
+    },
+
+    // BUDAPEST
+    {
+      id: 550,
+      name: "Four Seasons Gresham Palace",
+      location: "Budapest",
+      country: "Hongrie",
+      stars: 5,
+      description: "Palace Art Nouveau sur le Danube face au Château de Buda.",
+      imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      amenities: ["Spa", "Piscine", "Restaurant", "Bar", "Conciergerie"],
+      highlights: [
+        "Architecture Art Nouveau spectaculaire",
+        "Vue sur le Danube et château",
+        "Vitraux Tiffany historiques"
+      ]
+    },
+
+    // LISBONNE
+    {
+      id: 551,
+      name: "Four Seasons Ritz Lisbon",
+      location: "Lisbonne",
+      country: "Portugal",
+      stars: 5,
+      description: "Palace avec vue sur le Tage et parc Eduardo VII, luxe portugais.",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      amenities: ["Spa", "Piscine", "Restaurant", "Bar rooftop", "Conciergerie"],
+      highlights: [
+        "Vue panoramique sur le Tage",
+        "Parc Eduardo VII adjacent",
+        "Élégance portugaise classique"
+      ]
+    },
+    {
+      id: 552,
+      name: "Pestana Palace Lisboa",
+      location: "Lisbonne",
+      country: "Portugal",
+      stars: 5,
+      description: "Palais du 19e siècle avec jardins subtropicaux, monument national.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Jardins subtropicaux", "Spa", "Piscine", "Restaurant", "Chapelle"],
+      highlights: [
+        "Monument national classé",
+        "Jardins subtropicaux de 5 hectares",
+        "Fresques et azulejos historiques"
+      ]
+    },
+
+    // ATHÈNES (PLUS)
+    {
+      id: 553,
+      name: "Hotel Grande Bretagne",
+      location: "Athènes",
+      country: "Grèce",
+      stars: 5,
+      description: "Palace historique sur la place Syntagma face au Parlement, rooftop vue Acropole.",
+      imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      amenities: ["Rooftop vue Acropole", "Spa", "Piscine", "Restaurants", "Bar"],
+      highlights: [
+        "Vue rooftop sur l'Acropole",
+        "Place Syntagma prestigieuse",
+        "Histoire depuis 1874"
+      ]
+    },
+
+    // SYDNEY
+    {
+      id: 554,
+      name: "Park Hyatt Sydney",
+      location: "Sydney",
+      country: "Australie",
+      stars: 5,
+      description: "Vue imprenable sur l'Opéra et le Harbour Bridge, emplacement unique.",
+      imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
+      amenities: ["Spa", "Piscine rooftop", "Restaurant", "Bar", "Conciergerie"],
+      highlights: [
+        "Vue sur Opéra de Sydney",
+        "Rooftop pool avec Harbour Bridge",
+        "Emplacement privilégié Circular Quay"
+      ]
+    },
+
+    // MELBOURNE
+    {
+      id: 555,
+      name: "The Langham Melbourne",
+      location: "Melbourne",
+      country: "Australie",
+      stars: 5,
+      description: "Luxe sur la Yarra River, architecture victorienne et design contemporain.",
+      imageUrl: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      amenities: ["Spa Chuan", "Piscine", "Restaurant Melba", "Bar", "Afternoon tea"],
+      highlights: [
+        "Emplacement Southbank sur Yarra",
+        "Spa Chuan de renommée",
+        "Afternoon tea réputé"
+      ]
+    },
+
+    // LOS ANGELES
+    {
+      id: 556,
+      name: "Beverly Hills Hotel",
+      location: "Los Angeles",
+      country: "États-Unis",
+      stars: 5,
+      description: "Légende hollywoodienne rose, Polo Lounge iconique, glamour éternel.",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      amenities: ["Polo Lounge", "Spa", "Piscine", "Bungalows", "Room service 24/7"],
+      highlights: [
+        "Pink Palace iconique d'Hollywood",
+        "Polo Lounge légendaire",
+        "Bungalows des stars"
+      ]
+    },
+    {
+      id: 557,
+      name: "Hotel Bel-Air",
+      location: "Los Angeles",
+      country: "États-Unis",
+      stars: 5,
+      description: "Oasis cachée dans canyon de Bel Air, jardins luxuriants et cygnes.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Spa La Prairie", "Restaurant Wolfgang Puck", "Jardins", "Piscine", "Bar"],
+      highlights: [
+        "Jardin de 4 hectares avec cygnes",
+        "Oasis secrète de Bel Air",
+        "Spa La Prairie exclusif"
+      ]
+    },
+
+    // LAS VEGAS
+    {
+      id: 558,
+      name: "Bellagio Las Vegas",
+      location: "Las Vegas",
+      country: "États-Unis",
+      stars: 5,
+      description: "Icône du Strip avec fontaines spectaculaires, luxe et divertissement.",
+      imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      amenities: ["Casino", "Fontaines", "Restaurants étoilés", "Spa", "Spectacles"],
+      highlights: [
+        "Fontaines spectaculaires iconiques",
+        "Collection d'art Picasso/Monet",
+        "Restaurants étoilés Michelin"
+      ]
+    },
+    {
+      id: 559,
+      name: "Wynn Las Vegas",
+      location: "Las Vegas",
+      country: "États-Unis",
+      stars: 5,
+      description: "Complexe luxueux avec golf, lac artificiel et restaurants primés.",
+      imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
+      amenities: ["Golf", "Spa", "Casino", "Restaurants étoilés", "Spectacle Le Rêve"],
+      highlights: [
+        "Parcours de golf Tom Fazio",
+        "Lac et montagne artificielle",
+        "18 restaurants dont étoilés Michelin"
+      ]
+    },
+
+    // CANCÚN
+    {
+      id: 560,
+      name: "The Ritz-Carlton Cancún",
+      location: "Cancún",
+      country: "Mexique",
+      stars: 5,
+      description: "Resort de luxe sur plage Caraïbes, spa et gastronomie mexicaine.",
+      imageUrl: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800",
+      amenities: ["Plage Caraïbes", "Spa", "Restaurants", "Kids club", "Golf"],
+      highlights: [
+        "Plage de sable blanc des Caraïbes",
+        "Spa de 1800m²",
+        "Cuisine mexicaine gastronomique"
+      ]
+    },
+
+    // TULUM
+    {
+      id: 561,
+      name: "Azulik Tulum",
+      location: "Tulum",
+      country: "Mexique",
+      stars: 5,
+      description: "Eco-resort bohème-chic sans électricité, jungle et plage maya.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Villas treehouse", "Plage privée", "Spa jungle", "Restaurant", "Art gallery"],
+      highlights: [
+        "Expérience eco-luxe sans électricité",
+        "Villas en bois dans la jungle",
+        "Plage maya turquoise privée"
+      ]
+    },
+
+    // BUENOS AIRES
+    {
+      id: 562,
+      name: "Alvear Palace Hotel",
+      location: "Buenos Aires",
+      country: "Argentine",
+      stars: 5,
+      description: "Palace Belle Époque, luxe français en Amérique du Sud, élégance légendaire.",
+      imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+      amenities: ["Spa", "Restaurant français", "Bar", "Butler", "Conciergerie"],
+      highlights: [
+        "Élégance Belle Époque parisienne",
+        "Restaurant L'Orangerie gastronomique",
+        "Quartier Recoleta prestigieux"
+      ]
+    },
+
+    // RIO DE JANEIRO
+    {
+      id: 563,
+      name: "Belmond Copacabana Palace",
+      location: "Rio de Janeiro",
+      country: "Brésil",
+      stars: 5,
+      description: "Palace Art Déco face à Copacabana, glamour carioca depuis 1923.",
+      imageUrl: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
+      amenities: ["Plage Copacabana", "Spa", "Piscine", "Restaurants", "Piano bar"],
+      highlights: [
+        "Emplacement légendaire Copacabana",
+        "Histoire glamour depuis 1923",
+        "Piscine iconique face à la plage"
+      ]
+    },
+
+    // DUBAÏ (PLUS)
+    {
+      id: 564,
+      name: "Bulgari Resort Dubai",
+      location: "Dubaï",
+      country: "Émirats Arabes Unis",
+      stars: 5,
+      description: "Resort ultra-luxe sur île artificielle en forme d'hippocampe, design italien.",
+      imageUrl: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800",
+      amenities: ["Plage privée", "Yacht club", "Spa Bulgari", "Restaurants", "Marina"],
+      highlights: [
+        "Île artificielle exclusive",
+        "Design Bulgari italien",
+        "Yacht club et marina privée"
+      ]
+    },
+    {
+      id: 565,
+      name: "Armani Hotel Dubai",
+      location: "Dubaï",
+      country: "Émirats Arabes Unis",
+      stars: 5,
+      description: "Dans Burj Khalifa, design Armani minimaliste, vue record du monde.",
+      imageUrl: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=800",
+      amenities: ["Burj Khalifa", "Spa Armani", "Restaurants", "Lounge", "Conciergerie"],
+      highlights: [
+        "Dans la tour la plus haute du monde",
+        "Design Giorgio Armani exclusif",
+        "Vue panoramique depuis Burj Khalifa"
+      ]
     }
   ]
 
@@ -1169,6 +1948,7 @@ export default function HotelsPage() {
     <>
       <JsonLd data={breadcrumbs} />
       <JsonLd data={hotelsListSchema} />
+      <JsonLd data={faqSchema} />
 
       {/* Hero Section with Video Background */}
       <section className="relative h-[50vh] overflow-hidden">
@@ -1262,6 +2042,219 @@ export default function HotelsPage() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <HotelsWithFilters hotelsIsrael={hotelsIsrael} hotelsWorld={hotelsWorld} />
+        </div>
+      </section>
+
+      {/* Section SEO : Guide des destinations */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+              Réserver votre Hôtel : Guide Complet des Destinations
+            </h2>
+
+            <div className="prose prose-lg max-w-none">
+              {/* Israel */}
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Hôtels en Israël : Destinations Incontournables</h3>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Tel Aviv : La Ville qui ne Dort Jamais</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Tel Aviv</strong> est la capitale festive et cosmopolite d'Israël. Ses <strong>hôtels en bord de mer</strong> offrent
+                  un accès direct aux plages de sable doré de la Méditerranée. Le <strong>Dan Tel Aviv</strong>, <strong>Carlton Tel Aviv</strong>
+                  et <strong>Hilton Tel Aviv</strong> proposent des <strong>plages privées</strong>, des spas luxueux et une vue mer spectaculaire.
+                  Le quartier <strong>Rothschild</strong> abrite des hôtels boutique comme <strong>The Setai</strong> et <strong>The Norman</strong>,
+                  installés dans des bâtiments Bauhaus classés UNESCO.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Jérusalem : Histoire et Spiritualité</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Jérusalem</strong>, ville trois fois sainte, offre des hôtels de prestige avec vue sur la <strong>Vieille Ville</strong>.
+                  Le <strong>King David Hotel</strong>, palace historique depuis 1931, et le <strong>David Citadel</strong> face aux remparts
+                  sont des institutions. Le <strong>Waldorf Astoria Jerusalem</strong> et le <strong>Mamilla Hotel</strong> allient luxe contemporain
+                  et proximité des sites bibliques. Idéal pour combiner <strong>tourisme religieux et luxe</strong>.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Mer Morte : Spa et Bien-être</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  La <strong>Mer Morte</strong>, point le plus bas de la planète (-430m), est réputée pour ses <strong>propriétés thérapeutiques</strong>.
+                  Les hôtels spa comme le <strong>David Dead Sea Resort</strong>, <strong>Leonardo Club Dead Sea</strong> et
+                  <strong>Nevo by Isrotel</strong> proposent des soins aux <strong>minéraux de la Mer Morte</strong>, des boues curatives
+                  et des piscines d'eau salée. L'expérience unique de <strong>flotter dans l'eau hypersalée</strong> est inoubliable.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Eilat : Mer Rouge et Plongée</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Eilat</strong>, station balnéaire sur la <strong>Mer Rouge</strong>, est le paradis des familles et des plongeurs.
+                  Le <strong>Herods Palace Eilat</strong> avec son architecture inspirée de Pétra, les resorts <strong>Isrotel</strong>
+                  (King Solomon, Royal Garden) et les hôtels aquatiques <strong>Lagoona</strong> et <strong>Agamim</strong> offrent
+                  des <strong>formules all-inclusive</strong>, des parcs aquatiques et un accès aux récifs coralliens.
+                </p>
+              </div>
+
+              {/* Destinations Internationales */}
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Hôtels dans le Monde : Sélection Internationale</h3>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Asie : Luxe et Tradition</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Tokyo</strong> offre des palaces contemporains comme l'<strong>Aman Tokyo</strong> avec son spa onsen urbain,
+                  et le <strong>Park Hyatt Tokyo</strong> rendu célèbre par le film Lost in Translation. À <strong>Bangkok</strong>,
+                  le <strong>Mandarin Oriental</strong>, légende hôtelière depuis 1876, accueillait les grands écrivains.
+                  <strong>Singapour</strong> brille avec le <strong>Marina Bay Sands</strong> et sa piscine rooftop infinity iconique,
+                  tandis que <strong>Phuket</strong> propose l'<strong>Amanpuri</strong>, premier resort Aman au monde.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Europe : Patrimoine et Élégance</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Paris</strong> rayonne avec <strong>Le Bristol</strong> (3 étoiles Michelin) et le <strong>Plaza Athénée</strong>
+                  avenue Montaigne. <strong>Londres</strong> compte des institutions comme <strong>The Savoy</strong> et <strong>Claridge's</strong>.
+                  <strong>Vienne</strong> séduit avec le <strong>Hotel Sacher</strong> (inventeur de la Sachertorte),
+                  <strong>Istanbul</strong> fascine avec le <strong>Çırağan Palace Kempinski</strong> sur le Bosphore,
+                  et <strong>Amsterdam</strong> charme avec le <strong>Waldorf Astoria</strong> dans six palais du 17e siècle.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Moyen-Orient : Luxe Contemporain</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  <strong>Dubaï</strong> impressionne avec le <strong>Burj Al Arab</strong>, l'hôtel 7 étoiles le plus luxueux au monde,
+                  l'<strong>Atlantis The Palm</strong> avec son parc aquatique Aquaventure, et l'<strong>Armani Hotel</strong>
+                  dans le Burj Khalifa, plus haute tour du monde. <strong>Marrakech</strong> enchante avec <strong>La Mamounia</strong>,
+                  palace mythique aux jardins somptueux.
+                </p>
+              </div>
+
+              {/* Conseils de réservation */}
+              <div className="mb-10">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Conseils pour Réserver votre Hôtel au Meilleur Prix</h3>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Quand Réserver ?</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Pour obtenir les <strong>meilleurs tarifs hôteliers</strong>, réservez <strong>2-3 mois à l'avance</strong> pour la haute saison
+                  et <strong>1 mois</strong> pour la basse saison. En Israël, évitez les périodes de fêtes juives (Pessah, Rosh Hashana, Souccot)
+                  où les prix grimpent. La période novembre-février offre des <strong>promotions intéressantes</strong>.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Annulation Flexible</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Privilégiez les <strong>réservations avec annulation gratuite</strong> jusqu'à 24-48h avant l'arrivée.
+                  Elynor Tours négocie des conditions d'annulation avantageuses avec ses partenaires hôteliers.
+                  Nous proposons également une <strong>assurance annulation optionnelle</strong> pour une tranquillité maximale.
+                </p>
+
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Services Inclus</h4>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Vérifiez ce qui est inclus : <strong>petit-déjeuner</strong>, <strong>wifi</strong>, <strong>parking</strong>,
+                  <strong>spa</strong>, <strong>navette aéroport</strong>. Les hôtels israéliens incluent souvent le petit-déjeuner buffet
+                  copieux. Les resorts d'Eilat et de la Mer Morte proposent fréquemment des <strong>formules all-inclusive</strong>
+                  avec repas, boissons et activités inclus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section FAQ */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
+              Questions Fréquentes
+            </h2>
+
+            <div className="space-y-6">
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Quels sont les meilleurs hôtels en Israël ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  Les meilleurs hôtels en Israël incluent le <strong>King David</strong> et <strong>Waldorf Astoria</strong> à Jérusalem,
+                  le <strong>Dan Tel Aviv</strong> et <strong>The Setai</strong> à Tel Aviv, et le <strong>David Dead Sea Resort</strong>
+                  à la Mer Morte. Ces établissements 5 étoiles offrent un service d'exception, des spas luxueux et des emplacements privilégiés.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Pourquoi réserver un hôtel avec Elynor Tours ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  Elynor Tours offre une <strong>sélection premium d'hôtels</strong>, des <strong>tarifs négociés avantageux</strong>,
+                  une <strong>assistance francophone 24/7</strong>, et des <strong>conditions d'annulation flexibles</strong>.
+                  Notre expertise locale depuis 2015 garantit les meilleurs hôtels au meilleur prix en Israël et dans le monde.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Quand réserver un hôtel en Israël pour avoir le meilleur prix ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  Pour les meilleurs tarifs, réservez <strong>2-3 mois à l'avance</strong> pour la haute saison (avril-octobre)
+                  et <strong>1 mois</strong> pour la basse saison. Les périodes les moins chères sont <strong>novembre-février</strong>
+                  (hors fêtes juives). Évitez Pessah, Rosh Hashana et Souccot pour des prix plus avantageux.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Quels hôtels sont idéaux pour les familles en Israël ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  Pour les familles, nous recommandons le <strong>Dan Panorama Tel Aviv</strong> avec son kids club,
+                  les hôtels <strong>Isrotel à Eilat</strong> avec parcs aquatiques (Lagoona, Agamim),
+                  et le <strong>Leonardo Club Dead Sea</strong> en formule all-inclusive. Ces établissements offrent
+                  animations enfants, piscines et chambres familiales spacieuses.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Quels sont les hôtels avec les meilleurs spas en Israël ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  Les meilleurs spas se trouvent à la <strong>Mer Morte</strong> : <strong>David Dead Sea Resort</strong>
+                  avec soins aux minéraux, <strong>Leonardo Club Dead Sea</strong>, et <strong>Nevo by Isrotel</strong>.
+                  À Jérusalem, le <strong>Waldorf Astoria</strong> dispose d'un spa Guerlain. À Tel Aviv,
+                  l'<strong>InterContinental</strong> offre le spa Aqua de renommée mondiale.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Proposez-vous des hôtels dans d'autres pays que l'Israël ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  Oui, Elynor Tours propose une <strong>sélection mondiale d'hôtels de luxe</strong> :
+                  Dubai (Burj Al Arab, Atlantis), Tokyo (Aman, Peninsula), Paris (Bristol, Plaza Athénée),
+                  New York (The Plaza), Londres (Savoy, Claridge's), Bangkok, Singapour, et plus de
+                  <strong>60 destinations internationales</strong>.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Les hôtels en Israël sont-ils kasher ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  La majorité des hôtels en Israël proposent des <strong>restaurants kasher</strong>, notamment tous les hôtels
+                  Dan, Fattal (Herods, Leonardo), et Isrotel. À Jérusalem, presque tous les hôtels sont strictement kasher.
+                  Les hôtels de Tel Aviv offrent généralement des options kasher et non-kasher.
+                </p>
+              </details>
+
+              <details className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                <summary className="font-semibold text-lg text-gray-900 cursor-pointer">
+                  Quelle est la politique d'annulation pour les réservations d'hôtels ?
+                </summary>
+                <p className="mt-4 text-gray-700 leading-relaxed">
+                  La plupart de nos hôtels offrent une <strong>annulation flexible jusqu'à 24-48h</strong> avant l'arrivée sans frais.
+                  Certains tarifs non-remboursables offrent des réductions importantes. Nous proposons aussi une
+                  <strong>assurance annulation optionnelle</strong> pour plus de flexibilité.
+                </p>
+              </details>
+            </div>
+          </div>
         </div>
       </section>
 

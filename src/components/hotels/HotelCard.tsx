@@ -48,7 +48,7 @@ export default function HotelCard({
       <div className="relative h-64 bg-gray-200">
         <Image
           src={imageUrl || `/images/hotels/${city}/${slug}/${currentImage + 1}.jpg`}
-          alt={`${name} - Image ${currentImage + 1}`}
+          alt={`Hotel ${name} ${location} - Luxe ${rating} etoiles - Vue ${currentImage + 1}`}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
