@@ -21,10 +21,29 @@ const navigation = [
     name: 'Hôtels',
     href: '/hotels',
     submenu: [
+      { name: '🇮🇱 Israel', href: '#', isCategory: true },
       { name: 'Tel Aviv', href: '/hotels/tel-aviv' },
       { name: 'Jérusalem', href: '/hotels/jerusalem' },
       { name: 'Mer Morte', href: '/hotels/mer-morte' },
       { name: 'Eilat', href: '/hotels/eilat' },
+      { name: '🌍 International', href: '#', isCategory: true },
+      { name: 'Tokyo 🇯🇵', href: '/hotels/tokyo' },
+      { name: 'Dubai 🇦🇪', href: '/hotels/dubai' },
+      { name: 'Paris 🇫🇷', href: '/hotels/paris' },
+      { name: 'Bangkok 🇹🇭', href: '/hotels/bangkok' },
+      { name: 'Londres 🇬🇧', href: '/hotels/londres' },
+      { name: 'Istanbul 🇹🇷', href: '/hotels/istanbul' },
+      { name: 'New York 🇺🇸', href: '/hotels/new-york' },
+    ]
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
+    submenu: [
+      { name: 'Guide Hotel Tokyo 2025', href: '/blog/guide-complet-hotel-tokyo-2025' },
+      { name: 'Top 10 Dubai Familles', href: '/blog/top-10-hotels-luxe-dubai-familles' },
+      { name: 'Palaces Parisiens', href: '/blog/palaces-parisiens-lequel-choisir' },
+      { name: 'Top 10 Mer Morte', href: '/blog/top-10-hotels-luxe-mer-morte' },
     ]
   },
   {
@@ -99,16 +118,25 @@ export default function Header() {
                 </Link>
 
                 {item.submenu && (
-                  <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-1">
-                      {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
-                        >
-                          {subItem.name}
-                        </Link>
+                      {item.submenu.map((subItem: any) => (
+                        subItem.isCategory ? (
+                          <div
+                            key={subItem.name}
+                            className="px-4 py-2 text-xs font-bold text-gray-500 uppercase tracking-wide bg-gray-50 border-b border-gray-200"
+                          >
+                            {subItem.name}
+                          </div>
+                        ) : (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600"
+                          >
+                            {subItem.name}
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>
@@ -181,15 +209,24 @@ export default function Header() {
                   </Link>
                   {item.submenu && (
                     <div className="pl-4">
-                      {item.submenu.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          href={subItem.href}
-                          className="block py-2 pl-3 pr-4 text-sm text-gray-600 hover:bg-orange-50 hover:text-orange-600"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {subItem.name}
-                        </Link>
+                      {item.submenu.map((subItem: any) => (
+                        subItem.isCategory ? (
+                          <div
+                            key={subItem.name}
+                            className="py-2 pl-3 pr-4 text-xs font-bold text-gray-500 uppercase tracking-wide bg-gray-50"
+                          >
+                            {subItem.name}
+                          </div>
+                        ) : (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block py-2 pl-3 pr-4 text-sm text-gray-600 hover:bg-orange-50 hover:text-orange-600"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </Link>
+                        )
                       ))}
                     </div>
                   )}
